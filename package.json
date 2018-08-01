@@ -1,0 +1,12 @@
+{
+  "name": "best-drop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MagnetosUA/best-drop",
+  "author": "Aleks Sushitskiy <magnetos.ua@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "webpack-notifier": "^1.6.0"
+  }
+}
