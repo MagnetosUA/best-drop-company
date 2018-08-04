@@ -78,7 +78,7 @@ class Ord
      *
      * @ORM\Column(name="ыsaleAmount", type="string", length=255)
      */
-    private $ыsaleAmount;
+    private $saleAmount;
 
     /**
      * @var string
@@ -92,7 +92,7 @@ class Ord
      *
      * @ORM\Column(name="�income", type="string", length=255)
      */
-    private $�income;
+    private $income;
 
     /**
      * @var string
@@ -127,7 +127,7 @@ class Ord
      *
      * @ORM\Column(name="�waybill", type="string", length=255)
      */
-    private $�waybill;
+    private $waybill;
 
     /**
      * @var string
@@ -312,9 +312,9 @@ class Ord
      *
      * @return Ord
      */
-    public function setыsaleAmount($ыsaleAmount)
+    public function setsaleAmount($saleAmount)
     {
-        $this->ыsaleAmount = $ыsaleAmount;
+        $this->saleAmount = $saleAmount;
 
         return $this;
     }
@@ -324,9 +324,9 @@ class Ord
      *
      * @return string
      */
-    public function getыsaleAmount()
+    public function getsaleAmount()
     {
-        return $this->ыsaleAmount;
+        return $this->saleAmount;
     }
 
     /**
@@ -360,9 +360,9 @@ class Ord
      *
      * @return Ord
      */
-    public function set�income($�income)
+    public function setIncome($income)
     {
-        $this->�income = $�income;
+        $this->income = $income;
 
         return $this;
     }
@@ -372,9 +372,9 @@ class Ord
      *
      * @return string
      */
-    public function get�income()
+    public function getIncome()
     {
-        return $this->�income;
+        return $this->income;
     }
 
     /**
@@ -480,9 +480,9 @@ class Ord
      *
      * @return Ord
      */
-    public function set�waybill($�waybill)
+    public function setWaybill($waybill)
     {
-        $this->�waybill = $�waybill;
+        $this->waybill = $waybill;
 
         return $this;
     }
@@ -492,9 +492,9 @@ class Ord
      *
      * @return string
      */
-    public function get�waybill()
+    public function getWaybill()
     {
-        return $this->�waybill;
+        return $this->waybill;
     }
 
     /**

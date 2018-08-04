@@ -24,9 +24,9 @@ class Payment
     /**
      * @var string
      *
-     * @ORM\Column(name="Ñamount", type="string", length=255)
+     * @ORM\Column(name="ï¿½amount", type="string", length=255)
      */
-    private $Ñamount;
+    private $amount;
 
     /**
      * @var string
@@ -61,27 +61,27 @@ class Payment
     }
 
     /**
-     * Set Ñamount
+     * Set ï¿½amount
      *
-     * @param string $Ñamount
+     * @param string $ï¿½amount
      *
      * @return Payment
      */
-    public function setÑamount($Ñamount)
+    public function setAmount($amount)
     {
-        $this->Ñamount = $Ñamount;
+        $this->amount = $amount;
 
         return $this;
     }
 
     /**
-     * Get Ñamount
+     * Get ï¿½amount
      *
      * @return string
      */
-    public function getÑamount()
+    public function getAmount()
     {
-        return $this->Ñamount;
+        return $this->amount;
     }
 
     /**
