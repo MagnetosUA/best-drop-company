@@ -1,6 +1,7 @@
 /.web-server-pid
 /app/config/parameters.yml
-/build/
+web/build/app.js
+web/build/app.css
 /phpunit.xml
 /var/*
 !/var/cache
