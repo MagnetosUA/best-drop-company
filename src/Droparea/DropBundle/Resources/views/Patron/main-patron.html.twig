@@ -1,15 +1,8 @@
 {% extends '@Drop/base.html.twig' %}
 
 {% block main_content %}
-        {% block header %}
-            {% include '@Drop/Parts/header.html.twig' %}
-        {% endblock header %}
 
     {{ form_start(form) }}
     {{ form_end(form) }}
-    {% block footer %}
 
-        {% include '@Drop/Parts/footer.html.twig' %}
-
-    {% endblock footer %}
 {% endblock main_content %}
