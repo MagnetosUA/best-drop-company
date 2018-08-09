@@ -1,3 +1,10 @@
 drop_homepage:
     path:     /
     defaults: { _controller: DropBundle:Default:index }
+patron:
+    path: /patron
+    defaults: { _controller: DropBundle:Patron:index }
+
+products:
+    path: /products
+    defaults: { _controller: DropBundle:Default:product }

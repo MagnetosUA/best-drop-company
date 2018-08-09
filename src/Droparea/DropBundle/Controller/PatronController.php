@@ -2,12 +2,11 @@
 
 namespace Droparea\DropBundle\Controller;
 
-use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class PatronController extends Controller
 {
     public function indexAction(Request $request)
     {
@@ -19,25 +18,16 @@ class DefaultController extends Controller
             $data = $form->getData();
             $em->persist($data);
             $em->flush();
-            return $this->redirectToRoute('drop_homepage', [
+            return $this->redirectToRoute('patron', [
                 'success' => 1,
             ]);
         }
 
         $success = $request->get('success');
 
-        return $this->render('@Drop/Default/index.html.twig', [
+        return $this->render('@Drop/Patron/main-patron.html.twig', [
             'form' => $form->createView(),
             'success' => $success,
         ]);
     }
-
-    public function productAction()
-    {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
-        ]);
-    }
 }
-

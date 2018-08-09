@@ -1,29 +1,21 @@
-{#{% extends '@Drop/base.html.twig' %}#}
-<html>
-<head>
-    <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
-    <script src="{{ asset('build/app.js') }}"></script>
-</head>
+{% extends '@Drop/base.html.twig' %}
+{% block main_content %}
 
-<body>
-<div class="row">
-    <div class="col-md-4">
+{% block navigation %}
+    {% include '@Drop/Parts/navigation.html.twig' %}
+{% endblock navigation %}
 
-    </div>
-    <div class="col-md-4">
-        {{ form_start(form) }}
+{% block new_products %}
+    {% include '@Drop/Parts/new-products.html.twig' %}
+{% endblock new_products %}
 
-        {{ form_end(form) }}
-    </div>
-    <div class="col-md-4">
+{% block hot_deal %}
+    {% include '@Drop/Parts/hot-deal.html.twig' %}
+{% endblock hot_deal %}
 
-    </div>
-</div>
-{% if success is defined %}
-    Товар добавлен
-{% endif %}
+{% block top_selling %}
+    {% include '@Drop/Parts/top-selling.html.twig' %}
+{% endblock top_selling %}
 
-</body>
-</html>
-
+{% endblock main_content %}
 
