@@ -8,3 +8,23 @@ patron:
 products:
     path: /products
     defaults: { _controller: DropBundle:Default:product }
+
+orders:
+    path: /orders
+    defaults: { _controller: DropBundle:Default:orders }
+
+payments:
+    path: /payments
+    defaults: { _controller: DropBundle:Default:payments }
+
+statistic:
+    path: /statistic
+    defaults: { _controller: DropBundle:Default:statistic }
+
+referrals:
+    path: /referrals
+    defaults: { _controller: DropBundle:Default:referrals }
+
+news:
+    path: /news
+    defaults: { _controller: DropBundle:Default:news }

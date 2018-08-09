@@ -39,5 +39,45 @@ class DefaultController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function ordersAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
+
+    public function paymentsAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
+
+    public function statisticAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
+
+    public function referralsAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
+
+    public function newsAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
 }
 
