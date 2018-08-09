@@ -44,8 +44,9 @@ class Product
 
     /**
      * @var string
-     *
      * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\NotBlank(message="Пожалуйста, загрузите фотографию !")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $image;
 
