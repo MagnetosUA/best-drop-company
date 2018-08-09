@@ -869,12 +869,24 @@ textarea.input {
 
 .product .product-img {
   position: relative;
-  max-width: 350px;
-  max-height: 150px;
+  padding-bottom: 100%;
+  overflow: hidden;
 }
 
 .product .product-img>img {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  transition: transform .4s ease-out;
+}
+
+.product:hover .product-img>img {
+  transform: scale(1.05);
 }
 
 .product .product-img .product-label {
