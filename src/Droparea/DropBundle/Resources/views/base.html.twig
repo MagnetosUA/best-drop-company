@@ -37,7 +37,41 @@
 
 </head>
 <body>
-{% include '@Drop/Parts/header.html.twig' %}
+    <!-- HEADER -->
+    <header>
+        {% block top_header %}
+            {% include '@Drop/Parts/top-header.html.twig' %}
+        {% endblock top_header %}
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="{{ path('drop_homepage') }}" class="logo">
+                                <h2>Best Drop Company</h2>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+                    {% block search_bar %}
+                        {% include '@Drop/Parts/search-bar.html.twig' %}
+                    {% endblock search_bar %}
+
+                    {% block account %}
+                        {#{% include '@Drop/Parts/account.html.twig' %}#}
+                    {% endblock account %}
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
 {% block main_content %}
 {% endblock main_content %}
 {% include '@Drop/Parts/footer.html.twig' %}

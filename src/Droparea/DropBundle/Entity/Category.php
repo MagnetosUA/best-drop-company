@@ -2,6 +2,7 @@
 
 namespace Droparea\DropBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,11 +30,14 @@ class Category
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="product", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
-    private $product;
+    private $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
 
     /**
@@ -71,27 +75,20 @@ class Category
     }
 
     /**
-     * Set product
-     *
-     * @param string $product
-     *
-     * @return Category
+     * @return mixed
      */
-    public function setProduct($product)
+    public function getProducts()
     {
-        $this->product = $product;
-
-        return $this;
+        return $this->products;
     }
 
     /**
-     * Get product
-     *
-     * @return string
+     * @param mixed $products
      */
-    public function getProduct()
+    public function setProducts($products)
     {
-        return $this->product;
+        $this->products = $products;
     }
+
 }
 

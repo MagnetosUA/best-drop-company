@@ -30,9 +30,10 @@ class Product
     private $productCode;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     *
      */
     private $category;
 
@@ -129,28 +130,21 @@ class Product
     }
 
     /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Product
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string
+     * @return mixed
      */
     public function getCategory()
     {
         return $this->category;
     }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
 
     /**
      * Set country

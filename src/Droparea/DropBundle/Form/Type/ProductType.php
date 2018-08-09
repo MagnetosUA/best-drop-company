@@ -2,7 +2,9 @@
 
 namespace Droparea\DropBundle\Form\Type;
 
+use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,13 +26,11 @@ class ProductType extends AbstractType
                 'class' => 'form-control',
             ]
         ])
-        ->add('category', ChoiceType::class, [
-            'label' => 'Категория',
-            'choices' => [
-                'Электроника' => 'electronica',
-                'Разное' => 'other',
-                'Товары для дома' => 'for-house',
-            ]
+        ->add('category', EntityType::class, [
+            'class' => Category::class,
+            'choice_label' => 'name',
+            'multiple' => false,
+            'label' => 'Категория'
         ])
         ->add('image', FileType::class, [
             'label' => 'Фото',

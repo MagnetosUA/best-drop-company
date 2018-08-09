@@ -1,15 +1,8 @@
 <!-- HEADER -->
 <header>
-    <!-- TOP HEADER -->
-    <div id="top-header">
-        <div class="container">
-            <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-user-o"></i>Мой аккаунт</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /TOP HEADER -->
+    {% block top_header %}
 
+    {% endblock top_header %}
     <!-- MAIN HEADER -->
     <div id="header">
         <!-- container -->
@@ -25,38 +18,13 @@
                     </div>
                 </div>
                 <!-- /LOGO -->
+                {% block search_bar %}
 
-                <!-- SEARCH BAR -->
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form>
-                            <select class="input-select">
-                                <option value="0">Все категории</option>
-                                <option value="1">Category 01</option>
-                                <option value="1">Category 02</option>
-                            </select>
-                            <input class="input" placeholder="Искать ...">
-                            <button class="search-btn">Поиск</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /SEARCH BAR -->
+                {% endblock search_bar %}
 
-                <!-- ACCOUNT -->
-                <div class="col-md-3 clearfix">
-                    <div class="header-ctn">
+                {% block account %}
 
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
-                        </div>
-                        <!-- /Menu Toogle -->
-                    </div>
-                </div>
-                <!-- /ACCOUNT -->
+                {% endblock account %}
             </div>
             <!-- row -->
         </div>

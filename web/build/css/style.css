@@ -2203,3 +2203,21 @@ textarea.input {
     margin-top: 10px;
   }
 }
+
+
+/*FOR PAGE FOR ADDING NEW PRODUCTS*/
+.product-form {
+  margin-top: 25px;
+}
+
+.product-form h3{
+  margin-top: 25px;
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+#admin-title {
+  color:lightyellow;
+  text-align: justify;
+}
+/*end *FOR PAGE FOR ADDING NEW PRODUCTS*/
