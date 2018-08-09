@@ -2,6 +2,7 @@
 /app/config/parameters.yml
 web/build/app.js
 web/build/app.css
+web/build/images/
 /phpunit.xml
 /var/*
 !/var/cache
