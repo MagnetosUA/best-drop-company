@@ -3,6 +3,7 @@
 web/build/app.js
 web/build/app.css
 web/build/images/
+web/imgages/
 /phpunit.xml
 /var/*
 !/var/cache

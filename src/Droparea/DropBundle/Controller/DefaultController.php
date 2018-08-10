@@ -33,7 +33,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function productAction($category = 0)
+    public function productsAction($category = 0)
     {
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         if ($category!=0) {
@@ -54,6 +54,14 @@ class DefaultController extends Controller
             'products' => $products,
             'categories' => $categories,
             'current_link_name' => $currentLinkName,
+        ]);
+    }
+
+    public function oneProductAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+        return $this->render('@Drop/Pages/product-page.html.twig', [
+            'product' => $product,
         ]);
     }
 

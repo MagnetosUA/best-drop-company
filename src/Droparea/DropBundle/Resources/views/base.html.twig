@@ -8,6 +8,7 @@
 
     <title>Best Drop Company</title>
 
+    {#<link rel="icon" href="{{ asset('favicon.ico') }}" />#}
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -34,7 +35,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {% block over_styles %}
 
+    {% endblock over_styles %}
 </head>
 <body>
     <!-- HEADER -->

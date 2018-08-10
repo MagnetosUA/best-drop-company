@@ -7,11 +7,15 @@ patron:
 
 products:
     path: /products
-    defaults: { _controller: DropBundle:Default:product }
+    defaults: { _controller: DropBundle:Default:products }
 
 products-category:
     path: /products/{category}
-    defaults: { _controller: DropBundle:Default:product, category: 0 }
+    defaults: { _controller: DropBundle:Default:products, category: 0 }
+
+product:
+    path: /product/{id}
+    defaults: { _controller: DropBundle:Default:oneProduct }
 
 orders:
     path: /orders
