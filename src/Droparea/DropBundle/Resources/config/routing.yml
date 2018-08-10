@@ -9,6 +9,10 @@ products:
     path: /products
     defaults: { _controller: DropBundle:Default:product }
 
+products-category:
+    path: /products/{category}
+    defaults: { _controller: DropBundle:Default:product, category: 0 }
+
 orders:
     path: /orders
     defaults: { _controller: DropBundle:Default:orders }

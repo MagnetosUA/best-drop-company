@@ -2,6 +2,7 @@
 
 namespace Droparea\DropBundle\Controller;
 
+use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -32,11 +33,27 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function productAction()
+    public function productAction($category = 0)
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        if ($category!=0) {
+            $products = $this->getDoctrine()->getRepository(Product::class)->findBy([
+                'category' => $category,
+            ]);
+            foreach ($categories as $item) {
+                if ($item->getId() == $category) {
+                    $currentLinkName = $item->getName();
+                }
+            }
+        } else {
+            $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+            $currentLinkName = 'all';
+        }
+
         return $this->render('@Drop/Pages/products.html.twig', [
             'products' => $products,
+            'categories' => $categories,
+            'current_link_name' => $currentLinkName,
         ]);
     }
 

@@ -38,5 +38,6 @@ class Builder implements ContainerAwareInterface
 
         return $menu;
     }
+
 }
 
