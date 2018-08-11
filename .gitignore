@@ -4,6 +4,8 @@ web/build/app.js
 web/build/app.css
 web/build/images/
 web/imgages/
+web/build/practice.js
+src/Droparea/DropBundle/Resources/views/Default/practice.html.twig
 /phpunit.xml
 /var/*
 !/var/cache

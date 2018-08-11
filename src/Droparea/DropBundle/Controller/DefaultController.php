@@ -75,10 +75,8 @@ class DefaultController extends Controller
 
     public function paymentsAction()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
-        ]);
+        //$products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Default/practice.html.twig');
     }
 
     public function statisticAction()

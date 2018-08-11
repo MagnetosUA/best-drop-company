@@ -1,6 +1,7 @@
 {% extends '@Drop/base.html.twig' %}
 {% block over_styles %}
     <link type="text/css" rel="stylesheet" href="{{ asset('build/css/product-page.css') }}"/>
+    <script src="{{ asset('js/change-images.js') }}" defer></script>
 {% endblock over_styles %}
 {% block main_content %}
     <div id="product-page" class="container">
@@ -15,24 +16,24 @@
                     <div class="col-md-2 little-page">
                         <ul>
                             <li>
-                                <div class="product-img">
-                                    <img src="{{ asset('imgages/product02.png') }}" alt=""/>
+                                <div class="product-img" onmouseover="changeImage('min-img1');">
+                                    <img src="{{ asset('imgages/product01.png') }}" id="min-img1" alt=""/>
                                 </div>
                             </li>
                             <li>
-                                <div class="product-img">
-                                    <img src="{{ asset('imgages/product03.png') }}" alt=""/>
+                                <div class="product-img" onmouseover="changeImage('min-img2');">
+                                    <img src="{{ asset('imgages/product03.png') }}" id="min-img2" alt=""/>
                                 </div>
                             </li>
                             <li>
-                                <div class="product-img">
-                                    <img src="{{ asset('imgages/product04.png') }}" alt=""/>
+                                <div class="product-img" onmouseover="changeImage('min-img3');">
+                                    <img src="{{ asset('imgages/product04.png') }}" id="min-img3" alt=""/>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-10 main-image">
-                        <img src="{{ asset('build/images/products/' ~ product.image) }}" alt="{{ product.name }}"/>
+                        <img src="{{ asset('imgages/product01.png') }}" id="main-img" alt=""/>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p>В наличии</p>
+                        <i class="fas fa-check"><span class="in-stock">В наличии</span></i>
                     </div>
                 </div>
                 <div class="row description">

@@ -78,3 +78,14 @@
     margin: auto;
 }
 
+#product-page .in-stock {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: large;
+    color:green;
+}
+
+#product-page fas {
+    color:green;
+}
+
