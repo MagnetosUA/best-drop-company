@@ -24,7 +24,7 @@ class OrderClientType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Имя',
             ])
-            ->add('patronymic', EntityType::class, [
+            ->add('patronymic', TextType::class, [
                 'label' => 'Отчество'
             ])
             ->add('phone', TelType::class, [

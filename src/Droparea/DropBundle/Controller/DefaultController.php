@@ -4,6 +4,7 @@ namespace Droparea\DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
+use Droparea\DropBundle\Form\Type\OrderClientType;
 use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,12 +66,15 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function ordersAction()
+    public function ordersAction(Request $request)
     {
-//        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+
+        $form = $this->createForm(OrderClientType::class);
+//        $form->handleRequest($request);
+//        $em = $this->getDoctrine()->getManager();
 
         return $this->render('@Drop/Pages/orders.html.twig', [
-//            'products' => $products,
+            'form' => $form->createView(),
         ]);
     }
 
