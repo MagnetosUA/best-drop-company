@@ -94,6 +94,19 @@ class Product
      */
     private $valuta;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="new", type="boolean")
+     */
+    private $new;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="top", type="boolean")
+     */
+    private $top;
 
     /**
      * Get id
@@ -337,5 +350,39 @@ class Product
     {
         return $this->valuta;
     }
+
+    /**
+     * @return bool
+     */
+    public function isNew()
+    {
+        return $this->new;
+    }
+
+    /**
+     * @param bool $new
+     */
+    public function setNew($new)
+    {
+        $this->new = $new;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTop()
+    {
+        return $this->top;
+    }
+
+    /**
+     * @param bool $top
+     */
+    public function setTop($top)
+    {
+        $this->top = $top;
+    }
+
+
 }
 
