@@ -67,9 +67,9 @@ class DefaultController extends Controller
 
     public function ordersAction()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
+//        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/orders.html.twig', [
+//            'products' => $products,
         ]);
     }
 
