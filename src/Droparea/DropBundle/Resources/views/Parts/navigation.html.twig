@@ -5,10 +5,11 @@
         <!-- responsive-nav -->
         <div id="responsive-nav">
             <!-- NAV -->
-            {{ knp_menu_render('DropBundle:Builder:mainMenu') }}
+            {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+
             {#<ul class="main-nav nav navbar-nav">#}
-                {#<li class="active"><a href="{{ path('products') }}">Товары</a></li>#}
-                {#<li><a href="#">Заказы</a></li>#}
+                {#<li><a href="{{ path('products') }}">Товары</a></li>#}
+                {#<li><a href="{{ path('orders') }}">Заказы</a></li>#}
                 {#<li><a href="#">Выплаты</a></li>#}
                 {#<li><a href="#">Статистика</a></li>#}
                 {#<li><a href="#">Рефералы</a></li>#}
