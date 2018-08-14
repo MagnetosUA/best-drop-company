@@ -19,6 +19,7 @@
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-menu-bundle": "^2.0",
+        "lis-dev/nova-poshta-api-2": "dev-master",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
         "symfony/form": "^3.4",

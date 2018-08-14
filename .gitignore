@@ -21,3 +21,4 @@ src/Droparea/DropBundle/Resources/views/Default/practice.html.twig
 /vendor/
 /node_modules/
 /web/bundles/
+/.idea
