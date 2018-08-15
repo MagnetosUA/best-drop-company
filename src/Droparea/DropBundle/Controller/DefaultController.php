@@ -9,27 +9,10 @@ use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use NovaPoshta\Config;
-use NovaPoshta\ApiModels\Address;
-use NovaPoshta\MethodParameters\Address_getStreet;
-use NovaPoshta\MethodParameters\Address_getWarehouses;
-use NovaPoshta\MethodParameters\Address_getCities;
-use NovaPoshta\MethodParameters\Address_getAreas;
 
-Config::setApiKey('bbd31a0c4e0801075b2253a36e0403ad');
-Config::setFormat(Config::FORMAT_JSONRPC2);
-Config::setLanguage(Config::LANGUAGE_UA);
 
 class DefaultController extends Controller
 {
-    public function getCities()
-    {
-        $data = new Address_getCities();
-//        $data->setRef('db5c896a-391c-11dd-90d9-001a92567626');
-        $data->setPage(1);
-//        $data->setFindByString('Пол');
-        return Address::getCities($data);
-    }
 
     public function indexAction(Request $request)
     {
@@ -89,16 +72,6 @@ class DefaultController extends Controller
     public function ordersAction(Request $request)
     {
 
-
-        $form = $this->createForm(OrderClientType::class);
-        $form->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-
-        return $this->render('@Drop/Pages/orders.html.twig', [
-            'form' => $form->createView(),
-        ]);
-//        $c = $this->getCities();
-//        var_dump($c);die;
     }
 
     public function paymentsAction()
