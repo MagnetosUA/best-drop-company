@@ -7,7 +7,7 @@ use Droparea\DropBundle\Entity\PostAddress;
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\OrderClientType;
 use Droparea\DropBundle\Form\Type\ProductType;
-use Droparea\DropBundle\Services\NewPostAddress;
+use Droparea\DropBundle\Services\GetNewPostAddressFromDB;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

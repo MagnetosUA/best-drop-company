@@ -3,11 +3,9 @@
 namespace Droparea\DropBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Droparea\DropBundle\Entity\PostAddress;
-use LisDev\Delivery\NovaPoshtaApi2;
 
-class NewPostAddress
+class GetNewPostAddressFromDB
 {
     private $em;
 
@@ -158,26 +156,31 @@ class NewPostAddress
         ),
     );
 
-    private $myApiKey = 'bbd31a0c4e0801075b2253a36e0403ad';
-
-    private $np;
-
-    public $cities = ['city' => [], 'region' => []];
-
     public function __construct(ObjectManager $em)
     {
         $this->em = $em;
-        $this->np = new NovaPoshtaApi2($this->myApiKey);
     }
 
     public function getCities()
     {
-        $postAddress = new PostAddress();
-        $cities = $this->np->getCities();
-        $postAddress->setCities($cities);
-//        $this->em->persist($postAddress);
-//        $this->em->flush();
-        echo 'success';//gettype($cities);die;
+        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
+        $citiesArray = $cityObject->getCities();
+//        echo "<pre>";
+//        print_r($citiesArray);
+//        echo "</pre>";die;
+        $staticSitiesFull = [];
+        $i = 0;//var loop
+        foreach ($citiesArray['data'] as $city) {
+            $staticSitiesFull[$i]['c'] = $city['DescriptionRu'];
+            $staticSitiesFull[$i]['a'] = $this->getArea($this->lisOfAreas, $city['Area']);
+            $i++;
+        }
+        return $staticSitiesFull;
+        } else {
+            return null;
+    }
+
+
     }
 
     public function getArea($ref)
