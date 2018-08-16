@@ -172,15 +172,23 @@ class GetNewPostAddressFromDB
         $i = 0;//var loop
         foreach ($citiesArray['data'] as $city) {
             $staticSitiesFull[$i]['c'] = $city['DescriptionRu'];
-            $staticSitiesFull[$i]['a'] = $this->getArea($this->lisOfAreas, $city['Area']);
+            $staticSitiesFull[$i]['a'] = $this->getStaticArea($this->lisOfAreas, $city['Area']);
             $i++;
         }
         return $staticSitiesFull;
         } else {
             return null;
+        }
     }
 
-
+    public function getStaticArea($lisOfAreas, $city)
+    {
+        foreach ($lisOfAreas as $key => $value) {
+            if ($city == $key) {
+//                $areas [] = $value['AreaRu'];
+                return $value['AreaRu'];
+            }
+        }
     }
 
     public function getArea($ref)
