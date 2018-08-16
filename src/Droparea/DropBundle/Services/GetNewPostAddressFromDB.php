@@ -161,7 +161,7 @@ class GetNewPostAddressFromDB
         $this->em = $em;
     }
 
-    public function getCities()
+    public function getCitiesWithAreas()
     {
         if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
         $citiesArray = $cityObject->getCities();
@@ -176,6 +176,23 @@ class GetNewPostAddressFromDB
             $i++;
         }
         return $staticSitiesFull;
+        } else {
+            return null;
+        }
+    }
+
+    public function getCities()
+    {
+        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
+            $citiesArray = $cityObject->getCities();
+//        echo "<pre>";
+//        print_r($citiesArray);
+//        echo "</pre>";die;
+            $staticSitiesFull = [];
+            foreach ($citiesArray['data'] as $city) {
+                $staticSitiesFull[] = $city['DescriptionRu'];
+            }
+            return array_flip($staticSitiesFull);
         } else {
             return null;
         }

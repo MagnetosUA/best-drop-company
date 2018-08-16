@@ -13,15 +13,6 @@
 
             {{ form_end(form) }}
         </div>
-        {#{% for city in cities %}#}
-            {#{{ city['c'] }}#}
-            {#"///***///"#}
-        {#{% endfor %}#}
-        <select class="js-example-basic-single">
-            {% for city in cities%}
-                <option>{{ city['c'] }} ({{ city['a'] }})</option>
-            {% endfor %}
-        </select>
     </div>
 {% endblock main_content %}
 
