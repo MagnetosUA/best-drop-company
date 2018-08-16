@@ -3,14 +3,19 @@
 namespace Droparea\DropBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Droparea\DropBundle\Entity\PostAddress;
 use LisDev\Delivery\NovaPoshtaApi2;
 
-class NewPostAddress
+class FetchNewPostAddress
 {
+    /**
+     * @var ObjectManager
+     */
     private $em;
 
+    /**
+     * @var array of Areas (static)
+     */
     public $lisOfAreas = array(
         '71508129-9b87-11de-822f-000c2965ae0e' => array(
             'Description' => 'Вінниця',
@@ -158,11 +163,18 @@ class NewPostAddress
         ),
     );
 
+    /**
+     * @var string
+     * my API key of NEW POST
+     */
     private $myApiKey = 'bbd31a0c4e0801075b2253a36e0403ad';
 
+    /**
+     * @var NovaPoshtaApi2
+     */
     private $np;
 
-    public $cities = ['city' => [], 'region' => []];
+    //public $cities = ['city' => [], 'region' => []];
 
     public function __construct(ObjectManager $em)
     {
@@ -170,16 +182,28 @@ class NewPostAddress
         $this->np = new NovaPoshtaApi2($this->myApiKey);
     }
 
+    /**
+     * @return string
+     * Getting array of Cities from NEW POST
+     */
     public function getCities()
     {
         $postAddress = new PostAddress();
-        $cities = $this->np->getCities();
-        $postAddress->setCities($cities);
-//        $this->em->persist($postAddress);
-//        $this->em->flush();
-        echo 'success';//gettype($cities);die;
+        if ($cities = $this->np->getCities()) {
+            $postAddress->setCities($cities);
+            $this->em->persist($postAddress);
+            $this->em->flush();
+            return "Cities are updated successfully !";
+        } else {
+            return "Something wrong! The data was not fetched !";
+        }
     }
 
+    /**
+     * @param $ref
+     * @return mixed
+     * Getting array of Areas from NEW POST
+     */
     public function getArea($ref)
     {
         foreach ($this->lisOfAreas as $key => $area) {
@@ -189,6 +213,11 @@ class NewPostAddress
         }
     }
 
+    /**
+     * @param $city
+     * @return mixed
+     * Getting array of Warehouses from NEW POST
+     */
     public function getWarehouses($city)
     {
         $c = $this->np->getCities('', $city);
