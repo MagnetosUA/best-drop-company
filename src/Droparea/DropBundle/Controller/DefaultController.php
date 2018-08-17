@@ -9,7 +9,6 @@ use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
@@ -73,7 +72,7 @@ class DefaultController extends Controller
         if ($city = $request->request->get('destination')) {
 //            $this->get('session')->set('cityDescription', $city);
 
-            $addressDb = $this->get('GetNewPostAddressFromDB');
+            $addressDb = $this->get('get.new.post.address.from.db');
 //            $address = $this->get('FetchNewPostAddress');
             $warehouses = $addressDb->getWarehouses($city);
             $area = $addressDb->getArea($city);
@@ -86,7 +85,7 @@ class DefaultController extends Controller
     }
     public function ordersAction(Request $request)
     {
-        $addressDb = $this->get('GetNewPostAddressFromDB');
+        $addressDb = $this->get('get.new.post.address.from.db');
 //        $address = $this->get('FetchNewPostAddress');
         //$address->getWarehousesOnline();die;
 //        $war = $addressDb->getWarehouses("Черкассы");

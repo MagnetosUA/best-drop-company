@@ -11,6 +11,10 @@ class PatronController extends Controller
 {
     public function indexAction(Request $request)
     {
+        if ($city = $request->request->get('update-data-address')) {
+            $postAddress = $this->get('fetch.new.post.address');
+        }
+
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);

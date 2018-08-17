@@ -5,7 +5,6 @@ namespace Droparea\DropBundle\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use Droparea\DropBundle\Entity\PostAddress;
 use LisDev\Delivery\NovaPoshtaApi2;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class FetchNewPostAddress
 {
@@ -184,41 +183,23 @@ class FetchNewPostAddress
     }
 
     /**
-     * @return string
-     * Getting array of Cities from NEW POST
+     * @return array|mixed|null
      */
     public function getCities()
     {
-        $postAddress = new PostAddress();
+        $cities = [];
         if ($cities = $this->np->getCities()) {
-            $postAddress->setCities($cities);
-            $this->em->persist($postAddress);
-            $this->em->flush();
-            return "Cities are updated successfully !";
-        } else {
-            return "Something wrong! The data was not fetched !";
+            return $cities;
         }
+        return null;
     }
 
     /**
-     * @return mixed
-     * Getting array of Areas from NEW POST
+     * @return array|null
      */
-    public function getArea()
-    {
-//        foreach ($this->lisOfAreas as $key => $area) {
-//            if ($key == $ref) {
-//                return $area['AreaRu'];
-//            }
-//        }
-        $ar = $this->np->getAreas('Черкаcc');
-        var_dump($ar);die;
-    }
-
-    public function getWarehousesOnline()
+    public function getWarehouses()
     {
         if ($w = $this->np->getWarehouses('')) {
-
             $warehousesList = [];
             $i = 0;
             foreach ($w['data'] as $item) {
@@ -228,35 +209,26 @@ class FetchNewPostAddress
                 $warehousesList[$i]['CityDescriptionRu'] = $item['CityDescriptionRu'];
                 $i++;
             }
-        //        echo "<pre>";
-        //        print_r($warehousesList);
-        //        echo "</pre>";die;
+            return $warehousesList;
+        }
+        return null;
+    }
+
+    /**
+     * @return string
+     */
+    public function updateAll()
+    {
+        if(($cities = $this->getCities())&&( $warehouses = $this->getWarehouses())) {
             $postAddress = new PostAddress();
-            $postAddress->setWarehouses($warehousesList);
+            $postAddress->setWarehouses($warehouses);;
+            $postAddress->setCities($cities);
+            $postAddress->setAreas($this->lisOfAreas);
             $this->em->persist($postAddress);
             $this->em->flush();
-        } else {
-            return null;
+            return 'Address updated successfully !';
         }
-    }
-    /**
-     * @param $city
-     * @return mixed
-     * Getting array of Warehouses from NEW POST
-     */
-    public function getWarehouses($cityDescriptionRu)
-    {
-        if ($cityDescriptionRu == null) {
-            return [' ' => ' '];
-        }
-        $city = $this->np->getCities('', $cityDescriptionRu);
-//        var_dump($c);die;
-        $result = $this->np->getWarehouses($city['data'][0]['Ref']);
-        $warehouses = $result['data'];
-        foreach ($warehouses as $warehouse) {
-            $listWarehouses[] = $warehouse['DescriptionRu'];
-        }
-        return $listWarehouses;
+        return 'Unknown Error ! Address was not updated!';
     }
 
 }

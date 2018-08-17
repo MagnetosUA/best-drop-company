@@ -14,11 +14,11 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    GetNewPostAddressFromDB:
+    get.new.post.address.from.db:
         class: Droparea\DropBundle\Services\GetNewPostAddressFromDB
         public: true
 
-    FetchNewPostAddress:
+    fetch.new.post.address:
         class: Droparea\DropBundle\Services\FetchNewPostAddress
         public: true
 
