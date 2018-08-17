@@ -36,3 +36,7 @@ referrals:
 news:
     path: /news
     defaults: { _controller: DropBundle:Default:news }
+
+ajax-new-post:
+    path: /ajax-new-post
+    defaults: { _controller: DropBundle:Default:ajaxNewPost }

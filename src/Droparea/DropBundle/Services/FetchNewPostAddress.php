@@ -200,17 +200,18 @@ class FetchNewPostAddress
     }
 
     /**
-     * @param $ref
      * @return mixed
      * Getting array of Areas from NEW POST
      */
-    public function getArea($ref)
+    public function getArea()
     {
-        foreach ($this->lisOfAreas as $key => $area) {
-            if ($key == $ref) {
-                return $area['AreaRu'];
-            }
-        }
+//        foreach ($this->lisOfAreas as $key => $area) {
+//            if ($key == $ref) {
+//                return $area['AreaRu'];
+//            }
+//        }
+        $ar = $this->np->getAreas('Черкаcc');
+        var_dump($ar);die;
     }
 
     /**

@@ -10,8 +10,20 @@
     <div class="row">
         <div class="col-md-4">
             {{ form_start(form) }}
-
             {{ form_end(form) }}
+            <script>
+                $("select").change(function(){
+                    var val = $(this).val();
+                    $.ajax ({
+                        url: "{{ path('ajax-new-post') }}",
+                        type: "POST",
+                        data: {"destination" : val},
+                        success: function (data) {
+                            $(".full-address").text(data);
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
 {% endblock main_content %}

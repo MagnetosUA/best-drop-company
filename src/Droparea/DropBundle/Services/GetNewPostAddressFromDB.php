@@ -9,7 +9,7 @@ class GetNewPostAddressFromDB
 {
     private $em;
 
-    public $lisOfAreas = array(
+    public $listOfAreas = array(
         '71508129-9b87-11de-822f-000c2965ae0e' => array(
             'Description' => 'Вінниця',
             'DescriptionRu' => 'Винница',
@@ -189,10 +189,16 @@ class GetNewPostAddressFromDB
 //        print_r($citiesArray);
 //        echo "</pre>";die;
             $staticSitiesFull = [];
+            $areas = [];
             foreach ($citiesArray['data'] as $city) {
                 $staticSitiesFull[] = $city['DescriptionRu'];
+                $areas[] = $city['Area'];
             }
-            return array_flip($staticSitiesFull);
+            $staticSitiesFull = array_flip($staticSitiesFull);
+            foreach ($staticSitiesFull as $key => $item) {
+                $staticSitiesFull[$key] = $key;
+            }
+            return $staticSitiesFull;
         } else {
             return null;
         }
@@ -208,13 +214,21 @@ class GetNewPostAddressFromDB
         }
     }
 
-    public function getArea($ref)
+    public function getArea($descriptionCityRu)
     {
-        foreach ($this->lisOfAreas as $key => $area) {
-            if ($key == $ref) {
-                return $area['AreaRu'];
+        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
+            $citiesArray = $cityObject->getCities();
+            foreach ($citiesArray['data'] as $city) {
+                if ($city['DescriptionRu'] == $descriptionCityRu) {
+                    foreach ($this->listOfAreas as $key => $value) {
+                        if ($key == $city['Area']) {
+                            return $this->listOfAreas[$key]['AreaRu'];
+                        }
+                    }
+                }
             }
         }
+        return null;
     }
 
     public function getWarehouses($city)

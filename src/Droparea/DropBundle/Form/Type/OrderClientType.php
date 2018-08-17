@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -54,8 +55,23 @@ class OrderClientType extends AbstractType
                 ],
                 'choice_loader' => new CallbackChoiceLoader(function() {
                     return $this->addressFromDB->getCities();
-                }
-            ),
+                }),
+            ])
+            ->add('warehouse', ChoiceType::class, [
+                'attr' => [
+                    'class' => 'js-example-basic-single',
+                ],
+                'placeholder' => 'Укажите отделение',
+                'label' => ' ',
+                'choice_loader' => new CallbackChoiceLoader(function() {
+                    return ['one'=>'one', 'two' => 'two', 'three' => 'three'];
+                }),
+            ])
+            ->add('full_address', TextareaType::class, [
+                'label' => ' ',
+                'attr' => [
+                    'class' => 'full-address',
+                ]
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Добавить',
