@@ -231,11 +231,24 @@ class GetNewPostAddressFromDB
         return null;
     }
 
-    public function getWarehouses($city)
+    public function getWarehouses($cityDescriptionRu)
     {
-        $c = $this->np->getCities('', $city);
-        $result = $this->np->getWarehouses($c['data'][1]['Ref']);
-        return $result;
+        if ($cityDescriptionRu == null) {
+            return [' ' => ' '];
+        }
+        if ($warehouseObject = $this->em->getRepository(PostAddress::class)->find(2)) {
+            $warehousesArray = $warehouseObject->getWarehouses();
+//            echo "<pre>";
+//            print_r($warehousesArray);
+//            echo "</pre>";
+//            die;
+            foreach ($warehousesArray as $warehouse) {
+                if ($warehouse['CityDescriptionRu'] == $cityDescriptionRu) {
+                    $listWarehouses[] = $warehouse['DescriptionRu'];
+                }
+            }
+            return $listWarehouses;
+        }
     }
 
 }

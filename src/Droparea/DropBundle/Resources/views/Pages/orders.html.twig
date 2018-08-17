@@ -12,16 +12,44 @@
             {{ form_start(form) }}
             {{ form_end(form) }}
             <script>
-                $("select").change(function(){
+                var globalCityArea = '';
+                $(".js-example-basic-single").change(function(){
                     var val = $(this).val();
+                    globalCityArea = '';
                     $.ajax ({
                         url: "{{ path('ajax-new-post') }}",
                         type: "POST",
+                        dataType: 'json',
                         data: {"destination" : val},
                         success: function (data) {
-                            $(".full-address").text(data);
+
+                            $(".warehouses").empty();
+                            $(".warehouses").append("<option value selected='selected'>Укажите отделениё</option>");
+                            // alert(data[2][0]);
+                            $(".full-address").text(data[1]+', '+data[0]);
+                            for (var i=0;i<data[2].length;i++) {
+                                $(".warehouses").append("<option>"+data[2][i]+"</option>");
+                            }
+                            // var out = "";
+                            // if(data && typeof(data) == "object"){
+                            //     for (var i in data) {
+                            //         out += i + ": " + data[i] + "\n";
+                            //     }
+                            // } else {
+                            //     out = data;
+                            // }
+                            // alert(out);
                         }
                     });
+                });
+                $(".warehouses").change(function() {
+                    if (globalCityArea == '') {
+                        globalCityArea = $(".full-address").text();
+                    }
+                    var text = $(".full-address").text(null);
+
+                    var fullAddress = globalCityArea + ', ' + $(this).val();
+                    $(".full-address").text(fullAddress);
                 });
             </script>
         </div>

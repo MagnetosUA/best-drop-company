@@ -9,6 +9,7 @@ use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
@@ -70,20 +71,33 @@ class DefaultController extends Controller
     public function ajaxNewPostAction(Request $request)
     {
         if ($city = $request->request->get('destination')) {
-            $address = $this->get('GetNewPostAddressFromDB');
-            $area = $address->getArea($city);
-            return new Response($area.", ".$city);
+//            $this->get('session')->set('cityDescription', $city);
+
+            $addressDb = $this->get('GetNewPostAddressFromDB');
+//            $address = $this->get('FetchNewPostAddress');
+            $warehouses = $addressDb->getWarehouses($city);
+            $area = $addressDb->getArea($city);
+//            $responseData = [$city];
+            $ar = [$city, $area, $warehouses];
+            $ar = json_encode($ar);
+            return new Response($ar);
         }
         return new Response('none!E');
     }
     public function ordersAction(Request $request)
     {
+        $addressDb = $this->get('GetNewPostAddressFromDB');
+//        $address = $this->get('FetchNewPostAddress');
+        //$address->getWarehousesOnline();die;
+//        $war = $addressDb->getWarehouses("Черкассы");
+//        print_r($war);die;
+
         $form = $this->createForm(OrderClientType::class);
 
-        $address = $this->get('GetNewPostAddressFromDB');
-        $address->getCities();
+//        $address = $this->get('GetNewPostAddressFromDB');
+//        $addressDb->getCities();
 
-        $staticSitiesFull = $address->getCities();
+        $staticSitiesFull = $addressDb->getCities();
 //        echo "<pre>";
 //        print_r($staticSitiesFull);
 //        echo "</pre>";die;

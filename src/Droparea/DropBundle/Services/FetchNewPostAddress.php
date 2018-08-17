@@ -5,6 +5,7 @@ namespace Droparea\DropBundle\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use Droparea\DropBundle\Entity\PostAddress;
 use LisDev\Delivery\NovaPoshtaApi2;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class FetchNewPostAddress
 {
@@ -214,16 +215,48 @@ class FetchNewPostAddress
         var_dump($ar);die;
     }
 
+    public function getWarehousesOnline()
+    {
+        if ($w = $this->np->getWarehouses('')) {
+
+            $warehousesList = [];
+            $i = 0;
+            foreach ($w['data'] as $item) {
+                $warehousesList[$i]['DescriptionRu'] = $item['DescriptionRu'];
+                $warehousesList[$i]['Ref'] = $item['Ref'];
+                $warehousesList[$i]['CityRef'] = $item['CityRef'];
+                $warehousesList[$i]['CityDescriptionRu'] = $item['CityDescriptionRu'];
+                $i++;
+            }
+        //        echo "<pre>";
+        //        print_r($warehousesList);
+        //        echo "</pre>";die;
+            $postAddress = new PostAddress();
+            $postAddress->setWarehouses($warehousesList);
+            $this->em->persist($postAddress);
+            $this->em->flush();
+        } else {
+            return null;
+        }
+    }
     /**
      * @param $city
      * @return mixed
      * Getting array of Warehouses from NEW POST
      */
-    public function getWarehouses($city)
+    public function getWarehouses($cityDescriptionRu)
     {
-        $c = $this->np->getCities('', $city);
-        $result = $this->np->getWarehouses($c['data'][1]['Ref']);
-        return $result;
+        if ($cityDescriptionRu == null) {
+            return [' ' => ' '];
+        }
+        $city = $this->np->getCities('', $cityDescriptionRu);
+//        var_dump($c);die;
+        $result = $this->np->getWarehouses($city['data'][0]['Ref']);
+        $warehouses = $result['data'];
+        foreach ($warehouses as $warehouse) {
+            $listWarehouses[] = $warehouse['DescriptionRu'];
+        }
+        return $listWarehouses;
     }
 
 }
