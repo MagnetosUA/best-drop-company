@@ -21,6 +21,10 @@ orders:
     path: /orders
     defaults: { _controller: DropBundle:Default:orders }
 
+new-orders:
+    path: /new-orders
+    defaults: { _controller: DropBundle:Default:newOrders }
+
 payments:
     path: /payments
     defaults: { _controller: DropBundle:Default:payments }

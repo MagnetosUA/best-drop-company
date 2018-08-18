@@ -84,15 +84,20 @@ class DefaultController extends Controller
         }
         return new Response('none!E');
     }
-    public function ordersAction(Request $request)
+    public function newOrdersAction(Request $request)
     {
         $addressDb = $this->get('get.new.post.address.from.db');
         $form = $this->createForm(OrderClientType::class);
         $staticSitiesFull = $addressDb->getCities();
-        return $this->render('@Drop/Pages/orders.html.twig', [
+        return $this->render('@Drop/Pages/new-orders.html.twig', [
             'cities' => $staticSitiesFull,
             'form' => $form->createView(),
         ]);
+    }
+
+    public function ordersAction()
+    {
+        return $this->render('@Drop/Pages/orders.html.twig');
     }
 
     public function paymentsAction()
