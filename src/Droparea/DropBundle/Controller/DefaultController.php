@@ -67,13 +67,18 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     * Process Ajax request to get list of warehouses
+     */
     public function ajaxNewPostAction(Request $request)
     {
         if ($city = $request->request->get('destination')) {
             $addressDb = $this->get('get.new.post.address.from.db');
             $warehouses = $addressDb->getWarehouses($city);
             $area = $addressDb->getArea($city);
-            $ar = [$city, $area, $warehouses];
+            $ar = [$city, $area, $warehouses]; //array that will be return to page
             $ar = json_encode($ar);
             return new Response($ar);
         }

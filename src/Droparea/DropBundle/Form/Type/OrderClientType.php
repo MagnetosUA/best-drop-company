@@ -26,8 +26,6 @@ class OrderClientType extends AbstractType
         $this->newPostAddress = $newPostAddress;
     }
 
-
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

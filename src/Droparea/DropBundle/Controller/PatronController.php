@@ -13,6 +13,7 @@ class PatronController extends Controller
     {
         if ($city = $request->request->get('update-data-address')) {
             $postAddress = $this->get('fetch.new.post.address');
+            $result = $postAddress->updateAll();
         }
 
         $product = new Product();

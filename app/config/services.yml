@@ -26,6 +26,6 @@ services:
     order.client.type:
         class: Droparea\DropBundle\Form\Type\OrderClientType
         arguments:
-            - '@GetNewPostAddressFromDB' # this is the ID of the service you want to inject
-            - '@FetchNewPostAddress'
+            - '@get.new.post.address.from.db' # this is the ID of the service you want to inject
+            - '@fetch.new.post.address'
         public: true

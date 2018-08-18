@@ -4,6 +4,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="{{ asset('js/orders/new-post-address.js') }}"></script>
 {% endblock over_styles %}
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
@@ -11,47 +12,6 @@
         <div class="col-md-4">
             {{ form_start(form) }}
             {{ form_end(form) }}
-            <script>
-                var globalCityArea = '';
-                $(".js-example-basic-single").change(function(){
-                    var val = $(this).val();
-                    globalCityArea = '';
-                    $.ajax ({
-                        url: "{{ path('ajax-new-post') }}",
-                        type: "POST",
-                        dataType: 'json',
-                        data: {"destination" : val},
-                        success: function (data) {
-
-                            $(".warehouses").empty();
-                            $(".warehouses").append("<option value selected='selected'>Укажите отделениё</option>");
-                            // alert(data[2][0]);
-                            $(".full-address").text(data[1]+', '+data[0]);
-                            for (var i=0;i<data[2].length;i++) {
-                                $(".warehouses").append("<option>"+data[2][i]+"</option>");
-                            }
-                            // var out = "";
-                            // if(data && typeof(data) == "object"){
-                            //     for (var i in data) {
-                            //         out += i + ": " + data[i] + "\n";
-                            //     }
-                            // } else {
-                            //     out = data;
-                            // }
-                            // alert(out);
-                        }
-                    });
-                });
-                $(".warehouses").change(function() {
-                    if (globalCityArea == '') {
-                        globalCityArea = $(".full-address").text();
-                    }
-                    var text = $(".full-address").text(null);
-
-                    var fullAddress = globalCityArea + ', ' + $(this).val();
-                    $(".full-address").text(fullAddress);
-                });
-            </script>
         </div>
     </div>
 {% endblock main_content %}
