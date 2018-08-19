@@ -1,0 +1,67 @@
+.order-status {
+    padding-bottom: 12px;
+}
+
+.order-status li {
+    float:left;
+    padding: 4px 7px;
+    background: #fff3cd;
+    color: #000;
+    margin:1px 0 7px 3px;
+    cursor: pointer;
+    text-shadow: 2px 2px 8px #fff;
+    border-radius: 5px;
+}
+.order-status li:hover {
+    color: #010101;
+    padding-top:2px;
+    opacity: 0.9;
+}
+
+#new {
+    background: rgba(130,183,247,1);
+}
+#in-progress {
+    background: rgba(18,158,116,1);
+}
+#not-call {
+    background: rgba(228,208,10,1);
+}
+
+#accepted {
+    background: rgba(87,101,239,0.84);
+}
+#rejected {
+    background: rgba(237,100,100,1);
+}
+#shipped {
+    background: rgba(145,209,10,1);
+}
+#non-payment {
+    background: rgba(219,16,31,1);
+}
+#buyout {
+    background: rgb(19, 170, 42);
+}
+#not-send-process {
+    background: rgb(43, 114, 193);
+}
+
+/*.order-status::after {*/
+    /*content: "<div></div>";*/
+    /*clear: both;*/
+/*}*/
+
+/*BEGIN****************************************NEW-ORDERS-PAGE*****************************BEGIN*/
+.wrapper {
+    width:98%;
+    margin: 0 auto;
+}
+.products-table table, .orders-table table{
+    border: 1px solid #adadad;
+    background: #fff3cd;
+}
+.headers {
+    margin-left: 20px;
+}
+/*END***************************************NEW-ORDERS-PAGE*****************************END*/

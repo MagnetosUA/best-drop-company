@@ -1,43 +1,51 @@
 {% extends '@Drop/base.html.twig' %}
 {% block over_styles %}
     {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
+    <link href="{{ asset('css/orders.css') }}" rel="stylesheet" />
 {% endblock over_styles %}
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
     <div class="row">
+        <div class="col-md-10 order-status">
+            <ul>
+                <li id="all">
+                    Все(777)
+                </li>
+                <li id="new">
+                    Новый(7)
+                </li>
+                <li id="in-progress">
+                    В обработке(170)
+                </li>
+                <li id="not-call">
+                    Недозвон
+                </li>
+                <li id="accepted">
+                    Подтвержденный(500)
+                </li>
+                <li id="rejected">
+                    Отклоненный
+                </li>
+                <li id="shipped">
+                    Отправленный
+                </li>
+                <li id="non-payment">
+                    Невыкуп
+                </li>
+                <li id="buyout">
+                    Выкуп(100)
+                </li>
+                <li id="not-send-process">
+                    Не отправлен на обработку
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ path('new-orders') }}" class="btn btn-success"><i class="fas fa-arrow-alt-circle-right">Добавить заказ</i></a>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
-            {#<table class="table-striped">#}
-                {#<tr>#}
-                    {#<td>№ Заказа</td>#}
-                    {#<td>Дата создания</td>#}
-                    {#<td>Товар</td>#}
-                    {#<td>Статус</td>#}
-                    {#<td>Сумма продажи</td>#}
-                    {#<td>Сумма покупки</td>#}
-                    {#<td>Доход</td>#}
-                    {#<td>Телефон клиента</td>#}
-                    {#<td>Имя клиента</td>#}
-                    {#<td>ТТН</td>#}
-                    {#<td>Адрес доставки</td>#}
-                    {#<td>Комментарий</td>#}
-                {#</tr>#}
-                {#{% for i in range(1,7)  %}#}
-                    {#<tr>#}
-                        {#<td>777</td>#}
-                        {#<td>19.08.2018</td>#}
-                        {#<td>Розетка</td>#}
-                        {#<td>В обработке</td>#}
-                        {#<td>70</td>#}
-                        {#<td>800</td>#}
-                        {#<td>730</td>#}
-                        {#<td>+38097 77 77 777</td>#}
-                        {#<td>Александр</td>#}
-                        {#<td>333555777</td>#}
-                        {#<td>Черкассы</td>#}
-                        {#<td>Отделение №7</td>#}
-                    {#</tr>#}
-                {#{% endfor %}#}
-            {#</table>#}
             <table class="table table-striped">
                 <thead>
                 <tr>

@@ -3,14 +3,143 @@
     <script src="{{ asset('build/practice.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/orders.css') }}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="{{ asset('js/orders/new-post-address.js') }}"></script>
 {% endblock over_styles %}
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
-    <div class="row">
-        <div class="col-md-4">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12 products-table">
+                <h3 class="headers">Список товаров</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Возврат</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Цена продажи</th>
+                        <th scope="col"> </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>Заказать</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 orders-table">
+                <h3 class="headers">Перечень позиций в заказе</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ Заказа</th>
+                        <th scope="col">Дата создания</th>
+                        <th scope="col">Товар</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Сумма продажи</th>
+                        <th scope="col">Сумма покупки</th>
+                        <th scope="col">Доход</th>
+                        <th scope="col">Телефон клиента</th>
+                        <th scope="col">Имя клиента</th>
+                        <th scope="col">ТТН</th>
+                        <th scope="col">Адрес доставки</th>
+                        <th scope="col">Комментарий</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Jacob</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>Larry</td>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>the Bird</td>
+                        <td>the Bird</td>
+                        <td>the Bird</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
             {{ form_start(form) }}
+            <div class="col-md-4">
+                {{ form_row(form.last_name) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.patronymic) }}
+                {{ form_row(form.phone) }}
+                {{ form_row(form.city) }}
+                {{ form_row(form.warehouse) }}
+                {{ form_row(form.full_address) }}
+            </div>
+            <div class="col-md-4">
+                {{ form_row(form.comment) }}
+                {{ form_row(form.save) }}
+                <button class="btn btn-danger">Удалить</button>
+            </div>
             {{ form_end(form) }}
         </div>
     </div>
