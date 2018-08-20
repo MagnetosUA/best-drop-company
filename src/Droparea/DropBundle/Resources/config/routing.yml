@@ -44,3 +44,7 @@ news:
 ajax-new-post:
     path: /ajax-new-post
     defaults: { _controller: DropBundle:Default:ajaxNewPost }
+
+registration:
+    path: /registration
+    defaults: { _controller: DropBundle:User:registerUser }
