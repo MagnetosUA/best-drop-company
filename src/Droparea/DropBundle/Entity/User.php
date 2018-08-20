@@ -52,21 +52,21 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="skype", type="string", length=255, unique=true)
+     * @ORM\Column(name="skype", type="string", length=255, unique=true, nullable=true)
      */
     private $skype;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cardsNumber", type="string", length=255)
+     * @ORM\Column(name="cardsNumber", type="string", length=255, nullable=true)
      */
     private $cardsNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="refLink", type="string", length=255, unique=true)
+     * @ORM\Column(name="refLink", type="string", length=255, unique=true, nullable=true)
      */
     private $refLink;
 

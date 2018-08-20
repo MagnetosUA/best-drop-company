@@ -6,8 +6,15 @@
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
     <div class="wrapper">
-        {{ form_start(user_form) }}
-        {{ form_end(user_form) }}
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h4>Регистрация нового продавца</h4>
+                {{ form_start(user_form) }}
+                {{ form_end(user_form) }}
+            </div>
+            <div class="row"><div class="col-md-4"></div>
+        </div>
     </div>
 {% endblock main_content %}
 

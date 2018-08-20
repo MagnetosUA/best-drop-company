@@ -5,33 +5,26 @@ namespace Droparea\DropBundle\Controller;
 use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\OrderClientType;
-use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Droparea\DropBundle\Form\Type\RegisterUserType;
 
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $form = $this->createForm(ProductType::class);
-        $form->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $em->persist($data);
-            $em->flush();
-            return $this->redirectToRoute('drop_homepage', [
-                'success' => 1,
+        $userForm = $this->createForm(RegisterUserType::class);
+        $userForm->handleRequest($request);
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+            $data = $userForm->getData();
+            $response = $this->forward('DropBundle:User:registerUser', [
+                'data' => $data,
             ]);
+            return $response;
         }
-
-        $success = $request->get('success');
-
         return $this->render('@Drop/Default/index.html.twig', [
-            'form' => $form->createView(),
-            'success' => $success,
+            'user_form' => $userForm->createView(),
         ]);
     }
 
