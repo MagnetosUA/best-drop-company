@@ -63,5 +63,13 @@
 }
 .headers {
     margin-left: 20px;
+    /*position: absolute;*/
+}
+.products-table {
+    height:300px;
+    /*border:1px solid red;*/
+    /*background: #818182;*/
+    overflow: scroll;
+    position: relative;
 }
 /*END***************************************NEW-ORDERS-PAGE*****************************END*/

@@ -89,9 +89,11 @@ class DefaultController extends Controller
         $addressDb = $this->get('get.new.post.address.from.db');
         $form = $this->createForm(OrderClientType::class);
         $staticSitiesFull = $addressDb->getCities();
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('@Drop/Pages/new-orders.html.twig', [
             'cities' => $staticSitiesFull,
             'form' => $form->createView(),
+            'products' => $products,
         ]);
     }
 
