@@ -4,6 +4,7 @@ namespace Droparea\DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
+use Droparea\DropBundle\Form\Type\AuthUserType;
 use Droparea\DropBundle\Form\Type\OrderClientType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,17 +15,27 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $userForm = $this->createForm(RegisterUserType::class);
-        $userForm->handleRequest($request);
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-            $data = $userForm->getData();
+        $regForm = $this->createForm(RegisterUserType::class);
+        $authForm = $this->createForm(AuthUserType::class);
+        $authForm->handleRequest($request);
+        $regForm->handleRequest($request);
+        if ($regForm->isSubmitted() && $regForm->isValid()) {
+            $data = $regForm->getData();
             $response = $this->forward('DropBundle:User:registerUser', [
                 'data' => $data,
             ]);
             return $response;
         }
+        if ($authForm->isSubmitted() && $authForm->isValid()) {
+            $data = $authForm->getData();
+            $response = $this->forward('DropBundle:User:authUser', [
+                'data' => $data,
+            ]);
+            return $response;
+        }
         return $this->render('@Drop/Default/index.html.twig', [
-            'user_form' => $userForm->createView(),
+            'reg_form' => $regForm->createView(),
+            'auth_form' => $authForm->createView(),
         ]);
     }
 

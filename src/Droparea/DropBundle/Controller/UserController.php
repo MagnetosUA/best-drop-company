@@ -3,10 +3,7 @@
 namespace Droparea\DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\User;
-use Droparea\DropBundle\Form\Type\RegisterUserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -21,8 +18,10 @@ class UserController extends Controller
         $em->persist($user);
         $em->flush();
         return $this->redirectToRoute('drop_homepage');
-
-//        return new Response('Somthing wrong!');
     }
 
+    public function authUser($data)
+    {
+        return $this->redirectToRoute('drop_homepage'); //Here must be route, where user is from !
+    }
 }
