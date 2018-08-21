@@ -15,6 +15,7 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
+        echo $this->getUser();
         $regForm = $this->createForm(RegisterUserType::class);
         $authForm = $this->createForm(AuthUserType::class);
         $authForm->handleRequest($request);

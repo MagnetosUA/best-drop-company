@@ -44,7 +44,10 @@
     <!-- HEADER -->
     <header>
         {% block top_header %}
-            {% include '@Drop/Parts/top-registration.html.twig' %}
+            {% if is_granted('ROLE_ADMIN') %}
+                {#{% include '@Drop/Parts/top-registration.html.twig' %}#}
+                {% include '@Drop/Parts/top-header.html.twig' %}
+            {% endif %}
         {% endblock top_header %}
         <!-- MAIN HEADER -->
         <div id="header">
