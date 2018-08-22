@@ -1,0 +1,18 @@
+{% extends '@Drop/base.html.twig' %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2 text-right">
+            <p>Авторизация</p>
+            {{ form_start(form) }}
+                {{ form_row(form._username) }}
+                {{ form_row(form._password) }}
+                <button type="submit" class="btn btn-success">Вход <span class="fa fa-lock"></span></button>
+            {{ form_end(form) }}
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+    <script>
+    </script>
+{% endblock main_content %}

@@ -4,7 +4,7 @@ namespace Droparea\DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
-use Droparea\DropBundle\Form\Type\AuthUserType;
+use Droparea\DropBundle\Form\Type\LoginType;
 use Droparea\DropBundle\Form\Type\OrderClientType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ class DefaultController extends Controller
     {
         echo $this->getUser();
         $regForm = $this->createForm(RegisterUserType::class);
-        $authForm = $this->createForm(AuthUserType::class);
+        $authForm = $this->createForm(LoginType::class);
         $authForm->handleRequest($request);
         $regForm->handleRequest($request);
         if ($regForm->isSubmitted() && $regForm->isValid()) {
