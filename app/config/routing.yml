@@ -5,3 +5,7 @@ drop:
 security_login:
     path: /login
     defaults: { _controller: DropBundle:Security:login }
+
+security_logout:
+    path: /logout
+    defaults: { _controller: DropBundle:Security:logout }
