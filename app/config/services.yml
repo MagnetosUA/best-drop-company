@@ -5,14 +5,14 @@ parameters:
 
 services:
     # default configuration for services in *this* file
-    _defaults:
+#    _defaults:
         # automatically injects dependencies in your services
-        autowire: true
+#        autowire: true
         # automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: true
+#        autoconfigure: true
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
-        public: false
+#        public: false
 
     get.new.post.address.from.db:
         class: Droparea\DropBundle\Services\GetNewPostAddressFromDB
@@ -29,3 +29,7 @@ services:
             - '@get.new.post.address.from.db' # this is the ID of the service you want to inject
             - '@fetch.new.post.address'
         public: true
+
+    app.security.login_form_authenticator:
+        class: Droparea\DropBundle\Sequrity\LoginFormAuthenticator
+        autowire: true
