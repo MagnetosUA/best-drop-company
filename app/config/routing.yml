@@ -1,3 +1,7 @@
 drop:
     resource: "@DropBundle/Resources/config/routing.yml"
     prefix:   /
+
+security_login:
+    path: /login
+    defaults: { _controller: DropBundle:Security:login }
