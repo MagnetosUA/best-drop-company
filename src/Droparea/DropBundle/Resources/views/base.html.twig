@@ -47,6 +47,8 @@
             {% if is_granted('ROLE_ADMIN') %}
                 {#{% include '@Drop/Parts/top-registration.html.twig' %}#}
                 {% include '@Drop/Parts/top-header.html.twig' %}
+                {% else %}
+                {% include '@Drop/Parts/top-registration.html.twig' %}
             {% endif %}
         {% endblock top_header %}
         <!-- MAIN HEADER -->
