@@ -6,15 +6,24 @@ use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\LoginType;
 use Droparea\DropBundle\Form\Type\OrderClientType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Droparea\DropBundle\Form\Type\RegisterUserType;
 
+/**
+ * Class DefaultController
+ * @package Droparea\DropBundle\Controller
+ */
 class DefaultController extends Controller
 {
+
     public function indexAction(Request $request)
     {
+//        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+//            throw $this->createAccessDeniedException('GET OUT!');
+//        }
         $regForm = $this->createForm(RegisterUserType::class);
         $authForm = $this->createForm(LoginType::class);
         $authForm->handleRequest($request);

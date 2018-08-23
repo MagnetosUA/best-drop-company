@@ -3,13 +3,16 @@
 namespace Droparea\DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="Droparea\DropBundle\Repository\UserRepository")
+ * @UniqueEntity(fields={"email"}, message="It looks like your already have an account!")
  */
 class User implements UserInterface
 {
@@ -26,6 +29,9 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     *
      */
     private $email;
 
@@ -33,6 +39,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -48,6 +55,7 @@ class User implements UserInterface
      * @var string
      *
      * A non-persisted field that's used to create the encoded password.
+     * @Assert\NotBlank()
      */
     private $plainPassword;
 

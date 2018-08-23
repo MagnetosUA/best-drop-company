@@ -21,6 +21,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
             $this->addFlash('success', 'Welcome '.$user->getEmail());
+
             return $this->redirectToRoute('drop_homepage');
         }
 //        $user->setName($data['name']);

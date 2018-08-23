@@ -27,6 +27,10 @@ security:
             logout:
                 path: /logout
 
+            switch_user: ~
+
 
     access_control:
-        - { path: ^/orders, roles: ROLE_USER }
+#        - { path: ^/orders, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_USER: [ROLE_MANAGE_GENUS, ROLE_ALLOWED_TO_SWITCH]
