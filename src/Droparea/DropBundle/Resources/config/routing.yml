@@ -45,6 +45,6 @@ ajax-new-post:
     path: /ajax-new-post
     defaults: { _controller: DropBundle:Default:ajaxNewPost }
 
-registration:
+user_register:
     path: /registration
     defaults: { _controller: DropBundle:User:registerUser }

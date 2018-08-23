@@ -37,7 +37,7 @@ class RegisterUserType extends AbstractType
                     'class' => 'telephone',
                 ]
             ])
-            ->add('password', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['class' => 'password-field']],
@@ -50,20 +50,14 @@ class RegisterUserType extends AbstractType
                     'attr' => ['placeholder' => 'Повторите пароль'],
                     'label' => false,
                 ],
-            ])
-            ->add('save', SubmitType::class, [
-                'label' => 'Регистрация',
-                'attr' => [
-                    'class' => 'btn btn-info',
-                ],
             ]);
     }
 
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//        $resolver->setDefaults([
-//            'data_class' => User::class,
-//        ]);
-//    }
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => User::class,
+        ]);
+    }
 }
 

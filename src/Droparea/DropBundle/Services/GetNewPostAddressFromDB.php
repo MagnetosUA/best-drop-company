@@ -7,7 +7,6 @@ use Droparea\DropBundle\Entity\PostAddress;
 
 /**
  * Class GetNewPostAddressFromDB
- * @package Droparea\DropBundle\Services
  * Return New Post address from DB
  */
 class GetNewPostAddressFromDB
