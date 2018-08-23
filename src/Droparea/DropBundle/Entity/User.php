@@ -37,11 +37,19 @@ class User implements UserInterface
     private $name;
 
     /**
-     * @var string
+     *
+     * The encoded password
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+
+    /**
+     * @var string
+     *
+     * A non-persisted field that's used to create the encoded password.
+     */
+    private $plainPassword;
 
     /**
      * @var string
@@ -153,6 +161,24 @@ class User implements UserInterface
     {
         return $this->password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        $this->password = null;
+    }
+
 
     /**
      * Set phone
@@ -267,9 +293,7 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->plainPassword = null;
     }
-
-
 }
 

@@ -33,3 +33,9 @@ services:
     app.security.login_form_authenticator:
         class: Droparea\DropBundle\Sequrity\LoginFormAuthenticator
         autowire: true
+
+    app.doctrine.hash_password_listener:
+        class: Droparea\DropBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
