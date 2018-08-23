@@ -7,8 +7,6 @@ security:
             bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-#        in_memory:
-#            memory: ~
         our_users:
             entity:
                 class: Droparea\DropBundle\Entity\User
@@ -22,17 +20,13 @@ security:
 
         main:
             anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
             form_login: ~
-
             guard:
                 authenticators:
                     - app.security.login_form_authenticator
-
             logout:
                 path: /logout
+
+
+    access_control:
+        - { path: ^/orders, roles: ROLE_USER }
