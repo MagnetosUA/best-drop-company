@@ -22,7 +22,15 @@ class UserController extends Controller
             $em->flush();
             $this->addFlash('success', 'Welcome '.$user->getEmail());
 
-            return $this->redirectToRoute('drop_homepage');
+            return $this->get('security.authentication.guard_handler')
+                ->authenticateUserAndHandleSuccess(
+                    $user,
+                    $request,
+                    $this->get('app.security.login_form_authenticator'),
+                    'main'
+                );
+
+//            return $this->redirectToRoute('drop_homepage');
         }
 //        $user->setName($data['name']);
 //        $user->setEmail($data['email']);
