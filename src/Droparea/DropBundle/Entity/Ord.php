@@ -76,7 +76,7 @@ class Ord
     /**
      * @var string
      *
-     * @ORM\Column(name="ыsaleAmount", type="string", length=255)
+     * @ORM\Column(name="saleAmount", type="string", length=255)
      */
     private $saleAmount;
 
@@ -90,7 +90,7 @@ class Ord
     /**
      * @var string
      *
-     * @ORM\Column(name="�income", type="string", length=255)
+     * @ORM\Column(name="income", type="string", length=255)
      */
     private $income;
 
@@ -125,7 +125,7 @@ class Ord
     /**
      * @var string
      *
-     * @ORM\Column(name="�waybill", type="string", length=255)
+     * @ORM\Column(name="waybill", type="string", length=255)
      */
     private $waybill;
 
@@ -150,6 +150,13 @@ class Ord
      */
     private $source;
 
+
+    /**
+     * Many Orders have One User.
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="orders")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -306,9 +313,9 @@ class Ord
     }
 
     /**
-     * Set ыsaleAmount
+     * Set saleAmount
      *
-     * @param string $ыsaleAmount
+     * @param string $saleAmount
      *
      * @return Ord
      */
@@ -320,7 +327,7 @@ class Ord
     }
 
     /**
-     * Get ыsaleAmount
+     * Get saleAmount
      *
      * @return string
      */
@@ -354,9 +361,9 @@ class Ord
     }
 
     /**
-     * Set �income
+     * Set income
      *
-     * @param string $�income
+     * @param string $income
      *
      * @return Ord
      */
@@ -368,7 +375,7 @@ class Ord
     }
 
     /**
-     * Get �income
+     * Get income
      *
      * @return string
      */
@@ -474,9 +481,9 @@ class Ord
     }
 
     /**
-     * Set �waybill
+     * Set waybill
      *
-     * @param string $�waybill
+     * @param string $waybill
      *
      * @return Ord
      */
@@ -488,7 +495,7 @@ class Ord
     }
 
     /**
-     * Get �waybill
+     * Get waybill
      *
      * @return string
      */
@@ -568,5 +575,22 @@ class Ord
     {
         return $this->source;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
 }
 

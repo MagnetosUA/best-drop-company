@@ -2,6 +2,7 @@
 
 namespace Droparea\DropBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -87,6 +88,18 @@ class User implements UserInterface
      */
     private $refLink;
 
+    /**
+     * One User has Many Orders.
+     * @ORM\OneToMany(targetEntity="Ord", mappedBy="user")
+     */
+    private $orders;
+
+    /**
+     * User constructor.
+     */
+    public function __construct() {
+        $this->orders = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -303,5 +316,22 @@ class User implements UserInterface
     {
         $this->plainPassword = null;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
 }
 
