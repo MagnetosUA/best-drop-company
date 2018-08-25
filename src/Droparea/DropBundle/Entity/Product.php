@@ -45,12 +45,10 @@ class Product
     private $country;
 
     /**
-     * @var string
-     * @ORM\Column(name="image", type="string", length=255)
-     * @Assert\NotBlank(message="Пожалуйста, загрузите фотографию !")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @var array
+     * @ORM\Column(name="images", type="array")
      */
-    private $image;
+    private $images;
 
     /**
      * @var string
@@ -99,14 +97,14 @@ class Product
      *
      * @ORM\Column(name="new", type="boolean")
      */
-    private $new;
+    private $new = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="top", type="boolean")
      */
-    private $top;
+    private $top = false;
 
     /**
      * Get id
@@ -116,6 +114,22 @@ class Product
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param array $images
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
     }
 
     /**
@@ -181,30 +195,6 @@ class Product
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Product
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
     }
 
     /**

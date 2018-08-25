@@ -32,8 +32,9 @@ class ProductType extends AbstractType
             'multiple' => false,
             'label' => 'Категория'
         ])
-        ->add('image', FileType::class, [
+        ->add('images', FileType::class, [
             'label' => 'Фото',
+            'multiple' => true,
         ])
         ->add('name', TextType::class, [
             'label' => 'Название',

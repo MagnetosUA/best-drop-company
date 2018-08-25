@@ -76,6 +76,7 @@ class DefaultController extends Controller
     {
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('@Drop/Pages/product-page.html.twig', [
+//        return $this->render('@Drop/Default/practice.html.twig', [
             'product' => $product,
         ]);
     }

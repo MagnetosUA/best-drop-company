@@ -22,16 +22,20 @@ class PatronController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $image = $product->getImage();
+            $images = $product->getImages();
+//            var_dump($image);die;
 
-            $imageName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+            foreach ($images as $image) {
+                $imageName = $this->generateUniqueFileName().'.'.$image->guessExtension();
 
-            $image->move(
-                $this->getParameter('images_directory'),
-                $imageName
-            );
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $imageName
+                );
+                $imageNames[] = $imageName;
+            }
 
-            $product->setImage($imageName);
+            $product->setImages($imageNames);
 
             $data = $form->getData();
             $em->persist($data);

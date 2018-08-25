@@ -8,15 +8,17 @@ use Droparea\DropBundle\Entity\Product;
 
 class ProductFixtures extends Fixture
 {
+    public $images = ['ola.jpeg', 'gps.jpeg', 'husq.jpeg'];//, 'tv.jpeg', 'iphone.jpeg'];
+
     public function load(ObjectManager $manager)
     {
 
         // create 20 products! Bam!
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $product = new Product();
             $product->setName('product '.$i);
             $product->setCost(mt_rand(10, 100));
-            $product->setImage('fixture.jpg');
+            $product->setImages($this->images);
             $category = $this->getReference('category'.mt_rand(0, 3));
             $product->setCategory($category);
             $product->setCountry('Ukraine');
