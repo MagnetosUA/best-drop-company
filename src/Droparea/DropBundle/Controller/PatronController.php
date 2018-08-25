@@ -6,14 +6,21 @@ use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PatronController extends Controller
 {
     public function indexAction(Request $request)
     {
+
+        if ($c = $request->request->get('destination')) {
+
+            return new Response($c."777");
+        }
         if ($city = $request->request->get('update-data-address')) {
             $postAddress = $this->get('fetch.new.post.address');
             $result = $postAddress->updateAll();
+            return new Response($result);
         }
 
         $product = new Product();

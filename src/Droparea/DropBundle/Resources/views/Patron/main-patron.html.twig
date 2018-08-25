@@ -3,7 +3,9 @@
     <h1 id = "admin-title">Админка</h1>
 {% endblock search_bar %}
 
+
 {% block main_content %}
+    {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
 <div class="row product-form">
     <div class="col-md-3"></div>
     <div class = "col-md-6">
@@ -12,8 +14,24 @@
         {{ form_end(form) }}
     </div>
     <div class="col-md-3">
-        <button class="btn btn-danger">Обновить базу данных адресов Новой Почты</button>
+        <button class="btn btn-danger update-new-post"> Обновить базу данных адресов Новой Почты</button>
     </div>
 </div>
-
+<script>
+    $(".update-new-post").click(function () {
+        $(this).prepend('<i class="fa fa-spinner fa-spin"></i> ');
+        $.ajax ({
+            url: "http://localhost:8000/patron",//{{ path('ajax-new-post') }}", !!! The PROBLEM NOT SOLVED
+            //in page Twig it is work with "{{ path('ajax-new-post') }}", but from here it's not work !
+            type: "POST",
+            dataType: 'text',
+            data: {"update-data-address" : "Alxy"},
+            success: function (data) {
+                alert(data);
+                $(".update-new-post").empty();
+                $(".update-new-post").append('База данных обновлена');
+            }
+        });
+    });
+</script>
 {% endblock main_content %}
