@@ -111,6 +111,13 @@ class Product
      *
      * @return int
      */
+
+    /**
+     * @var string
+     * @ORM\Column(name="description", type="string", length=3000)
+     */
+    private $description;
+
     public function getId()
     {
         return $this->id;
@@ -373,6 +380,20 @@ class Product
         $this->top = $top;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 }
 

@@ -36,6 +36,9 @@ class ProductType extends AbstractType
             'label' => 'Фото',
             'multiple' => true,
         ])
+        ->add('description', TextType::class, [
+            'label' => 'Описание',
+        ])
         ->add('name', TextType::class, [
             'label' => 'Название',
         ])

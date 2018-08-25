@@ -10,6 +10,8 @@ class ProductFixtures extends Fixture
 {
     public $images = ['ola.jpeg', 'gps.jpeg', 'husq.jpeg'];//, 'tv.jpeg', 'iphone.jpeg'];
 
+    public $description = 'Особенности Соединение с телефоном по Bluetooth Встроенная память 8 ГБ в комплекте Детектирование камер и радаров полиции по GPS-базе с регулярным автоматическим обновлением Голосовое сопровождение На русском языке Поворотный кронштейн Батарея регистратора 30 минут Bluetooth Bluetooth Smart';
+
     public function load(ObjectManager $manager)
     {
 
@@ -19,6 +21,7 @@ class ProductFixtures extends Fixture
             $product->setName('product '.$i);
             $product->setCost(mt_rand(10, 100));
             $product->setImages($this->images);
+            $product->setDescription($this->description);
             $category = $this->getReference('category'.mt_rand(0, 3));
             $product->setCategory($category);
             $product->setCountry('Ukraine');
