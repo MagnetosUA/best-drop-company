@@ -100,6 +100,17 @@ class DefaultController extends Controller
     }
     public function newOrdersAction(Request $request)
     {
+        if ($prd = $request->request->get("product")) {
+
+            $prd = json_decode($prd);
+//            $r = gettype($prd->name);//$prd['name'];
+//            $prd = array();
+//            echo gettype($prd->id);die;
+            echo $prd->myCost;die;
+//            echo $prd->name;die;
+            return new Response($prd);
+        }
+
         $addressDb = $this->get('get.new.post.address.from.db');
         $form = $this->createForm(OrderClientType::class);
         $staticSitiesFull = $addressDb->getCities();
