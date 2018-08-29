@@ -1,4 +1,5 @@
 //function for getting products from table and creating table with orders
+var productArray = new Array();
 
 $(".to-order").click(function () {
     var product = new Object();
@@ -15,7 +16,7 @@ $(".to-order").click(function () {
         type: "POST",
         dataType: "text",
         data: {"product": productJson},
-        success: function (data) {
+        success: function () {
             $("#myOrder").append("<tr>" +
                 "<td>"+product.id+"</td>" +
                 "<td>"+product.name+"</td>" +
@@ -25,10 +26,23 @@ $(".to-order").click(function () {
                 "<td>"+product.count * product.myCost+"</td>"+
                 "<td><button class='btn btn-danger btn-xs delete-order' onclick='deleteOrder(this);' od='ordr'>Удалить заказ</button></td>"+
                 "</tr>");
+            console.log(productArray);
+            console.log("step 2");
+            productArray.push(product);
+            console.log(productArray);
         }
     })
 });
-
+$(".save-order").click(function () {
+    console.log("after submit");
+    var p = JSON.stringify(productArray);
+    console.log(p);
+    $(".hidden-product").val(p);
+    var ch = $(".hidden-product").val();
+    console.log("in hidden form")
+    console.log(ch);
+    alert();
+});
 // function for deleting orders from orders table
 
 function deleteOrder(element) {

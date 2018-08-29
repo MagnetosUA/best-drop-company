@@ -3,6 +3,7 @@
 namespace Droparea\DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\Category;
+use Droparea\DropBundle\Entity\Ord;
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\LoginType;
 use Droparea\DropBundle\Form\Type\OrderClientType;
@@ -102,17 +103,74 @@ class DefaultController extends Controller
     {
         if ($prd = $request->request->get("product")) {
 
-            $prd = json_decode($prd);
+//            $prd = json_decode($prd);
 //            $r = gettype($prd->name);//$prd['name'];
 //            $prd = array();
 //            echo gettype($prd->id);die;
-            echo $prd->myCost;die;
+//            echo $prd->myCost;die;
 //            echo $prd->name;die;
-            return new Response($prd);
+            return new Response();
         }
 
         $addressDb = $this->get('get.new.post.address.from.db');
         $form = $this->createForm(OrderClientType::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+//            var_dump($this->getUser());die;
+            $data = $form->getData();
+            $clientName = $data["name"]." ".$data["last_name"]." ".$data["patronymic"];
+            $income;
+            $sale;
+            $purchase;
+
+            $productsArray = [];
+
+            $productsAr = $data["product_array"];
+//            var_dump($productsAr);
+            $prdrArr = json_decode($productsAr);
+//            var_dump($prdrArr);die;
+            foreach ($prdrArr as $product) {
+
+                $productsArray[$product->id]["count"] = [$product->count];
+                $productsArray[$product->id]["cost"] = [$product->cost];
+                echo 1;
+
+
+            }
+//            $this->E($data);die;
+            $order = new Ord();
+            $order->setProducts($productsArray);
+            $order->setClientName($clientName);
+            $order->setClientPhone($data["phone"]);
+            $order->setComment($data["comment"]);
+            $order->setCreated();
+            $order->setDeliveryAddress($data["full_address"]);
+            $order->setStatus(Ord::NEW_OREDER);
+            $order->setOrderNumber(1);
+//            $order->setIncome();
+//            $order->setPurchaseAmount();
+//            $order->setSaleAmount();
+            $order->setUser($this->getUser());
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($order);
+            $em->flush();
+            return $this->redirectToRoute("new-orders");
+
+
+//            $request->request->get("product-name");
+//            echo $request->request->get("product-name");die;
+//            echo "<pre>";
+//            print_r($_REQUEST);
+//            echo "</pre>";
+//            die;
+//            var_dump($data);die;
+//            echo $data["product-name"];die;
+
+        }
+
         $staticSitiesFull = $addressDb->getCities();
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('@Drop/Pages/new-orders.html.twig', [
@@ -155,6 +213,13 @@ class DefaultController extends Controller
         return $this->render('@Drop/Pages/products.html.twig', [
             'products' => $products,
         ]);
+    }
+
+//    additional functional for testing
+    private function E($var) {
+        echo "<pre>";
+        var_dump($var);
+        echo "</pre>";
     }
 }
 

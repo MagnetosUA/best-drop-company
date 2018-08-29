@@ -35,6 +35,7 @@ class Ord
      * @var int
      *
      * @ORM\Column(name="orderNumber", type="integer", unique=true)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $orderNumber;
 
@@ -46,25 +47,11 @@ class Ord
     private $created;
 
     /**
-     * @var \DateTime
+     * @var array
      *
-     * @ORM\Column(name="changed", type="datetime")
+     * @ORM\Column(name="products", type="array")
      */
-    private $changed;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="product", type="string", length=255)
-     */
-    private $product;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=255)
-     */
-    private $phone;
+    private $products;
 
     /**
      * @var string
@@ -78,35 +65,35 @@ class Ord
      *
      * @ORM\Column(name="saleAmount", type="string", length=255)
      */
-    private $saleAmount;
+    private $saleAmount = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="purchaseAmount", type="string", length=255)
      */
-    private $purchaseAmount;
+    private $purchaseAmount = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="income", type="string", length=255)
      */
-    private $income;
+    private $income = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="treatmentType", type="string", length=255)
      */
-    private $treatmentType;
+    private $treatmentType = "dropshipping";
 
     /**
      * @var string
      *
      * @ORM\Column(name="settlementType", type="string", length=255)
      */
-    private $settlementType;
+    private $settlementType = "C.O.D.";
 
     /**
      * @var string
@@ -127,7 +114,7 @@ class Ord
      *
      * @ORM\Column(name="waybill", type="string", length=255)
      */
-    private $waybill;
+    private $waybill = 0;
 
     /**
      * @var string
@@ -148,7 +135,7 @@ class Ord
      *
      * @ORM\Column(name="source", type="string", length=255)
      */
-    private $source;
+    private $source = 0;
 
 
     /**
@@ -193,17 +180,31 @@ class Ord
     }
 
     /**
+     * @return array
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param array $products
+     */
+    public function setProducts($products)
+    {
+        $this->products = $products;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
      *
      * @return Ord
      */
-    public function setCreated($created)
+    public function setCreated()
     {
-        $this->created = $created;
-
-        return $this;
+        $this->created = new \DateTime();
     }
 
     /**
@@ -214,78 +215,6 @@ class Ord
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Set changed
-     *
-     * @param \DateTime $changed
-     *
-     * @return Ord
-     */
-    public function setChanged($changed)
-    {
-        $this->changed = $changed;
-
-        return $this;
-    }
-
-    /**
-     * Get changed
-     *
-     * @return \DateTime
-     */
-    public function getChanged()
-    {
-        return $this->changed;
-    }
-
-    /**
-     * Set product
-     *
-     * @param string $product
-     *
-     * @return Ord
-     */
-    public function setProduct($product)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return string
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return Ord
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
     }
 
     /**
@@ -319,7 +248,7 @@ class Ord
      *
      * @return Ord
      */
-    public function setsaleAmount($saleAmount)
+    public function setSaleAmount($saleAmount)
     {
         $this->saleAmount = $saleAmount;
 
@@ -331,7 +260,7 @@ class Ord
      *
      * @return string
      */
-    public function getsaleAmount()
+    public function getSaleAmount()
     {
         return $this->saleAmount;
     }
