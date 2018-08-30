@@ -36,16 +36,19 @@ $(".to-order").click(function () {
     $(this).parents("tr").remove();
 });
 $(".save-order").click(function () {
-    console.log("after submit");
+    // console.log("after submit");
     var p = JSON.stringify(productArray);
-    console.log(p);
+    // console.log(p);
     $(".hidden-product").val(p);
     var ch = $(".hidden-product").val();
-    console.log("in hidden form")
-    console.log(ch);
-    alert();
+    // console.log("in hidden form")
+    // console.log(ch);
+    alert("Поздравляеи ! Заказ сохранен !");
 });
 // function for deleting orders from orders table
+
+//(BUT !!! Where we make order, a product disappear after we adding it to new orders table. But when we deleting any position in orders table,
+// - that product not appear in product table. This problem we MUST solve as soon as possible!!!)
 
 function deleteOrder(element) {
     var tr = $(element).parents("tr");//.children("td.first");

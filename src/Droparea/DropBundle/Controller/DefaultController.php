@@ -131,9 +131,12 @@ class DefaultController extends Controller
             $prdrArr = json_decode($productsAr);
 //            var_dump($prdrArr);die;
             foreach ($prdrArr as $product) {
+                if ($product == null) {
+                    continue;
+                }
                 $productsArray[$product->id]["count"] = [$product->count];
                 $productsArray[$product->id]["cost"] = [$product->cost];
-                echo 1;
+                $productsArray[$product->id]["name"] = [$product->name];
             }
 //            $this->E($data);die;
             $order = new Ord();
