@@ -119,7 +119,7 @@ class DefaultController extends Controller
         if ($form->isSubmitted()) {
 //            var_dump($this->getUser());die;
             $data = $form->getData();
-            $clientName = $data["name"]." ".$data["last_name"]." ".$data["patronymic"];
+            $clientName = $data["last_name"]." ".$data["name"]." ".$data["patronymic"];
             $income;
             $sale;
             $purchase;
@@ -131,12 +131,9 @@ class DefaultController extends Controller
             $prdrArr = json_decode($productsAr);
 //            var_dump($prdrArr);die;
             foreach ($prdrArr as $product) {
-
                 $productsArray[$product->id]["count"] = [$product->count];
                 $productsArray[$product->id]["cost"] = [$product->cost];
                 echo 1;
-
-
             }
 //            $this->E($data);die;
             $order = new Ord();
@@ -182,7 +179,17 @@ class DefaultController extends Controller
 
     public function ordersAction()
     {
-        return $this->render('@Drop/Pages/orders.html.twig');
+        $user = $this->getUser();
+//        echo $user->getId();die;
+        $orders = $this->getDoctrine()->getRepository(Ord::class)->findAll();//findOneBy(["user" => $user->getId()]);
+
+        foreach ($orders as $order) {
+            echo 1;
+        }
+
+        return $this->render('@Drop/Pages/orders.html.twig', [
+            'orders' => $orders,
+        ]);
     }
 
     public function paymentsAction()

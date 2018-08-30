@@ -1,4 +1,5 @@
 //function for getting products from table and creating table with orders
+
 var productArray = new Array();
 
 $(".to-order").click(function () {
@@ -32,6 +33,7 @@ $(".to-order").click(function () {
             console.log(productArray);
         }
     })
+    $(this).parents("tr").remove();
 });
 $(".save-order").click(function () {
     console.log("after submit");
@@ -46,7 +48,18 @@ $(".save-order").click(function () {
 // function for deleting orders from orders table
 
 function deleteOrder(element) {
-    $(element).parents("tr").remove();
+    var tr = $(element).parents("tr");//.children("td.first");
+    var txtId = $(tr).children("td").first().text();
+    for (var i=0; i<productArray.length; i++) {
+        console.log(i);
+        var onear = productArray[i];
+        if((onear!=null) && (onear.id == txtId)) {
+            productArray[i] = null;                 // Attention !!! This property must be another(maybe) You have to check it
+            // and find out more methods that can deleting values from arrays !!!
+            console.log("remove tr with ID "+onear.id);
+        }
+    }
+    tr.remove();
 }
 
 // function for searching in products table

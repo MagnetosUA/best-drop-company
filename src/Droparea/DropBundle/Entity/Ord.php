@@ -34,7 +34,7 @@ class Ord
     /**
      * @var int
      *
-     * @ORM\Column(name="orderNumber", type="integer", unique=true)
+     * @ORM\Column(name="orderNumber", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $orderNumber;
