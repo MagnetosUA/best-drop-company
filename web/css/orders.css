@@ -5,11 +5,10 @@
 .order-status li {
     float:left;
     padding: 4px 7px;
-    background: #fff3cd;
-    color: #000;
+    background: rgba(162, 105, 123, 0.48);
+    color: #020303;
     margin:1px 0 7px 3px;
     cursor: pointer;
-    text-shadow: 2px 2px 8px #fff;
     border-radius: 5px;
 }
 .order-status li:hover {
@@ -17,36 +16,48 @@
     padding-top:2px;
     opacity: 0.9;
 }
-
-#new {
+li .btn {
+    text-shadow: 1px 1px 8px #fff;
+    font-weight: bold;
+}
+li .btn span {
+    text-shadow: none;
+}
+#new button {
     background: rgba(130,183,247,1);
 }
-#in-progress {
+#in-progress button {
     background: rgba(18,158,116,1);
 }
-#not-call {
+#not-call button {
     background: rgba(228,208,10,1);
 }
 
-#accepted {
+#accepted button {
     background: rgba(87,101,239,0.84);
 }
-#rejected {
+#rejected button {
     background: rgba(237,100,100,1);
 }
-#shipped {
+#shipped button {
     background: rgba(145,209,10,1);
 }
-#non-payment {
+#non-payment button {
     background: rgba(219,16,31,1);
 }
-#buyout {
+#buyout button {
     background: rgb(19, 170, 42);
 }
-#not-send-process {
+#not-send-process button {
     background: rgb(43, 114, 193);
 }
-
+table {
+    font-size: 80%;
+    border: 2px solid #818182;
+}
+table tr:hover {
+    background: #fff3cd !important;
+}
 /*.order-status::after {*/
     /*content: "<div></div>";*/
     /*clear: both;*/
