@@ -15,5 +15,8 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/encore dev"
+  },
+  "dependencies": {
+    "n3-charts": "^2.0.28"
   }
 }
