@@ -12,37 +12,39 @@
     {% include '@Drop/Parts/navigation.html.twig' %}
     <div class="wrapper">
         <div class="row">
-            <div class="col-md-12 products-table">
-                <h3 class="headers">Список товаров</h3>
-                <p class="text-right">
-                    <input type="text" class="right" id="myInput" onkeyup="myFunction()" placeholder="Поиск по имени..">
-                </p>
-                <table class="table table-striped" id="myTable">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Цена</th>
-                        <th scope="col">Возврат</th>
-                        <th scope="col">Количество</th>
-                        <th scope="col">Цена продажи</th>
-                        <th scope="col"> </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for product in products %}
+            <div class="col-md-12">
+                <div class="products-table">
+                    <h3 class="headers">Список товаров</h3>
+                    <p class="text-right">
+                        <input type="text" class="right" id="myInput" onkeyup="myFunction()" placeholder="Поиск по имени..">
+                    </p>
+                    <table class="table table-striped fixed_headers" id="myTable">
+                        <thead>
                         <tr>
-                            <td class="product-id">{{ product.id }}</td>
-                            <td class="product-name">{{ product.name }}</td>
-                            <td class="product-cost">{{ product.cost }}</td>
-                            <td class="product-back">Согласно тарифам Новой почты</td>
-                            <td class="product-count"><input type="text" placeholder="Количество" /></td>
-                            <td class="my-cost"><input type="text" placeholder="Цена продажи"/></td>
-                            <td><button class="btn btn-success to-order">Заказать</button></td>
+                            <th scope="col">ID</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Возврат</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col">Цена продажи</th>
+                            <th scope="col"> </th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td class="product-id">{{ product.id }}</td>
+                                <td class="product-name">{{ product.name }}</td>
+                                <td class="product-cost">{{ product.cost }}</td>
+                                <td class="product-back">Согласно тарифам Новой почты</td>
+                                <td class="product-count"><input type="text" placeholder="Количество" /></td>
+                                <td class="my-cost"><input type="text" placeholder="Цена продажи"/></td>
+                                <td><button class="btn btn-success to-order">Заказать</button></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="row">
