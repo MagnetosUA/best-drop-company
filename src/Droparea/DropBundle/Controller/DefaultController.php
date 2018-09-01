@@ -186,9 +186,9 @@ class DefaultController extends Controller
 //        echo $user->getId();die;
         $orders = $this->getDoctrine()->getRepository(Ord::class)->findAll();//findOneBy(["user" => $user->getId()]);
 
-        foreach ($orders as $order) {
-            echo 1;
-        }
+//        foreach ($orders as $order) {
+//            echo 1;
+//        }
 
         return $this->render('@Drop/Pages/orders.html.twig', [
             'orders' => $orders,

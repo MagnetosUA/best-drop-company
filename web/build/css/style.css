@@ -59,6 +59,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #333;
+  /*background: url("../../textures/random_grey_variations.png");*/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -413,7 +414,8 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #1E1F29;
+  /*background-color: #1E1F29;*/
+  background: url("../../textures/ep_naturalblack.png");
 }
 
 .header-links li {
@@ -446,7 +448,15 @@ textarea.input {
 #header {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #15161D;
+  /*background-color: #15161D;*/
+  background: url("../../textures/ep_naturalblack.png");
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Great Vibes', cursive;*/
+  /*font-family: 'Russo One', sans-serif;*/
+  /*font-family: 'Poiret One', cursive;*/
+  /*font-family: 'Monoton', cursive;*/
+  /*font-family: 'Tangerine', cursive;*/
 }
 
 .header-logo {
@@ -622,9 +632,12 @@ textarea.input {
 ===========================================================*/
 
 #navigation {
-  background: #FFF;
+  /*background: url("../../textures/retina_wood.png");*/
+  background: url("../../textures/random_grey_variations.png");
   border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
+  border-bottom: 1px solid #D10024;
+  border-top: 1px solid #D10024;
+  height:45px;
 }
 
 /*----------------------------*\
@@ -632,15 +645,25 @@ textarea.input {
 \*----------------------------*/
 
 .main-nav>li+li {
-  margin-left: 30px
+  margin-left: 30px;
 }
 
 .main-nav>li>a {
-  padding: 20px 0px;
+  padding: 10px 0px;
+  color: #d7d7d7;
+  font-size: 115%;
+  letter-spacing: 2px;
+  /*font-family: 'M PLUS Rounded 1c', sans-serif;*/
+  /*font-family: 'Oswald', sans-serif;*/
+  /*font-family: 'Great Vibes', cursive;*/
+  font-family: 'Russo One', sans-serif;
+  /*font-family: 'Poiret One', cursive;*/
+  /*font-family: 'Monoton', cursive;*/
+  /*font-family: 'Tangerine', cursive;*/
 }
 
 .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-  color: #D10024;
+  color: rgb(255, 0, 38);
   background-color: transparent;
 }
 
@@ -649,7 +672,7 @@ textarea.input {
   display: block;
   width: 0%;
   height: 2px;
-  background-color: #D10024;
+  background-color: #ff0026;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
