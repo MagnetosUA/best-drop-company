@@ -412,8 +412,7 @@ textarea.input {
 \*----------------------------*/
 
 #top-header {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 3px;
   /*background-color: #1E1F29;*/
   background: url("../../textures/ep_naturalblack.png");
 }
@@ -446,8 +445,8 @@ textarea.input {
 \*----------------------------*/
 
 #header {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 2px;
+  padding-bottom: 28px;
   /*background-color: #15161D;*/
   background: url("../../textures/ep_naturalblack.png");
   font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -466,6 +465,7 @@ textarea.input {
 .header-logo a h2 {
   display: block;
   color: #ffffff;
+  font-size: 253%;
 }
 
 /*----------------------------*\
@@ -473,7 +473,7 @@ textarea.input {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  /*padding: 15px 0px;*/
 }
 
 .header-search form {
