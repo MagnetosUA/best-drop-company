@@ -632,8 +632,8 @@ textarea.input {
 ===========================================================*/
 
 #navigation {
-  /*background: url("../../textures/retina_wood.png");*/
-  background: url("../../textures/random_grey_variations.png");
+  background-image: url("../../textures/random_grey_variations.png");
+  opacity : 0.9;
   border-bottom: 2px solid #E4E7ED;
   border-bottom: 1px solid #D10024;
   border-top: 1px solid #D10024;
@@ -650,7 +650,7 @@ textarea.input {
 
 .main-nav>li>a {
   padding: 10px 0px;
-  color: #d7d7d7;
+  color: #c1c1c1;
   font-size: 115%;
   letter-spacing: 2px;
   /*font-family: 'M PLUS Rounded 1c', sans-serif;*/
