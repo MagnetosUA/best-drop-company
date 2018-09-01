@@ -58,6 +58,10 @@ table {
 table tr:hover {
     background: #fff3cd !important;
 }
+table td {
+    border-right: 2px solid #ddddde;
+    font-size: 125%;
+}
 /*.order-status::after {*/
     /*content: "<div></div>";*/
     /*clear: both;*/
