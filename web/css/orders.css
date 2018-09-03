@@ -121,6 +121,8 @@ table {
 .fixed_headers thead {
     background-color: #333;
     color: #FDFDFD;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
 }
 .fixed_headers thead tr {
     display: block;
@@ -143,7 +145,7 @@ table {
     /*height:300px;*/
     border:5px double #ddddde;
     margin-top: 10px;
-    background: #f1f1f2;
+    background: #afafff;
     /*overflow: scroll;*/
     /*position: relative;*/
 }
@@ -151,5 +153,16 @@ table {
     margin-bottom: -20px;
     letter-spacing: 5px;
     margin-top: 10px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+.products-table .text-right {
+    margin-right: 14px;
+}
+
+.products-table .text-right input {
+    border-radius: 5px;
+    border: 2px outset #85ff004a;
+    padding: 3px;
 }
 /*END***************************************NEW-ORDERS-PAGE*****************************END*/
