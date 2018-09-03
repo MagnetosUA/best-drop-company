@@ -75,10 +75,11 @@ class OrderClientType extends AbstractType
                 ]
             ])
             ->add('comment', TextareaType::class, [
-                'label' => 'Комментарий к заказу',
+                'label' => false,
                 'attr' => [
                     'class' => 'order-comment',
-                ]
+                ],
+                'data' => 'Комментарий',
             ])
             ->add('product_array', HiddenType::class, [
                 'attr' => [
@@ -89,7 +90,7 @@ class OrderClientType extends AbstractType
             ->add('save', SubmitType::class, [
                 'label' => 'Сохранить',
                 'attr' => [
-                    'class' => 'save-order',
+                    'class' => 'save-order btn btn-success',
                 ]
             ]);
 
