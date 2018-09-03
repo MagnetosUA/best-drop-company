@@ -81,62 +81,134 @@ table {
     table-layout: fixed;
     border-collapse: collapse;
 }
-.fixed_headers th {
+.products-table .fixed_headers th {
     /*text-decoration: underline;*/
 }
-.fixed_headers th,
-.fixed_headers td {
+.products-table .fixed_headers th,
+.products-table .fixed_headers td {
     padding: 5px;
     /*text-align: left;*/
     font-size: 110%;
 }
-.fixed_headers td:nth-child(1),
-.fixed_headers th:nth-child(1) {
+.products-table .fixed_headers td:nth-child(1),
+.products-table .fixed_headers th:nth-child(1) {
     min-width: 50px;
 }
-.fixed_headers td:nth-child(2),
-.fixed_headers th:nth-child(2) {
+.products-table .fixed_headers td:nth-child(2),
+.products-table .fixed_headers th:nth-child(2) {
     min-width: 200px;
 }
-.fixed_headers td:nth-child(3),
-.fixed_headers th:nth-child(3) {
+.products-table .fixed_headers td:nth-child(3),
+.products-table .fixed_headers th:nth-child(3) {
     width: 100px;
 }
-.fixed_headers td:nth-child(4),
-.fixed_headers th:nth-child(4) {
+.products-table .fixed_headers td:nth-child(4),
+.products-table .fixed_headers th:nth-child(4) {
     width: 400px;
 }
-.fixed_headers td:nth-child(5),
-.fixed_headers th:nth-child(5) {
+.products-table .fixed_headers td:nth-child(5),
+.products-table .fixed_headers th:nth-child(5) {
     width: 400px;
 }
-.fixed_headers td:nth-child(6),
-.fixed_headers th:nth-child(6) {
+.products-table .fixed_headers td:nth-child(6),
+.products-table .fixed_headers th:nth-child(6) {
     width: 350px;
 }
-.fixed_headers td:nth-child(7),
-.fixed_headers th:nth-child(7) {
+.products-table .fixed_headers td:nth-child(7),
+.products-table .fixed_headers th:nth-child(7) {
     width: 350px;
 }
-.fixed_headers thead {
-    background-color: #333;
-    color: #FDFDFD;
+.products-table .fixed_headers thead {
+    background-color: #59c024;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: white;
 }
-.fixed_headers thead tr {
+.products-table .fixed_headers thead tr {
     display: block;
     position: relative;
 }
-.fixed_headers tbody {
+.products-table .fixed_headers tbody {
     display: block;
     overflow: scroll;
     width: 100%;
     max-height: 300px;
 }
-.fixed_headers tbody tr:nth-child(even) {
+.products-table .fixed_headers tbody tr:nth-child(even) {
     background-color: #DDD;
 }
+    /***Orders table style ***/
+.orders-table {
+    border: 5px double #ddddde;
+    margin-top: 10px;
+    background: #afafff;
+    border-top:2px dashed #0d0d0c;
+    margin-bottom: 15px;
+}
+
+.orders-table h3{
+    /*margin-bottom: -20px;*/
+    letter-spacing: 5px;
+    margin-top: 10px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+.orders-table .fixed_headers th {
+    /*text-decoration: underline;*/
+}
+.orders-table .fixed_headers th,
+.orders-table .fixed_headers td {
+    padding: 5px;
+    /*text-align: left;*/
+    font-size: 110%;
+}
+.orders-table .fixed_headers td:nth-child(1),
+.orders-table .fixed_headers th:nth-child(1) {
+    min-width: 100px;
+}
+.orders-table .fixed_headers td:nth-child(2),
+.orders-table .fixed_headers th:nth-child(2) {
+    min-width: 300px;.products-table
+}
+.orders-table .fixed_headers td:nth-child(3),
+.orders-table .fixed_headers th:nth-child(3) {
+    width: 185px;
+}
+.orders-table .fixed_headers td:nth-child(4),
+.orders-table .fixed_headers th:nth-child(4) {
+    width: 185px;
+}
+.orders-table .fixed_headers td:nth-child(5),
+.orders-table .fixed_headers th:nth-child(5) {
+    width: 250px;
+}
+.orders-table .fixed_headers td:nth-child(6),
+.orders-table .fixed_headers th:nth-child(6) {
+    width: 350px;
+}
+.orders-table .fixed_headers td:nth-child(7),
+.fixed_headers th:nth-child(7) {
+    width: 421px;
+}
+.orders-table .fixed_headers thead {
+    background-color: #32af1be8;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+.orders-table .fixed_headers thead tr {
+    display: block;
+    position: relative;
+}
+.orders-table .fixed_headers tbody {
+    display: block;
+    overflow: scroll;
+    width: 100%;
+    max-height: 300px;
+}
+.orders-table .fixed_headers tbody tr:nth-child(even) {
+    background-color: #DDD;
+}
+    /*** END *** Orders table style ***/
+
 .headers {
     margin-left: 20px;
     /*position: absolute;*/
@@ -146,6 +218,7 @@ table {
     border:5px double #ddddde;
     margin-top: 10px;
     background: #afafff;
+    border-bottom:2px dashed #0d0d0c;
     /*overflow: scroll;*/
     /*position: relative;*/
 }
