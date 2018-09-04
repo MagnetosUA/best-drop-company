@@ -58,9 +58,10 @@ table {
     font-size: 80%;
     border: 2px solid #818182;
 }
-table tr:hover {
-    background: #fff3cd !important;
+table tr:hover:not(:first-child) {
+    background: #c1b69b !important;
 }
+
 table td {
     border-left: 2px solid #ddddde;
     font-size: 125%;
