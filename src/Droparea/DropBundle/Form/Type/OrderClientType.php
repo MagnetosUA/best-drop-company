@@ -34,19 +34,27 @@ class OrderClientType extends AbstractType
         $builder
             ->add('last_name', TextType::class, [
                 'label' => false,
-                'data' => 'Фамилия',
+                'attr' => [
+                    'placeholder' => 'Фамилия',
+                ]
             ])
             ->add('name', TextType::class, [
                 'label' => false,
-                'data' => 'Имя',
+                'attr' => [
+                    'placeholder' => 'Имя',
+                ]
             ])
             ->add('patronymic', TextType::class, [
                 'label' => false,
-                'data' => 'Отчество',
+                'attr' => [
+                    'placeholder' => 'Отчество',
+                ]
             ])
             ->add('phone', TelType::class, [
                 'label' => false,
-                'data' => 'Контактный телефон',
+                'attr' => [
+                    'placeholder' => 'Контактный телефон',
+                ]
             ])
             ->add('city', ChoiceType::class, [
                 'placeholder' => 'Укажите город',
@@ -78,8 +86,8 @@ class OrderClientType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'order-comment',
+                    'placeholder' => 'Комментарий (цвет, размер, прочие характеристики)',
                 ],
-                'data' => 'Комментарий',
             ])
             ->add('product_array', HiddenType::class, [
                 'attr' => [

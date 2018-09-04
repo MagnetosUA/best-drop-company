@@ -221,7 +221,7 @@ table {
 .orders-table {
     border: 5px double #ddddde;
     margin-top: 10px;
-    background: #afafff;
+    background: #afafffab;
     border-top:2px dashed rgba(13, 13, 12, 0.58);
     border-bottom:2px dashed rgba(13, 13, 12, 0.58);
     margin-bottom: 15px;
@@ -299,7 +299,7 @@ table {
     /*height:300px;*/
     border:5px double #ddddde;
     margin-top: 10px;
-    background: #afafff;
+    background: #afafffab;
     border-bottom:2px dashed rgba(13, 13, 12, 0.5);
     /*overflow: scroll;*/
     /*position: relative;*/
