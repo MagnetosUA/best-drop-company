@@ -47,4 +47,11 @@ class UserController extends Controller
     {
         return $this->redirectToRoute('drop_homepage'); //Here must be route, where user is from !
     }
+
+    public function showUserPageAction()
+    {
+        return $this->render('@Drop/Pages/user-page.html.twig', [
+//            'orders' => $orders,
+        ]);
+    }
 }
