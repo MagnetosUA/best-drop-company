@@ -77,14 +77,14 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="cardsNumber", type="string", length=255, nullable=true)
+     * @ORM\Column(name="cards_number", type="string", length=255, nullable=true)
      */
     private $cardsNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="refLink", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="ref_link", type="string", length=255, unique=true, nullable=true)
      */
     private $refLink;
 
@@ -93,6 +93,12 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="Ord", mappedBy="user")
      */
     private $orders;
+
+    /**
+     * @var string
+     * @ORM\Column(name="cards_owner_name", type="string", length=255, nullable=true)
+     */
+    private $cardsOwnerName;
 
     /**
      * User constructor.
@@ -332,6 +338,23 @@ class User implements UserInterface
     {
         $this->orders = $orders;
     }
+
+    /**
+     * @return string
+     */
+    public function getCardsOwnerName()
+    {
+        return $this->cardsOwnerName;
+    }
+
+    /**
+     * @param string $cardsOwnerName
+     */
+    public function setCardsOwnerName($cardsOwnerName)
+    {
+        $this->cardsOwnerName = $cardsOwnerName;
+    }
+
 
 }
 

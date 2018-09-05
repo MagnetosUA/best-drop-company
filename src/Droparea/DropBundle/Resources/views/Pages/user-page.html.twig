@@ -19,18 +19,18 @@
                 <div class="row">
                     <div class="col-75">
                         <div class="container">
-                            <form action="/action_page.php">
+                            <form name="change_user_inf" method="post" action="{{ path('user_page') }}">
                                 <div class="row">
                                     <div class="col-50">
                                         <h3 class="cont-header">Контактные данные</h3>
                                         <label for="fname"><i class="fa fa-user"></i> Фамилия Имя Отчество</label>
-                                        <input type="text" id="fname" name="firstname" placeholder="Джеф Безус">
+                                        <input type="text" id="fname" name="firstname" placeholder="{{ user.name }}">
                                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                        <input type="text" id="email" name="email" placeholder="john@example.com">
+                                        <input type="text" id="email" name="email" placeholder="{{ user.email }}">
                                         <label for="adr"><i class="fas fa-unlock-alt"></i> Пароль</label>
-                                        <input type="text" id="adr" name="address" placeholder="password">
+                                        <input type="text" id="adr" name="address" placeholder="{{ user.password }}">
                                         <label for="city"><i class="fas fa-phone-square"></i> Телефон</label>
-                                        <input type="text" id="city" name="city" placeholder="+ 38 093 77 77 777">
+                                        <input type="text" id="city" name="city" placeholder="{{ user.phone }}">
                                         <label for="city"><i class="fas fa-phone-square"></i> Ref-ссылка</label>
                                         <input type="text" id="city" name="city" placeholder="ref///=ref12254555">
 
@@ -45,13 +45,12 @@
                                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                                         </div>
                                         <label for="cname">Имя владельца</label>
-                                        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                        <input type="text" id="cname" name="cardname" placeholder="{{ user.cardsOwnerName }}">
                                         <label for="ccnum">Номер карты</label>
-                                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                        <input type="text" id="ccnum" name="cardnumber" placeholder="{{ user.cardsNumber }}">
                                     </div>
-
                                 </div>
-                                <input type="submit" value="Сохранить" class="btn">
+                                <input type="submit" name="send_data" value="Сохранить" class="btn">
                             </form>
                         </div>
                     </div>
