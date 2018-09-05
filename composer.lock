@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef7231ab60e4a09d4146397b951747fd",
+    "content-hash": "2434bc06598cbef2ccdd90c58aedfb9d",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1700,51 +1700,6 @@
             "time": "2018-02-28T22:10:01+00:00"
         },
         {
-            "name": "serj1chen/nova-poshta-sdk-php",
-            "version": "2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/serj1chen/nova-poshta-sdk-php.git",
-                "reference": "ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/serj1chen/nova-poshta-sdk-php/zipball/ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55",
-                "reference": "ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "NovaPoshta\\": "lib/NovaPoshta"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chenakal Sergii",
-                    "email": "s.chenakal@gmail.com",
-                    "homepage": "https://github.com/serj1chen"
-                }
-            ],
-            "description": "SDK для Новой Почты",
-            "keywords": [
-                "api",
-                "novaposhta",
-                "php",
-                "sdk"
-            ],
-            "time": "2018-06-15T01:08:37+00:00"
-        },
-        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.9",
             "source": {
@@ -2317,20 +2272,20 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.14",
+            "version": "v3.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e"
+                "reference": "5bb5c2d4b0d5cf10672015b68519a199e6ac27c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e",
-                "reference": "f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/5bb5c2d4b0d5cf10672015b68519a199e6ac27c1",
+                "reference": "5bb5c2d4b0d5cf10672015b68519a199e6ac27c1",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4@stable",
+                "doctrine/common": "~2.4",
                 "ext-xml": "*",
                 "fig/link-util": "^1.0",
                 "php": "^5.5.9|>=7.0.8",
@@ -2418,7 +2373,7 @@
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.4",
                 "doctrine/doctrine-bundle": "~1.4",
-                "doctrine/orm": "~2.4,>=2.4.5,<=2.7.0",
+                "doctrine/orm": "~2.4,>=2.4.5",
                 "egulias/email-validator": "~1.2,>=1.2.8|~2.0",
                 "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
@@ -2468,7 +2423,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-08-01T14:48:04+00:00"
+            "time": "2018-08-28T06:06:28+00:00"
         },
         {
             "name": "symfony/webpack-encore-pack",
@@ -2738,6 +2693,51 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2017-12-07T15:36:41+00:00"
+        },
+        {
+            "name": "serj1chen/nova-poshta-sdk-php",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serj1chen/nova-poshta-sdk-php.git",
+                "reference": "ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serj1chen/nova-poshta-sdk-php/zipball/ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55",
+                "reference": "ee9b7fe8c5ceaf2e6996f37ee4613590f6facc55",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NovaPoshta\\": "lib/NovaPoshta"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chenakal Sergii",
+                    "email": "s.chenakal@gmail.com",
+                    "homepage": "https://github.com/serj1chen"
+                }
+            ],
+            "description": "SDK для Новой Почты",
+            "keywords": [
+                "api",
+                "novaposhta",
+                "php",
+                "sdk"
+            ],
+            "time": "2018-06-15T01:08:37+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
