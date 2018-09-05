@@ -50,14 +50,28 @@ class UserController extends Controller
 
     public function showUserPageAction(Request $request)
     {
-        if ($form = $request->request->get("send_data")) {
-//            print_r($_REQUEST);
-        }
-//        print_r($_REQUEST);
         $user = $this->getUser();
+        if ($request->request->get("send_data")) {
+            $data = $request->request->all();
+            if ($data["name"]) {
+                $user->setName($data["name"]);
+            }
+            if ($data["phone"]) {
+                $user->setPhone($data["phone"]);
+            }
+            if ($data["cardname"]) {
+                $user->setCardsOwnerName($data["cardname"]);
+            }
+            if ($data["cardnumber"]) {
+                $user->setCardsNumber($data["cardnumber"]);
+            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        }
 
         if ($user == null) {
-            return $this->redirectToRoute("drop_homepage");
+            return $this->redirectToRoute("drop_homepage"); // Delete when set roles
         }
         return $this->render('@Drop/Pages/user-page.html.twig', [
             'user' => $user,
