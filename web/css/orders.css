@@ -344,5 +344,9 @@ table {
 }
 /**END***Client-DeLiery***********************************/
 
+/*style for allocate product which was clicked in product-page or products page*/
+.in-order {
+    background: red !important;
+}
 
 /*END***************************************NEW-ORDERS-PAGE*****************************END*/

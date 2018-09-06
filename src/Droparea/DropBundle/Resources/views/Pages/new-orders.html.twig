@@ -10,6 +10,11 @@
 {% endblock over_styles %}
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
+    <style>
+        .in-order {
+            background: red !important;
+        }
+    </style>
     <div class="wrapper">
         <div class="row">
             <div class="col-md-12">
@@ -32,7 +37,13 @@
                         </thead>
                         <tbody>
                         {% for product in products %}
-                            <tr>
+                            {#{% if product.id == id %}#}
+                                {#<script>#}
+                                    {#// $("tr").css("background", "red");#}
+                                    {#console.log(1);#}
+                                {#</script>#}
+                            {#{% endif %}#}
+                            <tr {% if product.id == id %} class="in-order" {% endif %}>
                                 <td class="product-id">{{ product.id }}</td>
                                 <td class="product-name">{{ product.name }}</td>
                                 <td class="product-cost">{{ product.cost }}</td>

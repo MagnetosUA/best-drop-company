@@ -99,7 +99,8 @@ class DefaultController extends Controller
         }
         return new Response('none!E');
     }
-    public function newOrdersAction(Request $request)
+
+    public function newOrdersAction(Request $request, $id)
     {
         if ($prd = $request->request->get("product")) {
 
@@ -177,6 +178,7 @@ class DefaultController extends Controller
             'cities' => $staticSitiesFull,
             'form' => $form->createView(),
             'products' => $products,
+            'id' => $id,
         ]);
     }
 
