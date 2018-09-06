@@ -5,5 +5,56 @@
 {% endblock over_styles %}
 {% block main_content %}
     {% include '@Drop/Parts/navigation.html.twig' %}
-    payments
+    <div class="row">
+        <div class="col-md-12">
+            <div class="all-orders-table">
+                <table class="table table-striped fixed_headers">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Счет или карта для выплат</th>
+                        <th scope="col">Сумма</th>
+                        <th scope="col">Сумма ref</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Дата создания</th>
+                        <th scope="col">Дата подтверждения</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in range(0, 5) %}
+                        <tr>
+                            <td>123</td>
+                            <td>1111-2222-3333-4444-5555</td>
+                            <td>1000</td>
+                            <td>70</td>
+                            <td class="btn-success">Выплачено</td>
+                            <td>01.01.2018</td>
+                            <td>02.01.2018</td>
+                        </tr>
+                    {% endfor %}
+                    {#{% for order in orders %}#}
+                        {#<tr>#}
+                            {#<th scope="row">{{ order.id }}</th>#}
+                            {#<td>{{ order.created|date }}</td>#}
+                            {#<td>#}
+                                {#{% for products in order.products %}#}
+                                    {#{{ products.name[0] }}</br>#}
+                                {#{% endfor %}#}
+                            {#</td>#}
+                            {#<td>{{ order.status }}</td>#}
+                            {#<td>@mdo</td>#}
+                            {#<td>@mdo</td>#}
+                            {#<td>@mdo</td>#}
+                            {#<td>{{ order.clientPhone }}</td>#}
+                            {#<td>{{ order.clientName }}</td>#}
+                            {#<td>@mdo</td>#}
+                            {#<td>{{ order.deliveryAddress }}</td>#}
+                            {#<td>{{ order.comment }}</td>#}
+                        {#</tr>#}
+                    {#{% endfor %}#}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock main_content %}
