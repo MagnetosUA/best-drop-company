@@ -30,7 +30,7 @@ class Builder implements ContainerAwareInterface
                 'route' => 'statistic'
             ]);
         $menu->addChild('Рефералы', [
-                'route' => 'referrals'
+                'route' => 'referals'
             ]);
         $menu->addChild('Новости', [
                 'route' => 'news'

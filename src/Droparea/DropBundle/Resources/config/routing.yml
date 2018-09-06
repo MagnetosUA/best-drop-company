@@ -33,9 +33,9 @@ statistic:
     path: /statistic
     defaults: { _controller: DropBundle:Default:statistic }
 
-referrals:
-    path: /referrals
-    defaults: { _controller: DropBundle:Default:referrals }
+referals:
+    path: /referals
+    defaults: { _controller: DropBundle:Default:referals }
 
 news:
     path: /news

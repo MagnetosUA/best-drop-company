@@ -197,32 +197,22 @@ class DefaultController extends Controller
 
     public function paymentsAction()
     {
-        //$products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Default/practice.html.twig');
+        return $this->render('@Drop/Pages/payments.html.twig');
     }
 
     public function statisticAction()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
-        ]);
+        return $this->render('@Drop/Pages/statistic.html.twig');
     }
 
-    public function referralsAction()
+    public function referalsAction()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
-        ]);
+        return $this->render('@Drop/Pages/referals.html.twig');
     }
 
     public function newsAction()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
-        ]);
+        return $this->render('@Drop/Pages/news.ttml.twig');
     }
 
 //    additional functional for testing

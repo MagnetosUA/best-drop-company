@@ -1,0 +1,9 @@
+{% extends '@Drop/base.html.twig' %}
+{% block over_styles %}
+    <link href="{{ asset('css/user-page.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock over_styles %}
+{% block main_content %}
+    {% include '@Drop/Parts/navigation.html.twig' %}
+    referals
+{% endblock main_content %}
