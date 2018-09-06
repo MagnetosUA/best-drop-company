@@ -212,7 +212,7 @@ class DefaultController extends Controller
 
     public function newsAction()
     {
-        return $this->render('@Drop/Pages/news.ttml.twig');
+        return $this->render('@Drop/Pages/news.html.twig');
     }
 
 //    additional functional for testing
