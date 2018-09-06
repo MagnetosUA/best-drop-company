@@ -4,9 +4,9 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('build/css/product-page/modal-image.css') }}"/>
     <script src="{{ asset('js/change-images.js') }}" defer></script>
     <script src="{{ asset('js/product-page/modal-image.js') }}" defer></script>
-
 {% endblock over_styles %}
 {% block main_content %}
+    {% include '@Drop/Parts/navigation.html.twig' %}
     <div id="product-page" class="container">
         <div class="row">
             <div class="col-md-8">

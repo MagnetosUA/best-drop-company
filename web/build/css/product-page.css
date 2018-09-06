@@ -5,8 +5,10 @@
     border-top: 1px solid cornflowerblue;
 }
 
-#product-page div {
+#product-page  {
     /*border: 1px solid yellow;*/
+    background: white;
+    border-radius: 5px;
 }
 
 #product-page .little-page img{
