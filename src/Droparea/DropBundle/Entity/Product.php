@@ -107,17 +107,22 @@ class Product
     private $top = false;
 
     /**
-     * Get id
-     *
-     * @return int
-     */
-
-    /**
      * @var string
      * @ORM\Column(name="description", type="string", length=3000)
      */
     private $description;
 
+    /**
+     * @var string
+     * @ORM\Column(name="purveyor", type="string", length=700)
+     */
+    private $purveyor;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
@@ -395,5 +400,22 @@ class Product
     {
         $this->description = $description;
     }
+
+    /**
+     * @return string
+     */
+    public function getPurveyor()
+    {
+        return $this->purveyor;
+    }
+
+    /**
+     * @param string $purveyor
+     */
+    public function setPurveyor($purveyor)
+    {
+        $this->purveyor = $purveyor;
+    }
+
 }
 
