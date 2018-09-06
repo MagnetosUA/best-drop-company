@@ -40,7 +40,7 @@
                             <!-- product -->
                             <div class="product">
                                 <div class="product-img">
-                                    <img src="{{ asset('build/images/products/' ~ product.images['0']) }}" alt="">
+                                    <img src="{{ asset('build/images/products/' ~ product.images[random(2)]) }}" alt="">
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">{{ product.category.name }}</p>

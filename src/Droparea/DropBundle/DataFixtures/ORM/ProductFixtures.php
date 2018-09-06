@@ -18,7 +18,7 @@ class ProductFixtures extends Fixture
         // create 20 products! Bam!
         for ($i = 0; $i < 10; $i++) {
             $product = new Product();
-            $product->setName('product '.$i);
+            $product->setName('Товар '.$i);
             $product->setCost(mt_rand(10, 100));
             $product->setImages($this->images);
             $product->setDescription($this->description);
@@ -30,6 +30,7 @@ class ProductFixtures extends Fixture
             $product->setReturnCost(50);
             $product->setValuta('UAH');
             $product->setWeight('1 kg');
+            $product->setPurveyor('Юлька');
 
             $manager->persist($product);
         }

@@ -11,9 +11,9 @@ class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $arrProducts = ['Спорт товары', 'Електроника', 'Бытовые товары', 'Одежда'];
+        $arrProducts = ['Автотовары', 'Електроника', 'TV-Shop товары', 'Мода', 'Красота и здоровье', 'Товары для дома', 'Разное'];
         // create 4 categories! Bam!
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $category = new Category();
             $category->setName($arrProducts[$i]);
             $this->addReference('category'.$i, $category);

@@ -308,7 +308,8 @@ textarea.input {
 .section-title .title {
   display: inline-block;
   text-transform: uppercase;
-  margin: 0px;
+  margin-bottom: 17px;
+  color: #232121e8;
 }
 
 .section-title .section-nav {
@@ -330,7 +331,7 @@ textarea.input {
 
 .section-tab-nav li a {
   font-weight: 700;
-  color: #8D99AE;
+  color: #60656f;
 }
 
 .section-tab-nav li a:after {
