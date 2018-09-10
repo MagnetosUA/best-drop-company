@@ -31,7 +31,7 @@ services:
         public: true
 
     app.security.login_form_authenticator:
-        class: Droparea\DropBundle\Sequrity\LoginFormAuthenticator
+        class: Droparea\DropBundle\Security\LoginFormAuthenticator
         autowire: true
 
     app.doctrine.hash_password_listener:

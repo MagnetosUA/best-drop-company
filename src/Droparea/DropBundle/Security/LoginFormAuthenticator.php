@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Sequrity;
+namespace Droparea\DropBundle\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Droparea\DropBundle\Form\Type\LoginType;
