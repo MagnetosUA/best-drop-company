@@ -17,52 +17,57 @@ class ProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('productCode', TextType::class, [
-            'label' => 'Код',])
-        ->add('country', TextType::class, [
-            'label' => 'Страна',
-            'attr' => [
-                'value' => 'Україна',
-                'class' => 'form-control',
-            ]
-        ])
-        ->add('category', EntityType::class, [
-            'class' => Category::class,
-            'choice_label' => 'name',
-            'multiple' => false,
-            'label' => 'Категория'
-        ])
-        ->add('images', FileType::class, [
-            'label' => 'Фото',
-            'multiple' => true,
-        ])
-        ->add('description', TextType::class, [
-            'label' => 'Описание',
-        ])
-        ->add('name', TextType::class, [
-            'label' => 'Название',
-        ])
-        ->add('weight', TextType::class, [
-            'label' => 'Вес',
-        ])
-        ->add('cost', TextType::class, [
-            'label' => 'Цена',
-        ])
-        ->add('recomendedCost', TextType::class, [
-            'label' => 'Рекомендованная цена',
-        ])
-        ->add('returnCost', TextType::class, [
-            'label' => 'Стоимость возврата',
-        ])
-        ->add('valuta', TextType::class, [
-            'label' => 'Валюта',
-            'attr' => [
-                'value' => 'Гривня'
-            ]
-        ])
-        ->add('save', SubmitType::class, [
-            'label' => 'Добавить'
-        ]);
+        $builder
+            ->add('country', TextType::class, [
+                'label' => 'Страна',
+                'attr' => [
+                    'value' => 'Україна',
+                    'class' => 'form-control',
+                ]
+            ])
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'multiple' => false,
+                'label' => 'Категория'
+            ])
+            ->add('images', FileType::class, [
+                'label' => 'Фото',
+                'multiple' => true,
+            ])
+            ->add('description', TextType::class, [
+                'label' => 'Описание',
+            ])
+            ->add('name', TextType::class, [
+                'label' => 'Название',
+            ])
+            ->add('weight', TextType::class, [
+                'label' => 'Вес',
+            ])
+            ->add('cost', TextType::class, [
+                'label' => 'Цена',
+            ])
+            ->add('recomendedCost', TextType::class, [
+                'label' => 'Рекомендованная цена',
+                ])
+            ->add('returnCost', TextType::class, [
+                'label' => 'Стоимость возврата',
+            ])
+            ->add('purveyor', ChoiceType::class, [
+                'choices' => [
+                    'drop1' => 'Drop1',
+                    'marina' => 'Marina',
+                ]
+            ])
+            ->add('valuta', TextType::class, [
+                'label' => 'Валюта',
+                'attr' => [
+                    'value' => 'Гривня'
+                ]
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Добавить'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

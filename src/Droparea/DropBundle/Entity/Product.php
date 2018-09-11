@@ -23,13 +23,6 @@ class Product
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="productCode", type="string", length=255, unique=true)
-     */
-    private $productCode;
-
-    /**
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
@@ -142,30 +135,6 @@ class Product
     public function setImages($images)
     {
         $this->images = $images;
-    }
-
-    /**
-     * Set productCode
-     *
-     * @param string $productCode
-     *
-     * @return Product
-     */
-    public function setProductCode($productCode)
-    {
-        $this->productCode = $productCode;
-
-        return $this;
-    }
-
-    /**
-     * Get productCode
-     *
-     * @return string
-     */
-    public function getProductCode()
-    {
-        return $this->productCode;
     }
 
     /**

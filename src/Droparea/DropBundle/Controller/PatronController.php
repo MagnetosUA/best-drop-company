@@ -13,6 +13,7 @@ class PatronController extends Controller
     public function indexAction(Request $request)
     {
 
+//        echo date('md');die;
         if ($c = $request->request->get('destination')) {
 
             return new Response($c."777");
@@ -24,6 +25,11 @@ class PatronController extends Controller
         }
 
         $product = new Product();
+//        var_dump($product->getId());die;
+//        $productCode = $product->getId().date('md');
+//        echo $productCode;die;
+
+
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
