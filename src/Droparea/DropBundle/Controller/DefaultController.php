@@ -223,5 +223,10 @@ class DefaultController extends Controller
         var_dump($var);
         echo "</pre>";
     }
+
+    public function catalogueAction()
+    {
+//        todo
+    }
 }
 

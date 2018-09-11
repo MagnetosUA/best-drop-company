@@ -74,7 +74,10 @@ a {
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
 }
-
+.product-name a {
+  display: block;
+  height: 35px;
+}
 a:hover, a:focus {
   color: #D10024;
   text-decoration: none;
@@ -657,7 +660,7 @@ textarea.input {
   border-bottom: 2px solid #E4E7ED;
   border-bottom: 1px solid #D10024;
   border-top: 1px solid #D10024;
-  height:45px;
+  /*height:45px;*/
 }
 
 /*----------------------------*\
@@ -669,33 +672,50 @@ textarea.input {
 }
 
 .main-nav>li>a {
-  padding: 10px 0px;
-  color: #c1c1c1;
-  font-size: 115%;
-  letter-spacing: 2px;
+  /*padding: 10px 0px;*/
+  /*color: #c1c1c1;*/
+  /*font-size: 115%;*/
+  /*letter-spacing: 1px;*/
   /*font-family: 'M PLUS Rounded 1c', sans-serif;*/
   /*font-family: 'Oswald', sans-serif;*/
   /*font-family: 'Great Vibes', cursive;*/
-  font-family: 'Russo One', sans-serif;
+  /*font-family: 'Russo One', sans-serif;*/
   /*font-family: 'Poiret One', cursive;*/
   /*font-family: 'Monoton', cursive;*/
   /*font-family: 'Tangerine', cursive;*/
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 5px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-  color: rgb(255, 0, 38);
-  background-color: transparent;
+/*.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {*/
+  /*!*color: rgb(255, 0, 38);*!*/
+  /*background-color: transparent;*/
+/*}*/
+
+.main-nav>li>a:hover {
+  /*color: rgb(255, 0, 38);*/
+  background-color: #ddd;
+  color: black;
+}
+.main-nav>li.active>a {
+  background-color: #4CAF50;
+  color: white;
 }
 
-.main-nav>li>a:after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 2px;
-  background-color: #ff0026;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
+/*.main-nav>li>a:after {*/
+  /*content: "";*/
+  /*display: block;*/
+  /*width: 0%;*/
+  /*height: 2px;*/
+  /*background-color: #ff0026;*/
+  /*-webkit-transition: 0.2s all;*/
+  /*transition: 0.2s all;*/
+/*}*/
 
 .main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
   width: 100%;
@@ -709,49 +729,49 @@ textarea.input {
 	responsive nav
 \*----------------------------*/
 
-@media only screen and (max-width: 991px) {
-  .header-ctn .menu-toggle {
-    display: inline-block;
-  }
-  #responsive-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: #15161D;
-    height: 100vh;
-    max-width: 250px;
-    width: 0%;
-    overflow: hidden;
-    z-index: 22;
-    padding-top: 60px;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-  }
-  #responsive-nav.active {
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-    width: 100%;
-  }
-  .main-nav {
-    margin: 0px;
-    float: none;
-  }
-  .main-nav>li {
-    display: block;
-    float: none;
-  }
-  .main-nav>li+li {
-    margin-left: 0px;
-  }
-  .main-nav>li>a {
-    padding: 15px;
-    color: #FFF;
-  }
-}
+/*@media only screen and (max-width: 991px) {*/
+  /*.header-ctn .menu-toggle {*/
+    /*display: inline-block;*/
+  /*}*/
+  /*#responsive-nav {*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*background: #15161D;*/
+    /*height: 100vh;*/
+    /*max-width: 250px;*/
+    /*width: 0%;*/
+    /*overflow: hidden;*/
+    /*z-index: 22;*/
+    /*padding-top: 60px;*/
+    /*-webkit-transform: translateX(-100%);*/
+    /*-ms-transform: translateX(-100%);*/
+    /*transform: translateX(-100%);*/
+    /*-webkit-transition: 0.2s all;*/
+    /*transition: 0.2s all;*/
+  /*}*/
+  /*#responsive-nav.active {*/
+    /*-webkit-transform: translateX(0%);*/
+    /*-ms-transform: translateX(0%);*/
+    /*transform: translateX(0%);*/
+    /*width: 100%;*/
+  /*}*/
+  /*.main-nav {*/
+    /*margin: 0px;*/
+    /*float: none;*/
+  /*}*/
+  /*.main-nav>li {*/
+    /*display: block;*/
+    /*float: none;*/
+  /*}*/
+  /*.main-nav>li+li {*/
+    /*margin-left: 0px;*/
+  /*}*/
+  /*.main-nav>li>a {*/
+    /*padding: 15px;*/
+    /*color: #FFF;*/
+  /*}*/
+/*}*/
 
 /*=========================================================
 	04 -> CATEGORY SHOP

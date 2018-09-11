@@ -16,7 +16,7 @@ class ProductFixtures extends Fixture
     {
 
         // create 20 products! Bam!
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 0; $i++) {
             $product = new Product();
             $product->setName('Товар '.$i);
             $product->setCost(mt_rand(10, 100));
@@ -25,7 +25,6 @@ class ProductFixtures extends Fixture
             $category = $this->getReference('category'.mt_rand(0, 3));
             $product->setCategory($category);
             $product->setCountry('Ukraine');
-            $product->setProductCode(99 + $i);
             $product->setRecomendedCost(mt_rand(100, 1000));
             $product->setReturnCost(50);
             $product->setValuta('UAH');

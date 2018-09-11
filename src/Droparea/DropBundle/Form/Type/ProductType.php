@@ -35,14 +35,17 @@ class ProductType extends AbstractType
                 'label' => 'Фото',
                 'multiple' => true,
             ])
-            ->add('description', TextType::class, [
-                'label' => 'Описание',
-            ])
             ->add('name', TextType::class, [
                 'label' => 'Название',
             ])
+            ->add('description', TextType::class, [
+                'label' => 'Описание',
+            ])
             ->add('weight', TextType::class, [
                 'label' => 'Вес',
+                'attr' => [
+                    'value' => '1кг'
+                ]
             ])
             ->add('cost', TextType::class, [
                 'label' => 'Цена',
@@ -52,6 +55,9 @@ class ProductType extends AbstractType
                 ])
             ->add('returnCost', TextType::class, [
                 'label' => 'Стоимость возврата',
+                'attr' => [
+                    'value' => 'Согласно тарифам Новой Почты'
+                ]
             ])
             ->add('purveyor', ChoiceType::class, [
                 'choices' => [
