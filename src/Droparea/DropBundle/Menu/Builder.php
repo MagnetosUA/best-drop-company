@@ -35,6 +35,11 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('Новости', [
                 'route' => 'news'
             ]);
+//        $menu->addChild(" ", [
+//            'uri' => '#',
+////            'route' => 'news',
+//        ]);
+//        $menu[' ']->setLinkAttribute('class', 'icon');
 
         return $menu;
     }

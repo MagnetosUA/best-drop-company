@@ -7,15 +7,7 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title">Новые товары</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-                        </ul>
-                    </div>
+                    <h3 class="title">Хиты продаж</h3>
                 </div>
             </div>
             <!-- /section title -->
@@ -27,16 +19,15 @@
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
-
-                                <!-- product -->
+                               <!-- product -->
+                                {% for product in products %}
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="{{ asset('imgages/product05.png') }}" alt="">
+                                        <img src="{{ asset('build/images/products/' ~ product.images[0]) }}" alt="">
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <p class="product-category">{{ product.category.name }}</p>
+                                        <h3 class="product-name top-product">{{ product.name }}</h3>
                                         <div class="product-rating">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -46,9 +37,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                                 <!-- /product -->
                             </div>
-                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                            {#<div id="slick-nav-1" class="products-slick-nav"></div>#}
                         </div>
                         <!-- /tab -->
                     </div>

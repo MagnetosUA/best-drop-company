@@ -435,7 +435,7 @@ textarea.input {
   margin-right: 5px;
 }
 #top-header .container {
-  margin-left:635px;
+  /*margin-left:635px;*/
   text-align: right !important;
   /*border: 1px solid red;*/
 }
@@ -986,7 +986,10 @@ textarea.input {
   text-align: center;
   z-index: 20;
 }
-
+/*style of product's name in main page (index.html.twig) top products list*/
+.product .product-body .top-product {
+  height: 30px;
+}
 .product .product-body .product-category {
   text-transform: uppercase;
   font-size: 12px;

@@ -25,27 +25,29 @@ class DefaultController extends Controller
 //        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
 //            throw $this->createAccessDeniedException('GET OUT!');
 //        }
-        $regForm = $this->createForm(RegisterUserType::class);
-        $authForm = $this->createForm(LoginType::class);
-        $authForm->handleRequest($request);
-        $regForm->handleRequest($request);
-        if ($regForm->isSubmitted() && $regForm->isValid()) {
-            $data = $regForm->getData();
-            $response = $this->forward('DropBundle:User:registerUser', [
-                'data' => $data,
-            ]);
-            return $response;
-        }
-        if ($authForm->isSubmitted() && $authForm->isValid()) {
-            $data = $authForm->getData();
-            $response = $this->forward('DropBundle:User:authUser', [
-                'data' => $data,
-            ]);
-            return $response;
-        }
+//        $regForm = $this->createForm(RegisterUserType::class);
+//        $authForm = $this->createForm(LoginType::class);
+//        $authForm->handleRequest($request);
+//        $regForm->handleRequest($request);
+//        if ($regForm->isSubmitted() && $regForm->isValid()) {
+//            $data = $regForm->getData();
+//            $response = $this->forward('DropBundle:User:registerUser', [
+//                'data' => $data,
+//            ]);
+//            return $response;
+//        }
+//        if ($authForm->isSubmitted() && $authForm->isValid()) {
+//            $data = $authForm->getData();
+//            $response = $this->forward('DropBundle:User:authUser', [
+//                'data' => $data,
+//            ]);
+//            return $response;
+//        }
+        $bestProducts = $this->getDoctrine()->getRepository(Product::class)->findBy(["top" => "1"]);
         return $this->render('@Drop/Default/index.html.twig', [
-            'reg_form' => $regForm->createView(),
-            'auth_form' => $authForm->createView(),
+            'products' => $bestProducts,
+//            'reg_form' => $regForm->createView(),
+//            'auth_form' => $authForm->createView(),
         ]);
     }
 
