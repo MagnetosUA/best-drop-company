@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -38,8 +39,11 @@ class ProductType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Название',
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Описание',
+                'attr' => [
+                    'placeholder' => 'Описание',
+                ],
             ])
             ->add('weight', TextType::class, [
                 'label' => 'Вес',
@@ -60,6 +64,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('purveyor', ChoiceType::class, [
+                'label' => 'Поставщик',
                 'choices' => [
                     'drop1' => 'Drop1',
                     'marina' => 'Marina',
@@ -72,7 +77,10 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'Добавить'
+                'label' => 'Добавить',
+                'attr' => [
+                    'class' => 'btn btn-danger'
+                ]
             ]);
     }
 

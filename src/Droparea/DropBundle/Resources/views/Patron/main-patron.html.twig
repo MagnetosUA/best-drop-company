@@ -5,15 +5,53 @@
 
 
 {% block main_content %}
-    {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
+    <style>
+        .description textarea {
+            height: 150px;
+        }
+        label {
+            font-size: 120%;
+        }
+        .product-form .col-md-8 {
+            border: 3px solid #0000006b;
+            background: #5bdebd9e;
+        }
+    </style>
 <div class="row product-form">
-    <div class="col-md-3"></div>
-    <div class = "col-md-6">
+    <div class="col-md-2"></div>
+    <div class = "col-md-8">
         <h3>Форма добавления нового товара</h3>
         {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.purveyor) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.category) }}
+            </div>
+        </div>
+        {{ form_row(form.images) }}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col-md-6 description">
+                {{ form_row(form.description) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.cost) }}
+                <hr/>
+            </div>
+            <div class="col-md-6 description">
+                {{ form_row(form.recomendedCost) }}
+                <hr/>
+            </div>
+        </div>
         {{ form_end(form) }}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <button class="btn btn-danger update-new-post"> Обновить базу данных адресов Новой Почты</button>
     </div>
 </div>
