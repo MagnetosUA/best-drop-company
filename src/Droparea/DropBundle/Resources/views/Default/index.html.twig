@@ -124,7 +124,11 @@
         <!-- responsive-nav -->
         <div id="responsive-nav">
             <!-- NAV -->
-            {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+            {% if is_granted('ROLE_USER') %}
+                {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+            {% else %}
+                {{ knp_menu_render('DropBundle:FirstMainMenu:mainGuestMenu', { 'currentClass': 'active'} )}}
+            {% endif %}
             <!-- /NAV -->
         </div>
         <!-- /responsive-nav -->
@@ -133,7 +137,7 @@
 </nav>
 <!-- /NAVIGATION -->
 
-
+{% block main_content %}
 <!-- SECTION first-offer -->
 <div class="section">
         {% include '@Drop/Parts/main page/first-offer.html.twig' %}
@@ -225,7 +229,7 @@
     <!-- /container -->
 </div>
 <!-- /HOT DEAL SECTION -->
-
+{% endblock main_content %}
 <!-- FOOTER -->
 <footer id="footer">
 

@@ -20,14 +20,14 @@ class FirstMainMenu implements ContainerAwareInterface
         $menu->addChild('Главная', [
             'route' => 'drop_homepage'
         ]);
-        $menu->addChild('Каталог', [
-            'route' => 'catalogue'
-        ]);
         $menu->addChild('Описание', [
             'uri' => '#',
         ]);
         $menu->addChild('Преимущества', [
             'uri' => '#',
+        ]);
+        $menu->addChild('Каталог', [
+            'route' => 'catalogue'
         ]);
         $menu->addChild('Вход', [
             'route' => 'security_login'

@@ -228,7 +228,10 @@ class DefaultController extends Controller
 
     public function catalogueAction()
     {
-//        todo
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('@Drop/Pages/catalogue.html.twig', [
+            'products' => $products,
+        ]);
     }
 }
 
