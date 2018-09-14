@@ -18,7 +18,7 @@
 
 }
 
-.first-offer h3 {
+.first-offer .best {
     padding: 15px;
     /* text-transform: capitalize; */
     /* font-weight: normal; */
@@ -41,7 +41,7 @@
 .first-offer ul {
     float: left;
     text-align: left;
-    font-size: 210%;
+    /*font-size: 210%;*/
     margin-top: 20px;
 }
 
@@ -66,6 +66,7 @@ mark {
     letter-spacing: 5px;
     border-bottom: 3px ridge #9d7a7a36;
     padding-bottom: 15px;
+    font-size: 210%;
 }
 
 .first-offer li i {
@@ -105,3 +106,88 @@ mark {
     padding: 25px 0;
     background: #efefef5c;
 }
+
+/*@media screen and (max-width: 1510px) {*/
+    /*.first-offer h2 {*/
+        /*font-size: 25px;*/
+    /*}*/
+    /*mark {*/
+        /*font-size: 35px;*/
+    /*}*/
+/*}*/
+
+@media screen and (max-width: 1200px) {
+    .first-offer h2 {
+        font-size: 28px;
+        text-shadow: none;
+        letter-spacing: 3px;
+    }
+    mark {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .first-offer h2 {
+        font-size: 20px;
+        letter-spacing: 4px;
+        text-shadow: none;
+    }
+    mark {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .first-offer h2 {
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-shadow: none;
+    }
+    mark {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .first-offer h2 {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-shadow: none;
+    }
+    .first-offer .best {
+        text-align: justify;
+        font-size: 20px;
+        letter-spacing: normal;
+        text-shadow: none;
+    }
+    .first-offer img {
+        width: 100%;
+        margin:0 0 100px 0;
+        padding: 0;
+    }
+    .first-offer li {
+        text-shadow: none;
+        letter-spacing: 2px;
+        border-bottom: 3px ridge #9d7a7a36;
+        padding-bottom: 15px;
+        font-size: 120%;
+    }
+    .brdr p {
+        /*width: 50%;*/
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+    .best-products .best {
+        font-size: 30px !important;
+        letter-spacing: 3px !important;
+    }
+    /*.btn-lg {*/
+        /*!*width: 50% !important;*!*/
+        /*font-size: 15px !important;*/
+    /*}*/
+    mark {
+        font-size: 10px;
+    }
+}
+
