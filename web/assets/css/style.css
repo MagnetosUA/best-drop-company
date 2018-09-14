@@ -299,13 +299,21 @@ textarea.input {
 .section-title {
   position: relative;
   margin-bottom: 30px;
-  margin-top: 15px;
+  margin-top: 52px;
+  text-align: center;
+  letter-spacing: 5px;
 }
 
 .section-title .title {
+  font-family: 'Oswald', sans-serif;
   display: inline-block;
   text-transform: uppercase;
   margin: 0px;
+  font-size: 34px;
+  text-shadow: 1px 1px 0px #adaca1c2;
+  letter-spacing: 15px;
+  margin-bottom: 43px;
+  margin-top: 25px;
 }
 
 .section-title .section-nav {
@@ -451,10 +459,18 @@ textarea.input {
 
 .header-logo {
   float: left;
+  margin-top: 16px;
 }
 
-.header-logo .logo img {
+.header-logo span {
+  font-weight: bold;
+  color: white;
   display: block;
+  font-size: 175%;
+}
+
+.header-logo span:hover {
+  color: red;
 }
 
 /*----------------------------*\
@@ -805,12 +821,12 @@ textarea.input {
 .hot-deal .hot-deal-countdown>li {
   position: relative;
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   background: #D10024e6;
   text-align: center;
   border-radius: 50%;
-  margin: 0px 5px;
+  margin: 0px 60px;
 }
 
 .hot-deal .hot-deal-countdown>li>div {
@@ -830,9 +846,13 @@ textarea.input {
 
 .hot-deal .hot-deal-countdown>li>div span {
   display: block;
-  font-size: 10px;
+  font-size: 19px;
   text-transform: uppercase;
   color: #FFF;
+}
+
+.hot-deal .hot-deal-countdown>li>div h3 {
+  padding-bottom: 6px;
 }
 
 .hot-deal p {
@@ -868,6 +888,8 @@ textarea.input {
 
 .product .product-img {
   position: relative;
+  height: 275px;
+  padding-top: 20px;
 }
 
 .product .product-img>img {
@@ -904,6 +926,10 @@ textarea.input {
   background-color: #FFF;
   text-align: center;
   z-index: 20;
+}
+
+.product .product-body h3 {
+  height: 30px;
 }
 
 .product .product-body .product-category {

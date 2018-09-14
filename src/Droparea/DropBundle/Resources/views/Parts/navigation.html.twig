@@ -1,42 +1,42 @@
 <!-- NAVIGATION -->
 <link href="https://fonts.googleapis.com/css?family=Great+Vibes|M+PLUS+Rounded+1c|Monoton|Oswald|Poiret+One|Russo+One|Tangerine" rel="stylesheet">
-<nav id="navigation">
-    <style>
-        .icon {
-            display: none;
-        }
+{#<nav id="navigation">#}
+    {#<style>#}
+        {#.icon {#}
+            {#display: none;#}
+        {#}#}
 
-        @media screen and (max-width: 600px) {
-            #responsive-nav li:not(:first-child) a {display: none;}
-            .icon {
-                float: right;
-                display: block;
-            }
-        }
+        {#@media screen and (max-width: 600px) {#}
+            {##responsive-nav li:not(:first-child) a {display: none;}#}
+            {#.icon {#}
+                {#float: right;#}
+                {#display: block;#}
+            {#}#}
+        {#}#}
 
-        @media screen and (max-width: 600px) {
-            #responsive-nav.responsive {position: relative;}
-            #responsive-nav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            #responsive-nav.responsive li a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-        }
-    </style>
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav" class="responsive-nav">
-            <!-- NAV -->
-            {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
+        {#@media screen and (max-width: 600px) {#}
+            {##responsive-nav.responsive {position: relative;}#}
+            {##responsive-nav.responsive .icon {#}
+                {#position: absolute;#}
+                {#right: 0;#}
+                {#top: 0;#}
+            {#}#}
+            {##responsive-nav.responsive li a {#}
+                {#float: none;#}
+                {#display: block;#}
+                {#text-align: left;#}
+            {#}#}
+        {#}#}
+    {#</style>#}
+    {#<!-- container -->#}
+    {#<div class="container">#}
+        {#<!-- responsive-nav -->#}
+        {#<div id="responsive-nav" class="responsive-nav">#}
+            {#<!-- NAV -->#}
+            {#{{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}#}
+            {#<a href="javascript:void(0);" class="icon" onclick="myFunction()">#}
+                {#<i class="fa fa-bars"></i>#}
+            {#</a>#}
             {#<ul class="main-nav nav navbar-nav">#}
                 {#<li><a href="{{ path('products') }}">Товары</a></li>#}
                 {#<li><a href="{{ path('orders') }}">Заказы</a></li>#}
@@ -45,22 +45,163 @@
                 {#<li><a href="#">Рефералы</a></li>#}
                 {#<li><a href="#">Новости</a></li>#}
             {#</ul>#}
+            {#<!-- /NAV -->#}
+        {#</div>#}
+        {#<script>#}
+            {#// var icon = $(".responsive-nav").innerHTML("li").lastChild;#}
+            {#// icon.append("<i class='fa fa-bars'></i>")#}
+            {#function myFunction() {#}
+                {#var x = document.getElementById("responsive-nav");#}
+                {#if (x.className === "responsive-nav") {#}
+                    {#x.className += " responsive";#}
+                {#} else {#}
+                    {#x.className = "responsive-nav";#}
+                {#}#}
+            {#}#}
+        {#</script>#}
+        {#<!-- /responsive-nav -->#}
+    {#</div>#}
+    {#<!-- /container -->#}
+{#</nav>#}
+{#<!-- /NAVIGATION -->#}
+<style>
+    /*=========================================================
+	03 -> Navigation
+===========================================================*/
+
+    #navigation {
+        background: #FFF;
+        border-bottom: 2px solid #E4E7ED;
+        border-top: 3px solid #D10024;
+    }
+
+    /*----------------------------*\
+        Main nav
+    \*----------------------------*/
+
+    .main-nav>li+li {
+        margin-left: 30px
+    }
+
+    .main-nav>li>a {
+        padding: 20px 0px;
+    }
+
+    .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
+        color: #D10024;
+        background-color: transparent;
+    }
+
+    .main-nav>li>a:after {
+        content: "";
+        display: block;
+        width: 0%;
+        height: 2px;
+        background-color: #D10024;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+
+    .main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
+        width: 100%;
+    }
+
+    .header-ctn li.nav-toggle {
+        display: none;
+    }
+
+    /*----------------------------*\
+        responsive nav
+    \*----------------------------*/
+
+    @media only screen and (max-width: 991px) {
+        .header-ctn .menu-toggle {
+            display: inline-block;
+        }
+        #responsive-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #15161D;
+            height: 100vh;
+            max-width: 250px;
+            width: 0%;
+            overflow: hidden;
+            z-index: 22;
+            padding-top: 60px;
+            -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        #responsive-nav.active {
+            -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+            transform: translateX(0%);
+            width: 100%;
+        }
+        .main-nav {
+            margin: 0px;
+            float: none;
+        }
+        .main-nav>li {
+            display: block;
+            float: none;
+        }
+        .main-nav>li+li {
+            margin-left: 0px;
+        }
+        .main-nav>li>a {
+            padding: 15px;
+            color: #FFF;
+        }
+    }
+</style>
+
+<!-- Menu Toogle -->
+<div class="menu-toggle">
+    <a href="#">
+        <i class="fa fa-bars"></i>
+        <span>Menu</span>
+    </a>
+</div>
+<!-- /Menu Toogle -->
+{#******************#}
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Hot Deals</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Smartphones</a></li>
+                <li><a href="#">Cameras</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
             <!-- /NAV -->
         </div>
-        <script>
-            // var icon = $(".responsive-nav").innerHTML("li").lastChild;
-            // icon.append("<i class='fa fa-bars'></i>")
-            function myFunction() {
-                var x = document.getElementById("responsive-nav");
-                if (x.className === "responsive-nav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "responsive-nav";
-                }
-            }
-        </script>
         <!-- /responsive-nav -->
     </div>
     <!-- /container -->
 </nav>
 <!-- /NAVIGATION -->
+<script>
+    // Mobile Nav toggle
+    $('.menu-toggle > a').on('click', function (e) {
+        e.preventDefault();
+        $('#responsive-nav').toggleClass('active');
+    })
+
+    // Fix cart dropdown from closing
+    $('.cart-dropdown').on('click', function (e) {
+        e.stopPropagation();
+    });
+
+    /////////////////////////////////////////
+</script>
