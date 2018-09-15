@@ -1,9 +1,9 @@
 {% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/product-page.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/product-page/modal-image.css') }}"/>
-    <script src="{{ asset('js/change-images.js') }}" defer></script>
-    <script src="{{ asset('js/product-page/modal-image.js') }}" defer></script>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/product-page/product-page.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/product-page/modal-image.css') }}"/>
+    <script src="{{ asset('assets/js/change-images.js') }}" defer></script>
+    <script src="{{ asset('assets/js/product-page/modal-image.js') }}" defer></script>
 {% endblock over_styles %}
 {% block main_content %}
     <div id="product-page" class="container">
@@ -19,10 +19,9 @@
                         <ul>
                             {% set i = 0 %}
                             {% for image in product.images %}
-
                             <li>
                                 <div class="product-img" onmouseover="changeImage('min-img{{ i }}');">
-                                    <img src="{{ asset('build/images/products/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
+                                    <img src="{{ asset('product_images/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
                                 </div>
                             </li>
                                 {% set i = ( i | default(1) ) + 1 %}
@@ -30,9 +29,8 @@
                         </ul>
                     </div>
                     <div class="col-md-10 main-image">
-                        <img src="{{ asset('build/images/products/' ~ product.images['0']) }}" id="main-img" alt=""/>
+                        <img src="{{ asset('product_images/' ~ product.images['0']) }}" id="main-img" alt=""/>
                     </div>
-                    {#<img id="myImg" src="{{ asset('imgages/product07.png') }}" alt="Snow" style="width:100%;max-width:300px">#}
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
                         <span class="close">&times;</span>

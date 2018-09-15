@@ -1,12 +1,11 @@
 {% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
-    <script src="{{ asset('build/practice.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/orders.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/orders.css') }}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <script src="{{ asset('js/orders/new-post-address.js') }}"></script>
-    <script src="{{ asset('js/orders/new-orders-page.js') }}" defer></script>
+    <script src="{{ asset('assets/js/orders/new-post-address.js') }}"></script>
+    <script src="{{ asset('assets/js/orders/new-orders-page.js') }}" defer></script>
 {% endblock over_styles %}
 {% block main_content %}
     <style>
@@ -36,12 +35,6 @@
                         </thead>
                         <tbody>
                         {% for product in products %}
-                            {#{% if product.id == id %}#}
-                                {#<script>#}
-                                    {#// $("tr").css("background", "red");#}
-                                    {#console.log(1);#}
-                                {#</script>#}
-                            {#{% endif %}#}
                             <tr {% if product.id == id %} class="in-order" {% endif %}>
                                 <td class="product-id">{{ product.id }}</td>
                                 <td class="product-name">{{ product.name }}</td>
