@@ -1,9 +1,11 @@
-{% extends '@Drop/base.html.twig' %}
-
+{% extends '@Drop/Default/index.html.twig' %}
+{% block over_styles %}
+    <link href="{{ asset('assets/css/reg.css') }}" rel="stylesheet" />
+{% endblock over_styles %}
 {% block main_content %}
     <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-2 text-right">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 reg">
             <p>Регистрация нового продавца</p>
             {{ form_start(form) }}
             {{ form_row(form.name) }}
@@ -14,7 +16,7 @@
             <button type="submit" class="btn btn-primary" formnovalidate>Регистрация</button>
             {{ form_end(form) }}
         </div>
-        <div class="col-md-5"></div>
+        <div class="col-md-4"></div>
     </div>
     <script>
     </script>

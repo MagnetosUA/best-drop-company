@@ -1,4 +1,4 @@
-{% extends '@Drop/base.html.twig' %}
+{% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
     <script src="{{ asset('build/practice.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -9,7 +9,6 @@
     <script src="{{ asset('js/orders/new-orders-page.js') }}" defer></script>
 {% endblock over_styles %}
 {% block main_content %}
-    {% include '@Drop/Parts/navigation.html.twig' %}
     <style>
         .in-order {
             background: red !important;

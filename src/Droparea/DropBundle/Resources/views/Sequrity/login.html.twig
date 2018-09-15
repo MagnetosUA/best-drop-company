@@ -1,9 +1,12 @@
-{% extends '@Drop/base.html.twig' %}
+{% extends '@Drop/Default/index.html.twig' %}
+{% block over_styles %}
+    <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet" />
+{% endblock over_styles %}
 
 {% block main_content %}
     <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-2 text-right">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 auth">
             <p>Авторизация</p>
             {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
                 {{ form_row(form._username) }}
@@ -13,7 +16,7 @@
                 <a href="{{ path('user_register') }}">Регистрация</a>
             {{ form_end(form) }}
         </div>
-        <div class="col-md-5"></div>
+        <div class="col-md-4"></div>
     </div>
     <script>
     </script>

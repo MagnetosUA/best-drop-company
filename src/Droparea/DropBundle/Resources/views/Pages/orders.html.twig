@@ -1,50 +1,51 @@
-{% extends '@Drop/base.html.twig' %}
+{% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
     {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
     <link href="{{ asset('css/orders.css') }}" rel="stylesheet" />
 {% endblock over_styles %}
 {% block main_content %}
-    {% include '@Drop/Parts/navigation.html.twig' %}
     <div class="wrapper">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="order-status">
                     <ul>
                         <li id="all">
-                            <button type="button" class="btn btn-xs">Все <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-default btn-xs">Все <span class="badge">{{ status_count.new }}</span></button>
                         </li>
                         <li id="new">
-                            <button type="button" class="btn btn-xs">Новый <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-info btn-xs">Новый <span class="badge">{{ status_count.new }}</span></button>
                         </li>
                         <li id="in-progress">
-                            <button type="button" class="btn btn-xs">В обработке <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-info btn-xs">В обработке <span class="badge">{{ status_count.in_processing }}</span></button>
                         </li>
-                        <li id="not-call">
-                            <button type="button" class="btn btn-xs">Недозвон <span class="badge">170</span></button>
-                        </li>
+                        {#<li id="not-call">#}
+                            {#<button type="button" class="btn btn-xs">Недозвон <span class="badge">170</span></button>#}
+                        {#</li>#}
                         <li id="accepted">
-                            <button type="button" class="btn btn-xs">Подтвержденный <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-success btn-xs">Подтвержденный <span class="badge">{{ status_count.confirmed }}</span></button>
                         </li>
                         <li id="rejected">
-                            <button type="button" class="btn btn-xs">Отклоненный <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-danger btn-xs">Отклоненный <span class="badge">{{ status_count.rejected }}</span></button>
                         </li>
                         <li id="shipped">
-                            <button type="button" class="btn btn-xs">Отправленный <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-success btn-xs">Отправленный <span class="badge">{{ status_count.shipped }}</span></button>
                         </li>
                         <li id="non-payment">
-                            <button type="button" class="btn btn-xs">Невыкуп <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-danger btn-xs">Невыкуп <span class="badge">{{ status_count.non_purchase }}</span></button>
                         </li>
                         <li id="buyout">
-                            <button type="button" class="btn btn-xs">Выкуп <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-success btn-xs">Выкуп <span class="badge">{{ status_count.ransom }}</span></button>
                         </li>
                         <li id="not-send-process">
-                            <button type="button" class="btn btn-xs">Не отправлен на обработку <span class="badge">170</span></button>
+                            <button type="button" class="btn btn-warning btn-xs">Не отправлен на обработку <span class="badge">{{ status_count.not_sent_fo_processing }}</span></button>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
-                <a href="{{ path('new-orders') }}" class="btn btn-success"><i class="fas fa-arrow-alt-circle-right">Добавить заказ</i></a>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ path('new-orders') }}" class="btn btn-success"><i class="fas fa-folder-plus"></i>  Добавить заказ</a>
             </div>
         </div>
         <div class="row">

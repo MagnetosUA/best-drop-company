@@ -8,6 +8,7 @@
 
     <title>Best Drop Company</title>
 
+
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -40,6 +41,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    {% block over_styles %}
+    {% endblock over_styles %}
 </head>
 <body>
 <!-- HEADER -->
@@ -52,10 +55,17 @@
                 <li><a href="#"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="ff9a929e9693bf9a929e9693d19c9092">best-drop.company@gmail.com</span></a></li>
                 {#<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>#}
             </ul>
-            <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-dollar-sign"></i> UAH</a></li>
-                <li><a href="#"><i class="fa fa-user"></i> Мой Аккаунт</a></li>
-            </ul>
+            {% if is_granted('ROLE_USER') %}
+                <ul class="header-links pull-right">
+                    <li><a href="#"><i class="fa fa-dollar-sign"></i> UAH</a></li>
+                    <li><a href="{{ path('user_page') }}"><i class="fa fa-user"></i> Мой Аккаунт</a></li>
+                    <li><a href="{{ path('security_logout') }}"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
+                </ul>
+                {% else %}
+                    <ul class="header-links pull-right">
+                        <li><a href="{{ path('security_login') }}"><i class="fas fa-sign-in-alt"></i> Вход</a></li>
+                    </ul>
+            {% endif %}
         </div>
     </div>
     <!-- /TOP HEADER -->
@@ -69,7 +79,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a href="{{ path('drop_homepage') }}" class="logo">
                             <span>
                                 Best-Drop Company
                             </span>
@@ -79,19 +89,21 @@
                 <!-- /LOGO -->
 
                 <!-- SEARCH BAR -->
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form>
-                            <select class="input-select">
-                                <option value="0">Все категории</option>
-                                <option value="1">Category 01</option>
-                                <option value="1">Category 02</option>
-                            </select>
-                            <input class="input" placeholder="Искать...">
-                            <button class="search-btn">Поиск</button>
-                        </form>
+                {% if is_granted('ROLE_USER') %}
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form>
+                                <select class="input-select">
+                                    <option value="0">Все категории</option>
+                                    <option value="1">Category 01</option>
+                                    <option value="1">Category 02</option>
+                                </select>
+                                <input class="input" placeholder="Искать...">
+                                <button class="search-btn">Поиск</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
                 <!-- /SEARCH BAR -->
 
                 <!-- ACCOUNT -->
@@ -140,6 +152,7 @@
 {% block main_content %}
 <!-- SECTION first-offer -->
 <div class="section">
+    <a name="description"></a>
         {% include '@Drop/Parts/main page/first-offer.html.twig' %}
 </div>
 <!-- /SECTION first-offer-->
@@ -154,7 +167,7 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title best">Наши Лучшие Товары</h3>
+                    <h3 class="title best">Топ продаж</h3>
                 </div>
             </div>
             <!-- /section title -->
@@ -186,6 +199,7 @@
 
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal" class="section">
+    <a name="advantages"></a>
     <!-- container -->
     <div class="container">
         <!-- row -->
@@ -220,7 +234,7 @@
                     </ul>
                     <h2 class="text-uppercase">Воспользуйтесь Нашей системой</h2>
                     <p>И Вы получите надёжный источник дохода на долгое время</p>
-                    <a class="primary-btn cta-btn" href="#">Регистрация</a>
+                    <a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>
                 </div>
             </div>
         </div>
@@ -250,7 +264,7 @@
                     </ul>
                     <span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> &copy; Best-Drop.Company - Ваша Финансовая Свобода <i class="fa fa-heart" aria-hidden="true"></i> <script>document.write(new Date().getFullYear());</script>
+                        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> &copy; Best-Drop.Company - Ваша Финансовая Свобода  <script>document.write(new Date().getFullYear());</script>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
                 </div>

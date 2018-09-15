@@ -188,7 +188,27 @@ class DefaultController extends Controller
     {
         $user = $this->getUser();
 //        echo $user->getId();die;
-        $orders = $this->getDoctrine()->getRepository(Ord::class)->findAll();//findOneBy(["user" => $user->getId()]);
+        $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $this->getUser()]);//findOneBy(["user" => $user->getId()]);
+
+        $statusCount["new"] = 0;
+        $statusCount["in_processing"] = 0;
+        $statusCount["confirmed"] = 0;
+        $statusCount["rejected"] = 0;
+        $statusCount["shipped"] = 0;
+        $statusCount["non_purchase"] = 0;
+        $statusCount["ransom"] = 0;
+        $statusCount["not_sent_fo_processing"] = 0;
+
+        foreach ($orders as $order) {
+            if ($order->getStatus() == Ord::NEW_OREDER) {$statusCount["new"] += 1;}
+            if ($order->getStatus() == Ord::IN_PROCESSING) {$statusCount["in_processing"] += 1;}
+            if ($order->getStatus() == Ord::CONFIRMED) {$statusCount["confirmed"] += 1;}
+            if ($order->getStatus() == Ord::REJECTED) {$statusCount["rejected"] += 1;}
+            if ($order->getStatus() == Ord::SHIPPED) {$statusCount["shipped"] += 1;}
+            if ($order->getStatus() == Ord::NON_PURCHASE) {$statusCount["non_purchase"] += 1;}
+            if ($order->getStatus() == Ord::RANSOM) {$statusCount["ransom"] += 1;}
+            if ($order->getStatus() == Ord::NOT_SENT_FOR_PROCESSING) {$statusCount["not_sent_fo_processing"] += 1;}
+        }
 
 //        foreach ($orders as $order) {
 //            echo 1;
@@ -196,6 +216,7 @@ class DefaultController extends Controller
 
         return $this->render('@Drop/Pages/orders.html.twig', [
             'orders' => $orders,
+            'status_count' => $statusCount,
         ]);
     }
 

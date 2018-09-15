@@ -1,0 +1,9 @@
+.reg {
+    height: 450px;
+    margin-top: 25px;
+}
+
+.reg form {
+    border: 1px solid #0000002b;
+    padding: 20px;
+}

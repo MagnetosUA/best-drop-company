@@ -1,14 +1,12 @@
-{% extends '@Drop/base.html.twig' %}
+{% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
-    <script src="{{ asset('build/practice.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet" />
 {% endblock over_styles %}
 {% block main_content %}
-    {% include '@Drop/Parts/navigation.html.twig' %}
     <div class="wrapper">
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-md-4 reg">
                 <h4>Регистрация нового продавца</h4>
                 {{ form_start(user_form) }}
                 {{ form_end(user_form) }}

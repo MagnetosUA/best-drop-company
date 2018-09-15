@@ -3,7 +3,7 @@
     /*background: #6f6967;*/
     border-radius: 6px;
     text-align: center;
-    font-family: 'Oswald', sans-serif;
+    /*font-family: 'Oswald', sans-serif;*/
     border: 2px solid #afa3a3;
     /*overflow: hidden;*/
 }
@@ -13,9 +13,8 @@
     text-transform: capitalize;
     font-weight: normal;
     font-size: 30px;
-    text-shadow: 1px 1px 0px #086bc0;
-    letter-spacing: 5px;
-
+    /* text-shadow: 1px 1px 0px #086bc0; */
+    letter-spacing: -1px;
 }
 
 .first-offer .best {
@@ -62,11 +61,11 @@ mark {
 
 .first-offer li {
     color: rgba(42, 40, 60, 0.95);
-    text-shadow: 1px 1px 0px #086bc0;
-    letter-spacing: 5px;
+    /* text-shadow: 1px 1px 0px #086bc0; */
+    letter-spacing: 1px;
     border-bottom: 3px ridge #9d7a7a36;
     padding-bottom: 15px;
-    font-size: 210%;
+    font-size: 195%;
 }
 
 .first-offer li i {
@@ -75,14 +74,14 @@ mark {
 }
 
 .first-offer p {
-    font-size: 32px;
+    font-size: 22px;
     text-align: center;
     margin-top: -8px;
     color: #3a3232d6;
     margin-bottom: 55px;
-    letter-spacing: 7px;
-    text-shadow: 0px 1px 0px #2d32ccd6;
-    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    /* text-shadow: 0px 1px 0px #2d32ccd6; */
+    text-transform: uppercase;
 }
 
 .first-offer .arrow i {

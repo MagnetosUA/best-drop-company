@@ -1,0 +1,9 @@
+.auth {
+    height:320px;
+    margin-top: 25px;
+}
+
+.auth form {
+    border: 1px solid #0000002b;
+    padding: 20px;
+}

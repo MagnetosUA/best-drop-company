@@ -67,9 +67,9 @@ label {
 .btn:hover {
     background-color: #45a049;
 }
-a {
-    color: #2196F3;
-}
+/*a {*/
+    /*color: #2196F3;*/
+/*}*/
 .row {
     display: -ms-flexbox; /* IE10 */
     display: flex;
