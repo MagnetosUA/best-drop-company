@@ -9,3 +9,8 @@ security_login:
 security_logout:
     path: /logout
     defaults: { _controller: DropBundle:Security:logout }
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
