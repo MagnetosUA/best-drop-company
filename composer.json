@@ -20,6 +20,7 @@
         "easycorp/easyadmin-bundle": "^1.17",
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-menu-bundle": "^2.0",
+        "knplabs/knp-paginator-bundle": "^2.8",
         "lis-dev/nova-poshta-api-2": "dev-master",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",

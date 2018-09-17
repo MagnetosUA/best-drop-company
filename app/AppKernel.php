@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Droparea\DropBundle\DropBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

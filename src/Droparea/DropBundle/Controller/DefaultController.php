@@ -51,7 +51,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function productsAction($category = 0)
+    public function productsAction(Request $request, $category = 0)
     {
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         if ($category!=0) {
@@ -68,10 +68,18 @@ class DefaultController extends Controller
             $currentLinkName = 'all';
         }
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $products, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            4/*limit per page*/
+        );
+
         return $this->render('@Drop/Pages/products.html.twig', [
-            'products' => $products,
+//            'products' => $products,
             'categories' => $categories,
             'current_link_name' => $currentLinkName,
+            'pagination' => $pagination,
         ]);
     }
 

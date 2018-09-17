@@ -34,12 +34,12 @@
 
                 <div class="col-md-12">
                     <div class="row">
-                        {% for product in products %}
+                        {% for product in pagination %}
                         <div class="col-md-3">
                             <!-- product -->
                             <div class="product">
                                 <div class="product-img">
-                                    <img src="{{ asset('build/images/products/' ~ product.images[0]) }}" alt="">
+                                    <img src="{{ asset('assets/product_images/products/' ~ product.images[0]) }}" alt="">
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">{{ product.category.name }}</p>
@@ -53,10 +53,14 @@
                         {% endfor %}
                     </div>
                 </div>
+                <div class="col-md-12 text-center">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
             </div>
             <!-- /row -->
         </div>
         <!-- /container -->
     </div>
     <!-- /SECTION NEW PRODUCTS-->
+
 {% endblock main_content %}
