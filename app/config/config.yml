@@ -76,15 +76,37 @@ sensio_framework_extra:
         annotations: false
 
 easy_admin:
+    site_name: 'Best-Drop.Company'
+    disabled_actions: ['show']
     entities:
+        User:
+            class: Droparea\DropBundle\Entity\User
+        Ord:
+            class: Droparea\DropBundle\Entity\Ord
+        News:
+            class: Droparea\DropBundle\Entity\News
+        Category:
+            class: Droparea\DropBundle\Entity\Category
         Product:
             class: Droparea\DropBundle\Entity\Product
+            disabled_actions: ['new']
+            list:
+                fields:
+#              ['id', 'name', 'category', 'images', 'description', 'cost', 'recomendedCost']
+                    - id
+                    - name
+                    - { property: 'new', type: 'boolean' }
+                    - description
+#                    - category
+#                    - { property: 'category', type: 'entity' }
+                    - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
+#                    - { property: 'images', type: 'image', base_path: '/assets/images/products/' ~ product.images[0] }
 
-#        - Droparea\DropBundle\Entity\Category
-#        - Droparea\DropBundle\Entity\News
-#        - Droparea\DropBundle\Entity\Payment
-#        - Droparea\DropBundle\Entity\Ord
-#        - Droparea\DropBundle\Entity\User
+                form:  # <-- 'form' is applied to both 'new' and 'edit' views
+                    fields:
+                        - 'id'
+                        - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
+
 
 
 knp_paginator:

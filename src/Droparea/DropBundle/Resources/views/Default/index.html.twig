@@ -8,6 +8,7 @@
 
     <title>Best Drop Company</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -23,6 +24,9 @@
 
     <!-- First-offer -->
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/first-offer.css') }}"/>
+
+    <!-- Schema -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/schema.css') }}"/>
 
     <!-- nouislider -->
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}"/>
@@ -76,15 +80,21 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <!-- LOGO -->
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <div class="header-logo">
                         <a href="{{ path('drop_homepage') }}" class="logo">
-                            <span>
-                                Best-Drop Company
-                            </span>
+                            {#<span>#}
+                            {#Best-Drop Company#}
+                            {#</span>#}
+                            <img src="{{ asset('assets/img/logo8.png') }}">
                         </a>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+
                 </div>
                 <!-- /LOGO -->
 
@@ -158,6 +168,40 @@
 <!-- /SECTION first-offer-->
 
 <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title best">как это работает</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="schema">
+                                <img src="{{ asset('assets/img/schema.jpg') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+
+    <!-- SECTION -->
 <div class="section">
     <!-- container -->
     <div class="container best-products">
@@ -167,7 +211,7 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title best">Топ продаж</h3>
+                    <h3 class="title best">хит продаж</h3>
                 </div>
             </div>
             <!-- /section title -->
@@ -233,7 +277,7 @@
                         </li>
                     </ul>
                     <h2 class="text-uppercase">Воспользуйтесь Нашей системой</h2>
-                    <p>И Вы получите надёжный источник дохода на долгое время</p>
+                    <p>И Вы получите надёжный источник дохода</p>
                     <a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>
                 </div>
             </div>

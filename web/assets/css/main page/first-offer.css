@@ -1,20 +1,41 @@
 .first-offer {
-    height: 550px;
+    /*padding-bottom: 15px;*/
+    height: 615px;
     /*background: #6f6967;*/
     border-radius: 6px;
     text-align: center;
     /*font-family: 'Oswald', sans-serif;*/
     border: 2px solid #afa3a3;
     /*overflow: hidden;*/
+    /*background: #0a29da;*/
+    background: url("../../img/money.jpg");
+    /*background-image:;*/
+    /*opacity: 0.4;*/
 }
 
 .first-offer h2 {
     padding: 55px 0;
-    text-transform: capitalize;
-    font-weight: normal;
+    /* text-transform: capitalize; */
+    /* font-weight: normal; */
     font-size: 30px;
     /* text-shadow: 1px 1px 0px #086bc0; */
     letter-spacing: -1px;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.first-offer h3 {
+    color: #eeeef3;
+    background: #0a1e92d1;
+    padding: 15px 0;
+    border-radius: 10px;
+}
+.first-offer .five-step {
+    background: rgb(255, 255, 255);
+    /*overflow: hidden;*/
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .first-offer .best {
@@ -31,8 +52,8 @@
     border-radius: 8px;
 }
 
-.first-offer img {
-    width: 32%;
+.first-offer .grove {
+    width: 38%;
     float: right;
     margin-right: 100px;
 }
@@ -102,8 +123,8 @@ mark {
     border: 2px solid #afa3a3;
     margin-top: 91px;
     border-radius: 6px;
-    padding: 25px 0;
-    background: #efefef5c;
+    /* padding: 25px 0; */
+    background: #0a29da;
 }
 
 /*@media screen and (max-width: 1510px) {*/
@@ -149,9 +170,12 @@ mark {
 }
 
 @media screen and (max-width: 480px) {
+    .first-offer h3 {
+        font-size: 15px;
+    }
     .first-offer h2 {
-        font-size: 9px;
-        letter-spacing: 1px;
+        font-size: 14px;
+        letter-spacing: 2px;
         text-shadow: none;
     }
     .first-offer .best {
@@ -167,10 +191,10 @@ mark {
     }
     .first-offer li {
         text-shadow: none;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         border-bottom: 3px ridge #9d7a7a36;
-        padding-bottom: 15px;
-        font-size: 120%;
+        margin-bottom: 17px;
+        font-size: 106%;
     }
     .brdr p {
         /*width: 50%;*/
@@ -186,7 +210,9 @@ mark {
         /*font-size: 15px !important;*/
     /*}*/
     mark {
-        font-size: 10px;
+        font-size: 15px;
+        margin-top: 5px;
+        display: inline-block;
     }
 }
 

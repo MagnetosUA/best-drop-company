@@ -145,6 +145,12 @@ class Ord
      */
     private $user;
 
+    public function __toString()
+    {
+        $id = $this->getId();
+        return "$id";
+    }
+
     /**
      * Get id
      *

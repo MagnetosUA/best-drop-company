@@ -301,19 +301,40 @@ textarea.input {
   margin-bottom: 30px;
   margin-top: 52px;
   text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
 }
 
 .section-title .title {
-  /*font-family: 'Oswald', sans-serif; */
-  /* display: inline-block; */
+  /* font-family: 'Anton', sans-serif; */
+  /* font-family: 'Lobster', cursive; */
+  /* font-family: 'Dancing Script', cursive; */
+  /* font-family: 'Oswald', sans-serif; */
+  /* font-family: 'Baloo Tammudu', cursive; */
+  display: inline-block;
+  font-family: 'Lobster', cursive;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Baloo Tammudu', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Righteous', cursive;
+  font-family: 'Crete Round', serif;
+  font-family: 'Teko', sans-serif;
+  font-family: 'Cinzel', serif;
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Black And White Picture', sans-serif;
+  /* font-family: 'Old Standard TT', serif; */
+  /* font-family: 'Great Vibes', cursive; */
+  /* font-family: 'Kaushan Script', cursive; */
   text-transform: uppercase;
   /* margin: 0px; */
-  font-size: 34px;
+  /* font-size: 28px; */
   /* text-shadow: 1px 1px 0px #adaca1c2; */
-  letter-spacing: 3px;
+   letter-spacing: 2px;
   /* margin-bottom: 43px; */
   /* margin-top: 25px; */
+  /* border: 1px solid #00000059; */
+  /* padding: 15px; */
+  /* background: #6669691f; */
+  /* border-radius: 32px; */
 }
 
 .section-title .section-nav {
@@ -453,13 +474,21 @@ textarea.input {
 
 #header {
   padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #15161D;
+  /*padding-bottom: 15px;*/
+  background-color: #100e1d;
+  /*background: url("../img/logo5.png") no-repeat #000;*/
+  /*height:150px;*/
 }
 
 .header-logo {
-  float: left;
-  margin-top: 16px;
+  /*text-align: left;*/
+  /*float: left;*/
+  margin-top: -5px;
+  /*margin-left: 20%;*/
+}
+
+.header-logo img {
+  width:650px;
 }
 
 .header-logo span {
@@ -478,7 +507,7 @@ textarea.input {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  /*padding: 15px 0px;*/
 }
 
 .header-search form {
@@ -491,7 +520,7 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: calc(100% - 260px);
+  width: calc(100% - 355px);
   margin-right: -4px;
 }
 

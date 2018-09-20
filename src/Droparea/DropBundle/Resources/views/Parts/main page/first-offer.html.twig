@@ -2,24 +2,29 @@
 <div class="container first-offer">
     <div class="row">
         <div class="col-md-12">
-            <h2><span><mark>Лучшая</mark> дропшиппинг платформа для <mark>зароботка</mark> в интернете</span></h2>
+            <h2><mark>Лучшая</mark> дропшиппинг платформа для <mark>зароботка</mark> в интернете</h2>
             <h3>Всего 5 простых шагов и Ваш доход начнёт расти уже с первого дня</h3>
-            <img src="{{ asset('assets/img/grafik-cen-na-zoloto.jpg') }}">
-            <ul>
-                <li><i class="fas fa-user-check"></i> Регистрируемся в системе</li>
-                <li><i class="fas fa-hand-pointer"></i> Выбираем товар для продажи</li>
-                <li><i class="fas fa-people-carry"></i> Продаем товар</li>
-                <li><i class="fas fa-file-signature"></i> Оформляем заказ</li>
-                <li><i class="fas fa-hand-holding-usd"></i> Получаем прибыль</li>
-            </ul>
-            <div class="clearfix"></div>
+            {#<img src="{{ asset('assets/img/schema.jpg') }}">#}
+            <div class="five-step">
+                <img class="grove" src="{{ asset('assets/img/grafik-cen-na-zoloto.jpg') }}">
+                <ul>
+                    <li><i class="fas fa-user-check"></i> Регистрируемся в системе</li>
+                    <li><i class="fas fa-hand-pointer"></i> Выбираем товар для продажи</li>
+                    <li><i class="fas fa-people-carry"></i> Продаем товар</li>
+                    <li><i class="fas fa-file-signature"></i> Оформляем заказ</li>
+                    <li><i class="fas fa-hand-holding-usd"></i> Получаем прибыль</li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-xs-12 brdr">
-            <p>Регистрируйтесь и начинайте зарабатывать</p>
-            <p class="arrow"><i class="fas fa-arrow-circle-down"></i></p>
-            <a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>
+            <img src="{{ asset('assets/img/drop.jpg') }}">
+            {#<p>Регистрируйтесь и начинайте зарабатывать</p>#}
+            {#<p class="arrow"><i class="fas fa-arrow-circle-down"></i></p>#}
+            {#<a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>#}
         </div>
     </div>
 </div>

@@ -111,6 +111,11 @@ class Product
      */
     private $purveyor;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * Get id
      *
