@@ -2,6 +2,7 @@
 
 namespace Droparea\DropBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -110,6 +111,16 @@ class Product
      * @ORM\Column(name="purveyor", type="string", length=700)
      */
     private $purveyor;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Ord", mappedBy="products")
+     */
+    private $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -390,6 +401,23 @@ class Product
     {
         $this->purveyor = $purveyor;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
 
 }
 

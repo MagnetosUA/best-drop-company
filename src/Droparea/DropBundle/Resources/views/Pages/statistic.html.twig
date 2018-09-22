@@ -1,8 +1,30 @@
 {% extends '@Drop/Default/index.html.twig' %}
 {% block over_styles %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Месяц', 'Продажи', 'Невыкупы', 'Доход'],
+                ['Сентябрь',  1000, 400, 200],
+                ['Октябрь',  1170, 460, 300],
+                ['Ноябрь',  660, 1120, 250],
+                ['Декабрь',  1030, 540, 1000]
+            ]);
+
+            var options = {
+                title: 'Статистика продаж',
+                hAxis: {title: 'Месяц',  titleTextStyle: {color: '#333'}},
+                vAxis: {minValue: 0}
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
 {% endblock over_styles %}
 {% block main_content %}
-
-    statistic
+<div id="chart_div" style="width: 100%; height: 500px;"></div>
 {% endblock main_content %}

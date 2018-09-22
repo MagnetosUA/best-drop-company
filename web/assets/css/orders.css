@@ -74,7 +74,11 @@ table td {
     /*clear: both;*/
 /*}*/
 .all-orders-table {
-
+    margin-top: 20px;
+}
+.all-orders-table table tr:first-child {
+    background: #0000F0 !important;
+    color: #fff;
 }
 .all-orders-table .fixed_headers th {
     /*text-decoration: underline;*/
@@ -333,6 +337,7 @@ table {
     border:5px double #ddddde;
     margin-top: 10px;
     background: #f2f2f2;
+    padding-bottom: 50px;
     /*border-top:2px dashed rgba(13, 13, 12, 0.5);*/
 }
 .client-delivery h3 {

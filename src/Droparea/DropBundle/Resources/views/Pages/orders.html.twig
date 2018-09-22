@@ -39,6 +39,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <a href="{{ path('new-orders') }}" class="btn btn-success"><i class="fas fa-folder-plus"></i>  Добавить заказ</a>
@@ -46,9 +47,9 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="all-orders-table">
-                    <table class="table table-striped fixed_headers">
-                        <thead>
+                <div class="all-orders-table" style="overflow-x:auto;">
+                    <table class="table table-striped {#fixed_headers#}">
+                        {#<thead>#}
                         <tr>
                             <th scope="col">№ Заказа</th>
                             <th scope="col">Дата создания</th>
@@ -63,8 +64,8 @@
                             <th scope="col">Адрес доставки</th>
                             <th scope="col">Комментарий</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                        {#</thead>#}
+                        {#<tbody>#}
                         {% for order in orders %}
                             <tr>
                                 <th scope="row">{{ order.id }}</th>
@@ -85,7 +86,7 @@
                                 <td>{{ order.comment }}</td>
                             </tr>
                         {% endfor %}
-                        </tbody>
+                        {#</tbody>#}
                     </table>
                 </div>
             </div>

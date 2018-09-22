@@ -62,7 +62,7 @@
             {% if is_granted('ROLE_USER') %}
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar-sign"></i> UAH</a></li>
-                    <li><a href="{{ path('user_page') }}"><i class="fa fa-user"></i> Мой Аккаунт</a></li>
+                    <li><a href="{{ path('user_page') }}"><i class="fa fa-user"></i> {{ app.user.name }}</a></li>
                     <li><a href="{{ path('security_logout') }}"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
                 </ul>
                 {% else %}
@@ -86,7 +86,8 @@
                             {#<span>#}
                             {#Best-Drop Company#}
                             {#</span>#}
-                            <img src="{{ asset('assets/img/logo8.png') }}">
+                            <img src="{{ asset('assets/img/Best-Quality-PNG-Picture.png') }}">
+                            <span>Best-Drop.Company</span>
                         </a>
                     </div>
                 </div>
@@ -99,21 +100,21 @@
                 <!-- /LOGO -->
 
                 <!-- SEARCH BAR -->
-                {% if is_granted('ROLE_USER') %}
+                {#{% if is_granted('ROLE_USER') %}#}
                     <div class="col-md-6">
-                        <div class="header-search">
-                            <form>
-                                <select class="input-select">
-                                    <option value="0">Все категории</option>
-                                    <option value="1">Category 01</option>
-                                    <option value="1">Category 02</option>
-                                </select>
-                                <input class="input" placeholder="Искать...">
-                                <button class="search-btn">Поиск</button>
-                            </form>
-                        </div>
+                        {#<div class="header-search">#}
+                            {#<form>#}
+                                {#<select class="input-select">#}
+                                    {#<option value="0">Все категории</option>#}
+                                    {#<option value="1">Category 01</option>#}
+                                    {#<option value="1">Category 02</option>#}
+                                {#</select>#}
+                                {#<input class="input" placeholder="Искать...">#}
+                                {#<button class="search-btn">Поиск</button>#}
+                            {#</form>#}
+                        {#</div>#}
                     </div>
-                {% endif %}
+                {#{% endif %}#}
                 <!-- /SEARCH BAR -->
 
                 <!-- ACCOUNT -->
@@ -187,7 +188,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="schema">
-                                <img src="{{ asset('assets/img/schema.jpg') }}">
+                                <img src="{{ asset('assets/img/how-to3.png') }}">
                             </div>
                         </div>
                     </div>
@@ -322,7 +323,7 @@
 <!-- /FOOTER -->
 
 <!-- jQuery Plugins -->
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+{#<script src="{{ asset('assets/js/jquery.min.js') }}"></script>#}
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/slick.min.js') }}"></script>
 {#<script src="{{ asset('assets/js/nouislider.min.js') }}"></script>#}

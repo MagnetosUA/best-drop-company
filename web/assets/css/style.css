@@ -475,9 +475,9 @@ textarea.input {
 #header {
   padding-top: 15px;
   /*padding-bottom: 15px;*/
-  background-color: #100e1d;
+  background-color: #030f67;
   /*background: url("../img/logo5.png") no-repeat #000;*/
-  /*height:150px;*/
+  /*height:130px;*/
 }
 
 .header-logo {
@@ -488,14 +488,14 @@ textarea.input {
 }
 
 .header-logo img {
-  width:650px;
+  width:11%;
 }
 
 .header-logo span {
   font-weight: bold;
-  color: white;
-  display: block;
-  font-size: 175%;
+  color: #f5910d;
+  /* display: block; */
+  font-size: 300%;
 }
 
 .header-logo span:hover {
@@ -507,7 +507,7 @@ textarea.input {
 \*----------------------------*/
 
 .header-search {
-  /*padding: 15px 0px;*/
+  padding: 15px 0px;
 }
 
 .header-search form {
@@ -2242,4 +2242,7 @@ textarea.input {
     float: none;
     margin-top: 10px;
   }
+  .header-logo span {
+    font-size: 223%;
+}
 }

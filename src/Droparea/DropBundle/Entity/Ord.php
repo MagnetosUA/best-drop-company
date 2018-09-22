@@ -2,6 +2,7 @@
 
 namespace Droparea\DropBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,9 +48,8 @@ class Ord
     private $created;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="products", type="array")
+     * Many Orders have many Products
+     * @ORM\ManyToMany(targetEntity="Product", inversedBy="orders")
      */
     private $products;
 
@@ -145,6 +145,11 @@ class Ord
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
     public function __toString()
     {
         $id = $this->getId();
@@ -186,7 +191,7 @@ class Ord
     }
 
     /**
-     * @return array
+     * @return mixed
      */
     public function getProducts()
     {
@@ -194,7 +199,7 @@ class Ord
     }
 
     /**
-     * @param array $products
+     * @param mixed $products
      */
     public function setProducts($products)
     {

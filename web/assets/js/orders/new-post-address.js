@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.js-example-basic-single').select2();
     var globalCityArea = ''; // For saving the first data in textarea
     $(".js-example-basic-single").change(function(){ //invoke when we change select city
         var val = $(this).val();
