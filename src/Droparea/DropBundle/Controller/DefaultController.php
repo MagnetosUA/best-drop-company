@@ -22,32 +22,9 @@ class DefaultController extends Controller
 
     public function indexAction(Request $request)
     {
-//        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-//            throw $this->createAccessDeniedException('GET OUT!');
-//        }
-//        $regForm = $this->createForm(RegisterUserType::class);
-//        $authForm = $this->createForm(LoginType::class);
-//        $authForm->handleRequest($request);
-//        $regForm->handleRequest($request);
-//        if ($regForm->isSubmitted() && $regForm->isValid()) {
-//            $data = $regForm->getData();
-//            $response = $this->forward('DropBundle:User:registerUser', [
-//                'data' => $data,
-//            ]);
-//            return $response;
-//        }
-//        if ($authForm->isSubmitted() && $authForm->isValid()) {
-//            $data = $authForm->getData();
-//            $response = $this->forward('DropBundle:User:authUser', [
-//                'data' => $data,
-//            ]);
-//            return $response;
-//        }
         $bestProducts = $this->getDoctrine()->getRepository(Product::class)->findBy(["top" => "1"]);
         return $this->render('@Drop/Default/index.html.twig', [
             'products' => $bestProducts,
-//            'reg_form' => $regForm->createView(),
-//            'auth_form' => $authForm->createView(),
         ]);
     }
 
@@ -87,7 +64,6 @@ class DefaultController extends Controller
     {
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('@Drop/Pages/product-page.html.twig', [
-//        return $this->render('@Drop/Default/practice.html.twig', [
             'product' => $product,
         ]);
     }
@@ -113,13 +89,6 @@ class DefaultController extends Controller
     public function newOrdersAction(Request $request, $id)
     {
         if ($prd = $request->request->get("product")) {
-
-//            $prd = json_decode($prd);
-//            $r = gettype($prd->name);//$prd['name'];
-//            $prd = array();
-//            echo gettype($prd->id);die;
-//            echo $prd->myCost;die;
-//            echo $prd->name;die;
             return new Response();
         }
 
@@ -149,7 +118,7 @@ class DefaultController extends Controller
                 $productsArray[$product->id]["cost"] = [$product->cost];
                 $productsArray[$product->id]["name"] = [$product->name];
             }
-//            $this->E($data);die;
+            $this->E($data);die;
             $order = new Ord();
             $order->setProducts($productsArray);
             $order->setClientName($clientName);
@@ -161,7 +130,7 @@ class DefaultController extends Controller
             $order->setOrderNumber(1);
 //            $order->setIncome();
 //            $order->setPurchaseAmount();
-//            $order->setSaleAmount();
+            $order->setSaleAmount();
             $order->setUser($this->getUser());
 
 
