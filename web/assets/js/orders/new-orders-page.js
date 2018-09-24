@@ -24,7 +24,7 @@ $(".to-order").click(function () {
                 "<td>"+product.cost+"</td>" +
                 "<td>"+product.myCost+"</td>" +
                 "<td>"+product.count+"</td>" +
-                "<td>"+product.count * product.myCost+"</td>"+
+                "<td>"+((product.count * product.myCost)-(product.count * product.cost))+"</td>" +
                 "<td><button class='btn btn-danger btn-xs delete-order' onclick='deleteOrder(this);' od='ordr'>Удалить заказ</button></td>"+
                 "</tr>");
             console.log(productArray);
@@ -43,7 +43,7 @@ $(".save-order").click(function () {
     var ch = $(".hidden-product").val();
     // console.log("in hidden form")
     // console.log(ch);
-    alert("Поздравляеи ! Заказ сохранен !");
+    alert("Поздравляем ! Заказ сохранен !");
 });
 // function for deleting orders from orders table
 

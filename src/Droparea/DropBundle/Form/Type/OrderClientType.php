@@ -80,6 +80,7 @@ class OrderClientType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'full-address',
+                    'readonly' => 'readonly',
                 ]
             ])
             ->add('comment', TextareaType::class, [
@@ -88,6 +89,8 @@ class OrderClientType extends AbstractType
                     'class' => 'order-comment',
                     'placeholder' => 'Комментарий (цвет, размер, прочие характеристики)',
                 ],
+//                'data' => null,
+//                'data' => 'Default value'
             ])
             ->add('product_array', HiddenType::class, [
                 'attr' => [

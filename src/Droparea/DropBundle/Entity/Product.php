@@ -114,13 +114,10 @@ class Product
 
     /**
      * @ORM\ManyToMany(targetEntity="Ord", mappedBy="products")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $orders;
 
-    public function __construct()
-    {
-        $this->orders = new ArrayCollection();
-    }
 
     public function __toString()
     {
@@ -409,15 +406,6 @@ class Product
     {
         return $this->orders;
     }
-
-    /**
-     * @param mixed $orders
-     */
-    public function setOrders($orders)
-    {
-        $this->orders = $orders;
-    }
-
 
 }
 

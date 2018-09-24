@@ -1,8 +1,10 @@
-{% extends '@Drop/base.html.twig' %}
+{% extends '@Drop/Default/index.html.twig' %}
 {% block search_bar %}
     <h1 id = "admin-title">Админка</h1>
 {% endblock search_bar %}
-
+{% block over_styles %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+{% endblock over_styles %}
 
 {% block main_content %}
     <style>
@@ -52,7 +54,7 @@
         {{ form_end(form) }}
     </div>
     <div class="col-md-2">
-        <button class="btn btn-danger update-new-post"> Обновить базу данных адресов Новой Почты</button>
+        <button class="btn btn-danger update-new-post"> Обновить db Новой Почты</button>
     </div>
 </div>
 <script>
@@ -73,3 +75,6 @@
     });
 </script>
 {% endblock main_content %}
+{% block specially_script %}
+
+{% endblock specially_script %}

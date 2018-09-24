@@ -13,7 +13,7 @@ class CategoryFixtures extends Fixture
     {
         $arrProducts = ['Автотовары', 'Електроника', 'Мода', 'Красота и здоровье', 'Товары для дома', 'Разное'];
         // create 4 categories! Bam!
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $category = new Category();
             $category->setName($arrProducts[$i]);
             $this->addReference('category'.$i, $category);

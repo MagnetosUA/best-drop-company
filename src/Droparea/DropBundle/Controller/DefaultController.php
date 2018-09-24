@@ -100,9 +100,9 @@ class DefaultController extends Controller
 //            var_dump($this->getUser());die;
             $data = $form->getData();
             $clientName = $data["last_name"]." ".$data["name"]." ".$data["patronymic"];
-            $income;
-            $sale;
-            $purchase;
+            $income = 0;
+            $sale = 0;
+            $purchase = 0;
 
             $productsArray = [];
 
@@ -110,6 +110,7 @@ class DefaultController extends Controller
 //            var_dump($productsAr);
             $prdrArr = json_decode($productsAr);
 //            var_dump($prdrArr);die;
+            $productsId = [];
             foreach ($prdrArr as $product) {
                 if ($product == null) {
                     continue;
@@ -117,27 +118,42 @@ class DefaultController extends Controller
                 $productsArray[$product->id]["count"] = [$product->count];
                 $productsArray[$product->id]["cost"] = [$product->cost];
                 $productsArray[$product->id]["name"] = [$product->name];
+
+                $sale += ($product->cost * $product->count);
+                $purchase += ($product->myCost * $product->count);
+
+                $productsId[] = $product->id;
             }
-            $this->E($data);die;
+            $income = $purchase - $sale;
+//            $this->E($product->id);die;
             $order = new Ord();
-            $order->setProducts($productsArray);
+            $products = $this->getDoctrine()->getRepository(Product::class)->findByMultipleId($productsId);
+            foreach ($products as $product) {
+                $order->addProducts($product);
+            }
+//            var_dump($product);die;
+//            echo gettype($product);die;
+
+//            var_dump($product->getName());die;
+//            $order->addProducts($product);
             $order->setClientName($clientName);
             $order->setClientPhone($data["phone"]);
             $order->setComment($data["comment"]);
-            $order->setCreated();
+//            $order->setCreatedDate();
             $order->setDeliveryAddress($data["full_address"]);
             $order->setStatus(Ord::NEW_OREDER);
-            $order->setOrderNumber(1);
+//            $order->setOrderNumber(1);
 //            $order->setIncome();
-//            $order->setPurchaseAmount();
-            $order->setSaleAmount();
+            $order->setPurchaseAmount($purchase);
+            $order->setSaleAmount($sale);
+            $order->setIncome($income);
             $order->setUser($this->getUser());
 
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($order);
             $em->flush();
-            return $this->redirectToRoute("new-orders");
+            return $this->redirectToRoute("orders");
 
 
 //            $request->request->get("product-name");

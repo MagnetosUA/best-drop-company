@@ -4,6 +4,7 @@ namespace Droparea\DropBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Ord
@@ -33,19 +34,10 @@ class Ord
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="orderNumber", type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $orderNumber;
-
-    /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
-    private $created;
+    private $createdDate;
 
     /**
      * Many Orders have many Products
@@ -114,7 +106,7 @@ class Ord
      *
      * @ORM\Column(name="waybill", type="string", length=255)
      */
-    private $waybill = 0;
+    private $waybill = 'Будет доступен после отправки';
 
     /**
      * @var string
@@ -126,7 +118,7 @@ class Ord
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="string", length=1500)
+     * @ORM\Column(name="comment", type="string", length=1500, nullable=true)
      */
     private $comment;
 
@@ -148,6 +140,8 @@ class Ord
     public function __construct()
     {
         $this->products = new ArrayCollection();
+//        $this->createdDate = new \DateTime();
+//        $this->status = new ArrayCollection();
     }
 
     public function __toString()
@@ -167,31 +161,17 @@ class Ord
     }
 
     /**
-     * Set orderNumber
-     *
-     * @param integer $orderNumber
-     *
-     * @return Ord
+     * @param Product $product
+     * @return $this
      */
-    public function setOrderNumber($orderNumber)
+    public function addProducts(Product $product)
     {
-        $this->orderNumber = $orderNumber;
-
+        $this->products[] = $product;
         return $this;
     }
 
     /**
-     * Get orderNumber
-     *
-     * @return int
-     */
-    public function getOrderNumber()
-    {
-        return $this->orderNumber;
-    }
-
-    /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getProducts()
     {
@@ -199,34 +179,21 @@ class Ord
     }
 
     /**
-     * @param mixed $products
+     * @return mixed
      */
-    public function setProducts($products)
+    public function getCreatedDate()
     {
-        $this->products = $products;
+        return $this->createdDate;
     }
 
     /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return Ord
+     * @param mixed $createdDate
      */
-    public function setCreated()
+    public function setCreatedDate(\DateTime $dateTime)
     {
-        $this->created = new \DateTime();
+        $this->createdDate = $dateTime;
     }
 
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
 
     /**
      * Set status
@@ -475,7 +442,7 @@ class Ord
      *
      * @return Ord
      */
-    public function setComment($comment)
+    public function setComment($comment = null)
     {
         $this->comment = $comment;
 

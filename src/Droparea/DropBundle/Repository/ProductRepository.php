@@ -10,4 +10,14 @@ namespace Droparea\DropBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByMultipleId(array $id)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $query = $qb
+            ->select('p')
+            ->where($qb->expr()->in('p.id', $id))
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

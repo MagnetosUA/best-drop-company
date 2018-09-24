@@ -47,7 +47,7 @@
                                 <td class="product-name">{{ product.name }}</td>
                                 <td class="product-cost">{{ product.cost }}</td>
                                 <td class="product-back">Согласно тарифам Новой почты</td>
-                                <td class="product-count"><input type="text" placeholder="Количество" /></td>
+                                <td class="product-count"><input value='1' type="number" name="quantity" min="1" max="50"></td>
                                 <td class="my-cost"><input type="text" placeholder="Цена продажи"/></td>
                                 <td><button class="btn btn-success to-order">Заказать</button></td>
                             </tr>
@@ -69,6 +69,7 @@
                             <th scope="col">Цена продажи</th>
                             <th scope="col">Цена покупки</th>
                             <th scope="col">Количество</th>
+                            <th scope="col">Мой доход</th>
                             <th scope="col">Всего</th>
                             <th scope="col"> </th>
                         </tr>
@@ -83,7 +84,7 @@
             <h3>Клиент и доставка</h3>
             <div class="row">
                 <div class="col-md-4">
-                    {{ form_start(form) }}
+                    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
                     {{ form_row(form.last_name) }}
                     {{ form_row(form.name) }}
                     {{ form_row(form.patronymic) }}

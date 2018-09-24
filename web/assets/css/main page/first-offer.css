@@ -1,6 +1,6 @@
 .first-offer {
     /*padding-bottom: 15px;*/
-    height: 615px;
+    height: 682px;
     /*background: #6f6967;*/
     border-radius: 6px;
     text-align: center;
@@ -24,7 +24,13 @@
     border-radius: 10px;
     margin-top: 10px;
 }
-
+.first-offer #UA {
+    /*color: yellow;*/
+    /*background: #2828f5;*/
+    color: #fefeff;
+    background-image: linear-gradient(blue, yellow);
+    text-shadow: 1px 1px #0f0f0f;
+}
 .first-offer h3 {
     color: #eeeef3;
     background: #0a1e92d1;
