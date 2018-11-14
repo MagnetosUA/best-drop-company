@@ -83,6 +83,16 @@ easy_admin:
             class: Droparea\DropBundle\Entity\User
         Ord:
             class: Droparea\DropBundle\Entity\Ord
+            list:
+                actions:
+                    - { name: 'new', label: 'Новый заказ' }
+                    - { name: 'search', label: 'Поиск' }
+                    - { name: 'edit', label: 'Редактировать' }
+                    - { name: 'delete', label: 'Удалить' }
+#            form:
+#                fields:
+#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
+#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
         News:
             class: Droparea\DropBundle\Entity\News
         Category:

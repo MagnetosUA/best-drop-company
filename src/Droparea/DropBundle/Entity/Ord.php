@@ -50,7 +50,7 @@ class Ord
      *
      * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status;
+    private $status = 0;
 
     /**
      * @var string
