@@ -32,13 +32,6 @@ class Product
     private $category;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    private $country;
-
-    /**
      * @var array
      * @ORM\Column(name="images", type="array")
      */
@@ -80,13 +73,6 @@ class Product
     private $returnCost;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="valuta", type="string", length=255)
-     */
-    private $valuta;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="new", type="boolean")
@@ -117,12 +103,6 @@ class Product
      * @ORM\Column(type="string", nullable=true)
      */
     private $orders;
-
-
-    public function __toString()
-    {
-        return $this->getName();
-    }
 
     /**
      * Get id
@@ -164,31 +144,6 @@ class Product
     public function setCategory($category)
     {
         $this->category = $category;
-    }
-
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     *
-     * @return Product
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 
     /**
@@ -312,30 +267,6 @@ class Product
     }
 
     /**
-     * Set valuta
-     *
-     * @param string $valuta
-     *
-     * @return Product
-     */
-    public function setValuta($valuta)
-    {
-        $this->valuta = $valuta;
-
-        return $this;
-    }
-
-    /**
-     * Get valuta
-     *
-     * @return string
-     */
-    public function getValuta()
-    {
-        return $this->valuta;
-    }
-
-    /**
      * @return bool
      */
     public function isNew()
@@ -405,6 +336,14 @@ class Product
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 
 }
