@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    images_directory: '%kernel.project_dir%/web/build/images/products'
+    images_directory: '%kernel.project_dir%/web/assets/product_images/products'
 
 framework:
     #esi: ~
@@ -76,47 +76,14 @@ sensio_framework_extra:
         annotations: false
 
 easy_admin:
-    site_name: 'Best-Drop.Company'
-    disabled_actions: ['show']
     entities:
-        User:
-            class: Droparea\DropBundle\Entity\User
-        Ord:
-            class: Droparea\DropBundle\Entity\Ord
-            list:
-                actions:
-                    - { name: 'new', label: 'Новый заказ' }
-                    - { name: 'search', label: 'Поиск' }
-                    - { name: 'edit', label: 'Редактировать' }
-                    - { name: 'delete', label: 'Удалить' }
-#            form:
-#                fields:
-#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
-#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
-        News:
-            class: Droparea\DropBundle\Entity\News
-        Category:
-            class: Droparea\DropBundle\Entity\Category
-        Product:
-            class: Droparea\DropBundle\Entity\Product
-            disabled_actions: ['new']
-            list:
-                fields:
-#              ['id', 'name', 'category', 'images', 'description', 'cost', 'recomendedCost']
-                    - id
-                    - name
-                    - { property: 'new', type: 'boolean' }
-                    - description
-#                    - category
-#                    - { property: 'category', type: 'entity' }
-                    - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
-#                    - { property: 'images', type: 'image', base_path: '/assets/images/products/' ~ product.images[0] }
-
-                form:  # <-- 'form' is applied to both 'new' and 'edit' views
-                    fields:
-                        - 'id'
-                        - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
-
+        - Droparea\DropBundle\Entity\User
+        - Droparea\DropBundle\Entity\Category
+        - Droparea\DropBundle\Entity\Product
+        - Droparea\DropBundle\Entity\Payment
+        - Droparea\DropBundle\Entity\Ord
+        - Droparea\DropBundle\Entity\News
+        - Droparea\DropBundle\Entity\PostAddress
 
 
 knp_paginator:
