@@ -76,6 +76,7 @@ sensio_framework_extra:
         annotations: false
 
 easy_admin:
+    site_name: "Best-Drop.Company"
     entities:
         - Droparea\DropBundle\Entity\User
         - Droparea\DropBundle\Entity\Category
