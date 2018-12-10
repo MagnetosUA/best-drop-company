@@ -76,15 +76,48 @@ sensio_framework_extra:
         annotations: false
 
 easy_admin:
-    site_name: "Best-Drop.Company"
+    site_name: 'Best-Drop.Company'
     entities:
-        - Droparea\DropBundle\Entity\User
-        - Droparea\DropBundle\Entity\Category
-        - Droparea\DropBundle\Entity\Product
-        - Droparea\DropBundle\Entity\Payment
-        - Droparea\DropBundle\Entity\Ord
-        - Droparea\DropBundle\Entity\News
-        - Droparea\DropBundle\Entity\PostAddress
+        User:
+            class: Droparea\DropBundle\Entity\User
+            label: Users
+            list:
+                title: List of Users
+        Category:
+            class: Droparea\DropBundle\Entity\Category
+            label: Categories
+            list:
+                title: List of Categories
+        Product:
+            class: Droparea\DropBundle\Entity\Product
+            label: Products
+            list:
+                title: List of Products
+        Payment:
+            class: Droparea\DropBundle\Entity\Payment
+            label: Payments
+            list:
+                title: List of Payments
+        Ord:
+            class: Droparea\DropBundle\Entity\Ord
+            label: Orders
+            list:
+                title: List of Orders
+        News:
+            class: Droparea\DropBundle\Entity\News
+            list:
+                title: List of News
+        PostAddress:
+            class: Droparea\DropBundle\Entity\PostAddress
+            label: Post Address
+
+#        - Droparea\DropBundle\Entity\User
+#        -
+#        -
+#        -
+#        -
+#        -
+#        -
 
 
 knp_paginator:
