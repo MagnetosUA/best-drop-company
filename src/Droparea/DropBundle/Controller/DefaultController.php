@@ -193,7 +193,7 @@ class DefaultController extends Controller
         $statusCount["not_sent_fo_processing"] = 0;
 
         foreach ($orders as $order) {
-            if ($order->getStatus() == Ord::NEW_OREDER) {$statusCount["new"] += 1;}
+            if ($order->getStatus() == Ord::NEW_ORDER) {$statusCount["new"] += 1;}
             if ($order->getStatus() == Ord::IN_PROCESSING) {$statusCount["in_processing"] += 1;}
             if ($order->getStatus() == Ord::CONFIRMED) {$statusCount["confirmed"] += 1;}
             if ($order->getStatus() == Ord::REJECTED) {$statusCount["rejected"] += 1;}

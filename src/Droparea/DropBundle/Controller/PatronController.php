@@ -12,8 +12,6 @@ class PatronController extends Controller
 {
     public function indexAction(Request $request)
     {
-
-//        echo date('md');die;
         if ($c = $request->request->get('destination')) {
 
             return new Response($c."777");

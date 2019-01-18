@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    images_directory: '%kernel.project_dir%/web/build/images/products'
+    images_directory: '%kernel.project_dir%/web/assets/product_images/products'
 
 framework:
     #esi: ~
@@ -77,46 +77,60 @@ sensio_framework_extra:
 
 easy_admin:
     site_name: 'Best-Drop.Company'
-    disabled_actions: ['show']
     entities:
         User:
             class: Droparea\DropBundle\Entity\User
-        Ord:
-            class: Droparea\DropBundle\Entity\Ord
+            label: Users
             list:
-                actions:
-                    - { name: 'new', label: 'Новый заказ' }
-                    - { name: 'search', label: 'Поиск' }
-                    - { name: 'edit', label: 'Редактировать' }
-                    - { name: 'delete', label: 'Удалить' }
-#            form:
-#                fields:
-#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
-#                    - { property: 'status', type: choice, type_options: { choices: { New: 0, inProgress: 1, Completed: 2 }}}
-        News:
-            class: Droparea\DropBundle\Entity\News
+                title: List of Users
+                actions: ['show']
+                fields:
+                    - { property: 'email', type: 'email' }
         Category:
             class: Droparea\DropBundle\Entity\Category
+            label: Categories
+            list:
+                title: List of Categories
         Product:
             class: Droparea\DropBundle\Entity\Product
-            disabled_actions: ['new']
+            label: Products
             list:
+                title: List of Products
+                actions:
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'show', icon: 'info-circle', label: '' }
                 fields:
-#              ['id', 'name', 'category', 'images', 'description', 'cost', 'recomendedCost']
-                    - id
-                    - name
-                    - { property: 'new', type: 'boolean' }
-                    - description
-#                    - category
-#                    - { property: 'category', type: 'entity' }
-                    - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
-#                    - { property: 'images', type: 'image', base_path: '/assets/images/products/' ~ product.images[0] }
+                    - { property: 'images'}
+                    - { property: 'mainImage', type: 'image', base_path: 'assets/product_images/products'}
+#            disabled_actions: ['show']
+            search:
+                fields: ['name']
+            form:
+                fields:
+                    - { property: 'category', type: 'easyadmin_autocomplete' }
+        Payment:
+            class: Droparea\DropBundle\Entity\Payment
+            label: Payments
+            list:
+                title: List of Payments
+        Ord:
+            class: Droparea\DropBundle\Entity\Ord
+            label: Orders
+            list:
+                title: List of Orders
+                actions: ['-delete']
+            form:
+                fields:
+                    - { property: 'createdDate', type_options: { widget: 'single_text' }}
 
-                form:  # <-- 'form' is applied to both 'new' and 'edit' views
-                    fields:
-                        - 'id'
-                        - { property: 'category', type: 'easyadmin_autocomplete', type_options: { class: 'Droparea\DropBundle\Entity\Category' } }
 
+        News:
+            class: Droparea\DropBundle\Entity\News
+            list:
+                title: List of News
+        PostAddress:
+            class: Droparea\DropBundle\Entity\PostAddress
+            label: Post Address
 
 
 knp_paginator:

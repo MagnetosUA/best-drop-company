@@ -19,13 +19,6 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('country', TextType::class, [
-                'label' => 'Страна',
-                'attr' => [
-                    'value' => 'Україна',
-                    'class' => 'form-control',
-                ]
-            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
@@ -68,12 +61,6 @@ class ProductType extends AbstractType
                 'choices' => [
                     'drop1' => 'Drop1',
                     'marina' => 'Marina',
-                ]
-            ])
-            ->add('valuta', TextType::class, [
-                'label' => 'Валюта',
-                'attr' => [
-                    'value' => 'Гривня'
                 ]
             ])
             ->add('save', SubmitType::class, [

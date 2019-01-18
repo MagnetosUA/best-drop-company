@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Ord
 {
-    const NEW_OREDER = 'Новый';
+    const NEW_ORDER = 'Новый';
     const IN_PROCESSING = 'В обработке';
     const NERPOKE = 'Недозвон';
     const CONFIRMED = 'Подтвержденный';
@@ -50,7 +50,7 @@ class Ord
      *
      * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status = 0;
+    private $status = self::NEW_ORDER;
 
     /**
      * @var string
