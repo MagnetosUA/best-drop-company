@@ -83,6 +83,9 @@ easy_admin:
             label: Users
             list:
                 title: List of Users
+                actions: ['show']
+                fields:
+                    - { property: 'email', type: 'email' }
         Category:
             class: Droparea\DropBundle\Entity\Category
             label: Categories
@@ -93,6 +96,18 @@ easy_admin:
             label: Products
             list:
                 title: List of Products
+                actions:
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'show', icon: 'info-circle', label: '' }
+                fields:
+                    - { property: 'images'}
+                    - { property: 'mainImage', type: 'image', base_path: 'assets/product_images/products'}
+#            disabled_actions: ['show']
+            search:
+                fields: ['name']
+            form:
+                fields:
+                    - { property: 'category', type: 'easyadmin_autocomplete' }
         Payment:
             class: Droparea\DropBundle\Entity\Payment
             label: Payments
@@ -103,6 +118,12 @@ easy_admin:
             label: Orders
             list:
                 title: List of Orders
+                actions: ['-delete']
+            form:
+                fields:
+                    - { property: 'createdDate', type_options: { widget: 'single_text' }}
+
+
         News:
             class: Droparea\DropBundle\Entity\News
             list:
@@ -110,14 +131,6 @@ easy_admin:
         PostAddress:
             class: Droparea\DropBundle\Entity\PostAddress
             label: Post Address
-
-#        - Droparea\DropBundle\Entity\User
-#        -
-#        -
-#        -
-#        -
-#        -
-#        -
 
 
 knp_paginator:

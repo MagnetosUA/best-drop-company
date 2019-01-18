@@ -122,6 +122,16 @@ class Product
         return $this->images;
     }
 
+    public function getMainImage()
+    {
+        $img = '';
+        if (is_array($this->images)) {
+            foreach ($this->images as $image) {
+                return $img = $image;
+            }
+        }
+        return $img;
+    }
     /**
      * @param array $images
      */
