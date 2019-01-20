@@ -5,13 +5,10 @@ namespace Droparea\DropBundle\Controller;
 use Droparea\DropBundle\Entity\Category;
 use Droparea\DropBundle\Entity\Ord;
 use Droparea\DropBundle\Entity\Product;
-use Droparea\DropBundle\Form\Type\LoginType;
 use Droparea\DropBundle\Form\Type\OrderClientType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Droparea\DropBundle\Form\Type\RegisterUserType;
 
 /**
  * Class DefaultController
