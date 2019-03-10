@@ -1,6 +1,7 @@
-drop_homepage:
+view.home:
     path:     /
-    defaults: { _controller: DropBundle:Default:index }
+    defaults: { _controller: DropBundle:View:home }
+
 patron:
     path: /patron
     defaults: { _controller: DropBundle:Patron:index }
