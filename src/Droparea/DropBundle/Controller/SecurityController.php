@@ -18,7 +18,6 @@ class SecurityController extends Controller
             '_username' => $lastUsername,
         ]);
         return $this->render('@Drop/Sequrity/login.html.twig', [
-            // last username entered by the user
             'form' => $form->createView(),
             'error' => $error,
         ]);

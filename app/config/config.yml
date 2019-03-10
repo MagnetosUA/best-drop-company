@@ -118,10 +118,11 @@ easy_admin:
             label: Orders
             list:
                 title: List of Orders
-                actions: ['-delete']
-            form:
-                fields:
-                    - { property: 'createdDate', type_options: { widget: 'single_text' }}
+                actions: ['new']
+#            form:
+#                fields:
+#                    - { property: 'createdDate', type_options: { widget: 'single_text' }}
+#                    - { property: 'products', type_options: { widget: '' }}
 
 
         News:
