@@ -16,17 +16,12 @@ class Ord
 {
     const NEW_ORDER = 'Новый';
     const IN_PROCESSING = 'В обработке';
-    const NERPOKE = 'Недозвон';
     const CONFIRMED = 'Подтвержденный';
     const REJECTED = 'Отклоненный';
     const SHIPPED = 'Отправленный';
     const NON_PURCHASE = 'Невыкуп';
-    const RANSOM = 'Выкуп';
-    const NOT_SENT_FOR_PROCESSING = 'Не отправлен в обработку';
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -34,10 +29,10 @@ class Ord
     private $id;
 
     /**
-     * @ORM\Column(name="created", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      * @Gedmo\Timestampable(on="create")
      */
-    private $createdDate;
+    private $createdAt;
 
     /**
      * Many Orders have many Products
@@ -46,39 +41,24 @@ class Ord
     private $products;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="status", type="string", length=255)
      */
     private $status = self::NEW_ORDER;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="saleAmount", type="string", length=255)
+     * @ORM\Column(name="saleAmount", type="integer")
      */
     private $saleAmount = 0;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="purchaseAmount", type="string", length=255)
+     * @ORM\Column(name="purchaseAmount", type="integer")
      */
     private $purchaseAmount = 0;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="income", type="string", length=255)
+     * @ORM\Column(name="income", type="integer")
      */
     private $income = 0;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="treatmentType", type="string", length=255)
-     */
-    private $treatmentType = "dropshipping";
 
     /**
      * @var string
@@ -88,60 +68,39 @@ class Ord
     private $settlementType = "C.O.D.";
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="clientPhone", type="string", length=255)
      */
     private $clientPhone;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="clientName", type="string", length=255)
      */
     private $clientName;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="waybill", type="string", length=255)
      */
     private $waybill = 'Будет доступен после отправки';
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="deliveryAddress", type="string", length=1000)
      */
     private $deliveryAddress;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="comment", type="string", length=1500, nullable=true)
      */
     private $comment;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="source", type="string", length=255)
-     */
-    private $source = 0;
-
-
-    /**
      * Many Orders have One User.
      * @ORM\ManyToOne(targetEntity="User", inversedBy="orders")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
-//        $this->createdDate = new \DateTime();
-//        $this->status = new ArrayCollection();
     }
 
     public function __toString()
@@ -181,17 +140,9 @@ class Ord
     /**
      * @return mixed
      */
-    public function getCreatedDate()
+    public function getCreatedAt()
     {
-        return $this->createdDate;
-    }
-
-    /**
-     * @param mixed $createdDate
-     */
-    public function setCreatedDate(\DateTime $dateTime)
-    {
-        $this->createdDate = $dateTime;
+        return $this->createdAt;
     }
 
 
@@ -199,14 +150,10 @@ class Ord
      * Set status
      *
      * @param string $status
-     *
-     * @return Ord
      */
     public function setStatus($status)
     {
         $this->status = $status;
-
-        return $this;
     }
 
     /**
@@ -223,14 +170,10 @@ class Ord
      * Set saleAmount
      *
      * @param string $saleAmount
-     *
-     * @return Ord
      */
     public function setSaleAmount($saleAmount)
     {
         $this->saleAmount = $saleAmount;
-
-        return $this;
     }
 
     /**
@@ -247,14 +190,10 @@ class Ord
      * Set purchaseAmount
      *
      * @param string $purchaseAmount
-     *
-     * @return Ord
      */
     public function setPurchaseAmount($purchaseAmount)
     {
         $this->purchaseAmount = $purchaseAmount;
-
-        return $this;
     }
 
     /**
@@ -271,14 +210,10 @@ class Ord
      * Set income
      *
      * @param string $income
-     *
-     * @return Ord
      */
     public function setIncome($income)
     {
         $this->income = $income;
-
-        return $this;
     }
 
     /**
@@ -289,30 +224,6 @@ class Ord
     public function getIncome()
     {
         return $this->income;
-    }
-
-    /**
-     * Set treatmentType
-     *
-     * @param string $treatmentType
-     *
-     * @return Ord
-     */
-    public function setTreatmentType($treatmentType)
-    {
-        $this->treatmentType = $treatmentType;
-
-        return $this;
-    }
-
-    /**
-     * Get treatmentType
-     *
-     * @return string
-     */
-    public function getTreatmentType()
-    {
-        return $this->treatmentType;
     }
 
     /**
@@ -343,14 +254,10 @@ class Ord
      * Set clientPhone
      *
      * @param string $clientPhone
-     *
-     * @return Ord
      */
     public function setClientPhone($clientPhone)
     {
         $this->clientPhone = $clientPhone;
-
-        return $this;
     }
 
     /**
@@ -367,14 +274,10 @@ class Ord
      * Set clientName
      *
      * @param string $clientName
-     *
-     * @return Ord
      */
     public function setClientName($clientName)
     {
         $this->clientName = $clientName;
-
-        return $this;
     }
 
     /**
@@ -391,14 +294,10 @@ class Ord
      * Set waybill
      *
      * @param string $waybill
-     *
-     * @return Ord
      */
     public function setWaybill($waybill)
     {
         $this->waybill = $waybill;
-
-        return $this;
     }
 
     /**
@@ -415,14 +314,10 @@ class Ord
      * Set deliveryAddress
      *
      * @param string $deliveryAddress
-     *
-     * @return Ord
      */
     public function setDeliveryAddress($deliveryAddress)
     {
         $this->deliveryAddress = $deliveryAddress;
-
-        return $this;
     }
 
     /**
@@ -439,14 +334,10 @@ class Ord
      * Set comment
      *
      * @param string $comment
-     *
-     * @return Ord
      */
     public function setComment($comment = null)
     {
         $this->comment = $comment;
-
-        return $this;
     }
 
     /**
@@ -460,31 +351,7 @@ class Ord
     }
 
     /**
-     * Set source
-     *
-     * @param string $source
-     *
-     * @return Ord
-     */
-    public function setSource($source)
-    {
-        $this->source = $source;
-
-        return $this;
-    }
-
-    /**
-     * Get source
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return $this->source;
-    }
-
-    /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
@@ -492,12 +359,12 @@ class Ord
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      */
     public function setUser($user)
     {
         $this->user = $user;
+        $user->addOrder($this);
     }
-
 }
 
