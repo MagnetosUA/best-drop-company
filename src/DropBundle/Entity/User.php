@@ -25,18 +25,17 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=50)
      * @Assert\NotBlank()
      * @Assert\Email()
-     *
      */
     private $email;
 
     /**
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=100)
      * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(max="100")
      */
     private $name;
 
@@ -56,6 +55,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(name="phone", type="string", length=20, unique=true)
+     * @Assert\NotBlank()
      */
     private $phone;
 

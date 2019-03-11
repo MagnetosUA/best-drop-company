@@ -5,6 +5,7 @@ namespace DropBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ord
@@ -68,12 +69,17 @@ class Ord
     private $settlementType = "C.O.D.";
 
     /**
-     * @ORM\Column(name="clientPhone", type="string", length=255)
+     * @ORM\Column(name="clientPhone", type="string", length=20)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="20")
      */
     private $clientPhone;
 
     /**
      * @ORM\Column(name="clientName", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(max="255")
      */
     private $clientName;
 
@@ -89,6 +95,8 @@ class Ord
 
     /**
      * @ORM\Column(name="comment", type="string", length=1500, nullable=true)
+     * @Assert\Type("string")
+     * @Assert\Lengthmax="1500")
      */
     private $comment;
 
@@ -110,8 +118,6 @@ class Ord
     }
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -147,8 +153,6 @@ class Ord
 
 
     /**
-     * Set status
-     *
      * @param string $status
      */
     public function setStatus($status)
@@ -157,8 +161,6 @@ class Ord
     }
 
     /**
-     * Get status
-     *
      * @return string
      */
     public function getStatus()
@@ -167,8 +169,6 @@ class Ord
     }
 
     /**
-     * Set saleAmount
-     *
      * @param string $saleAmount
      */
     public function setSaleAmount($saleAmount)
@@ -177,8 +177,6 @@ class Ord
     }
 
     /**
-     * Get saleAmount
-     *
      * @return string
      */
     public function getSaleAmount()
@@ -187,8 +185,6 @@ class Ord
     }
 
     /**
-     * Set purchaseAmount
-     *
      * @param string $purchaseAmount
      */
     public function setPurchaseAmount($purchaseAmount)
@@ -197,8 +193,6 @@ class Ord
     }
 
     /**
-     * Get purchaseAmount
-     *
      * @return string
      */
     public function getPurchaseAmount()
@@ -207,8 +201,6 @@ class Ord
     }
 
     /**
-     * Set income
-     *
      * @param string $income
      */
     public function setIncome($income)
@@ -217,8 +209,6 @@ class Ord
     }
 
     /**
-     * Get income
-     *
      * @return string
      */
     public function getIncome()
@@ -227,22 +217,14 @@ class Ord
     }
 
     /**
-     * Set settlementType
-     *
      * @param string $settlementType
-     *
-     * @return Ord
      */
     public function setSettlementType($settlementType)
     {
         $this->settlementType = $settlementType;
-
-        return $this;
     }
 
     /**
-     * Get settlementType
-     *
      * @return string
      */
     public function getSettlementType()
@@ -251,8 +233,6 @@ class Ord
     }
 
     /**
-     * Set clientPhone
-     *
      * @param string $clientPhone
      */
     public function setClientPhone($clientPhone)
@@ -261,8 +241,6 @@ class Ord
     }
 
     /**
-     * Get clientPhone
-     *
      * @return string
      */
     public function getClientPhone()
@@ -271,8 +249,6 @@ class Ord
     }
 
     /**
-     * Set clientName
-     *
      * @param string $clientName
      */
     public function setClientName($clientName)
@@ -281,8 +257,6 @@ class Ord
     }
 
     /**
-     * Get clientName
-     *
      * @return string
      */
     public function getClientName()
@@ -291,8 +265,6 @@ class Ord
     }
 
     /**
-     * Set waybill
-     *
      * @param string $waybill
      */
     public function setWaybill($waybill)
@@ -301,8 +273,6 @@ class Ord
     }
 
     /**
-     * Get waybill
-     *
      * @return string
      */
     public function getWaybill()
@@ -311,8 +281,6 @@ class Ord
     }
 
     /**
-     * Set deliveryAddress
-     *
      * @param string $deliveryAddress
      */
     public function setDeliveryAddress($deliveryAddress)
@@ -321,8 +289,6 @@ class Ord
     }
 
     /**
-     * Get deliveryAddress
-     *
      * @return string
      */
     public function getDeliveryAddress()
@@ -331,8 +297,6 @@ class Ord
     }
 
     /**
-     * Set comment
-     *
      * @param string $comment
      */
     public function setComment($comment = null)
@@ -341,8 +305,6 @@ class Ord
     }
 
     /**
-     * Get comment
-     *
      * @return string
      */
     public function getComment()
@@ -364,7 +326,7 @@ class Ord
     public function setUser($user)
     {
         $this->user = $user;
-        $user->addOrder($this);
+        $user->addOrders($this);
     }
 }
 

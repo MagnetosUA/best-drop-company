@@ -36,8 +36,6 @@ class PostAddress
 
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -46,8 +44,6 @@ class PostAddress
     }
 
     /**
-     * Set cities
-     *
      * @param array $cities
      */
     public function setCities($cities)
@@ -56,8 +52,6 @@ class PostAddress
     }
 
     /**
-     * Get cities
-     *
      * @return array
      */
     public function getCities()
@@ -66,8 +60,6 @@ class PostAddress
     }
 
     /**
-     * Set areas
-     *
      * @param array $areas
      */
     public function setAreas($areas)
@@ -76,8 +68,6 @@ class PostAddress
     }
 
     /**
-     * Get areas
-     *
      * @return array
      */
     public function getAreas()
@@ -86,8 +76,6 @@ class PostAddress
     }
 
     /**
-     * Set warehouses
-     *
      * @param array $warehouses
      */
     public function setWarehouses($warehouses)
@@ -96,8 +84,6 @@ class PostAddress
     }
 
     /**
-     * Get warehouses
-     *
      * @return array
      */
     public function getWarehouses()

@@ -4,6 +4,7 @@ namespace DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * News
@@ -22,11 +23,17 @@ class News
 
     /**
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(min="3", max="255")
      */
     private $title;
 
     /**
      * @ORM\Column(name="content", type="string", length=1500)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(max="1500")
      */
     private $content;
 
@@ -43,8 +50,6 @@ class News
 
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -53,8 +58,6 @@ class News
     }
 
     /**
-     * Set title
-     *
      * @param string $title
      *
      */
@@ -64,8 +67,6 @@ class News
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
     public function getTitle()
@@ -74,10 +75,7 @@ class News
     }
 
     /**
-     * Set content
-     *
      * @param string $content
-     *
      */
     public function setContent($content)
     {
@@ -85,8 +83,6 @@ class News
     }
 
     /**
-     * Get content
-     *
      * @return string
      */
     public function getContent()
@@ -95,8 +91,6 @@ class News
     }
 
     /**
-     * Set image
-     *
      * @param string $image
      */
     public function setImage($image)
@@ -105,8 +99,6 @@ class News
     }
 
     /**
-     * Get image
-     *
      * @return string
      */
     public function getImage()
@@ -115,8 +107,6 @@ class News
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
     public function getCreatedAt()

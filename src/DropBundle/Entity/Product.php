@@ -35,16 +35,23 @@ class Product
 
     /**
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(max="255")
      */
     private $name;
 
     /**
      * @ORM\Column(name="cost", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Type("integer")
      */
     private $cost;
 
     /**
      * @ORM\Column(name="recomendedCost", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Type("integer")
      */
     private $recommendedCost;
 
@@ -60,6 +67,9 @@ class Product
 
     /**
      * @ORM\Column(name="description", type="string", length=3000)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(max="3000")
      */
     private $description;
 

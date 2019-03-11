@@ -4,6 +4,7 @@ namespace DropBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -21,7 +22,10 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=50, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(min="2", max="50")
      */
     private $name;
 
@@ -46,10 +50,7 @@ class Category
         return $this->name;
     }
 
-
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -58,11 +59,7 @@ class Category
     }
 
     /**
-     * Set name
-     *
      * @param string $name
-     *
-     * @return Category
      */
     public function setName($name)
     {
@@ -70,8 +67,6 @@ class Category
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
@@ -94,6 +89,5 @@ class Category
     {
         $this->products[] = $product;
     }
-
 }
 
