@@ -14,8 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -23,8 +21,6 @@ class Category
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
@@ -34,11 +30,17 @@ class Category
      */
     private $products;
 
+    /**
+     * Category constructor.
+     */
     public function __construct()
     {
         $this->products = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->name;
@@ -65,8 +67,6 @@ class Category
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -80,7 +80,7 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getProducts()
     {
@@ -88,11 +88,11 @@ class Category
     }
 
     /**
-     * @param mixed $products
+     * @param Product $product
      */
-    public function setProducts($products)
+    public function addProducts(Product $product)
     {
-        $this->products = $products;
+        $this->products[] = $product;
     }
 
 }
