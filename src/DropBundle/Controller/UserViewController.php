@@ -59,7 +59,7 @@ class UserViewController extends Controller
     public function oneProductAction($id)
     {
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
-        return $this->render('@Drop/Pages/product-page.html.twig', [
+        return $this->render('@Drop/user-view/product_page.html.twig', [
             'product' => $product,
         ]);
     }
