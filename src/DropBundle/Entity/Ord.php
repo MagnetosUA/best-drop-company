@@ -103,7 +103,7 @@ class Ord
     /**
      * @ORM\Column(name="comment", type="string", length=1500, nullable=true)
      * @Assert\Type("string")
-     * @Assert\Lengthmax="1500")
+     * @Assert\Length(max="1500")
      */
     private $comment;
 
