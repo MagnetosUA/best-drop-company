@@ -74,9 +74,9 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(name="purveyor", type="string", length=700)
+     * @ORM\Column(name="provider", type="string", length=50)
      */
-    private $purveyor;
+    private $provider;
 
     /**
      * @ORM\ManyToMany(targetEntity="Ord", mappedBy="products")
@@ -237,19 +237,19 @@ class Product
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getPurveyor()
+    public function getProvider()
     {
-        return $this->purveyor;
+        return $this->provider;
     }
 
     /**
-     * @param string $purveyor
+     * @param mixed $provider
      */
-    public function setPurveyor($purveyor)
+    public function setProvider($provider)
     {
-        $this->purveyor = $purveyor;
+        $this->provider = $provider;
     }
 
     /**

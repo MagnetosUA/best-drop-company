@@ -15,12 +15,19 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Ord
 {
+    /* Order Statuses */
+
     const NEW_ORDER = 'Новый';
     const IN_PROCESSING = 'В обработке';
     const CONFIRMED = 'Подтвержденный';
     const REJECTED = 'Отклоненный';
     const SHIPPED = 'Отправленный';
     const NON_PURCHASE = 'Невыкуп';
+
+    /* Settlement types */
+
+    const COD = 'Наложенный платеж';
+    const TO_CARD = 'Перевод на банковскую карту';
 
     /**
      * @ORM\Column(name="id", type="integer")
@@ -66,7 +73,7 @@ class Ord
      *
      * @ORM\Column(name="settlementType", type="string", length=255)
      */
-    private $settlementType = "C.O.D.";
+    private $settlementType = self::COD;
 
     /**
      * @ORM\Column(name="clientPhone", type="string", length=20)
@@ -113,8 +120,7 @@ class Ord
 
     public function __toString()
     {
-        $id = $this->getId();
-        return "$id";
+       return (string) $this->getId();
     }
 
     /**
