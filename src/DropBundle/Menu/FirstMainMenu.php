@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Menu;
+namespace DropBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -18,7 +18,7 @@ class FirstMainMenu implements ContainerAwareInterface
             ]
         ]);
         $menu->addChild('Главная', [
-            'route' => 'view.home'
+            'route' => 'guest.home'
         ]);
         $menu->addChild('Описание', [
             'uri' => '#description',
@@ -27,7 +27,7 @@ class FirstMainMenu implements ContainerAwareInterface
             'uri' => '#advantages',
         ]);
         $menu->addChild('Каталог', [
-            'route' => 'catalogue'
+            'route' => 'guest.product_list'
         ]);
         $menu->addChild('Вход', [
             'route' => 'security_login'

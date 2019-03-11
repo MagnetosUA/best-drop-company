@@ -1,9 +1,9 @@
 <?php
 
-namespace Droparea\DropBundle\Security;
+namespace DropBundle\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Droparea\DropBundle\Form\Type\LoginType;
+use DropBundle\Form\Type\LoginType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -99,7 +99,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $targetPath = $this->getTargetPath($request->getSession(), $providerKey);
 
         if (!$targetPath) {
-            $targetPath = $this->router->generate('drop_homepage');
+            $targetPath = $this->router->generate('view.home');
         }
 
         return new RedirectResponse($targetPath);

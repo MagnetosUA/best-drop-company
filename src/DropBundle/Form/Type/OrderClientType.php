@@ -1,10 +1,10 @@
 <?php
 
-namespace Droparea\DropBundle\Form\Type;
+namespace DropBundle\Form\Type;
 
-use Droparea\DropBundle\Entity\Ord;
-use Droparea\DropBundle\Services\FetchNewPostAddress;
-use Droparea\DropBundle\Services\GetNewPostAddressFromDB;
+use DropBundle\Entity\Ord;
+use DropBundle\Services\FetchNewPostAddress;
+use DropBundle\Services\GetNewPostAddressFromDB;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;

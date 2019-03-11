@@ -1,9 +1,9 @@
 <?php
 
-namespace Droparea\DropBundle\Services;
+namespace DropBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Droparea\DropBundle\Entity\PostAddress;
+use DropBundle\Entity\PostAddress;
 use LisDev\Delivery\NovaPoshtaApi2;
 
 class FetchNewPostAddress

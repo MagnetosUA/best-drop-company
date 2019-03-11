@@ -1,22 +1,32 @@
-view.home:
-    path:     /
-    defaults: { _controller: DropBundle:View:home }
+#guest:
+#    resource: "@DropBundle/Controller/"
+#    type: annotations
+
+app:
+    resource: "@DropBundle/Controller/"
+    type: annotation
+
+#view.home:
+#    path:     /
+#    defaults: { _controller: DropBundle:Guest:home }
+
+
 
 patron:
     path: /patron
     defaults: { _controller: DropBundle:Patron:index }
 
-products:
-    path: /products
-    defaults: { _controller: DropBundle:Default:products }
+#products:
+#    path: /products
+#    defaults: { _controller: DropBundle:Default:products }
 
 products-category:
     path: /products/{category}
     defaults: { _controller: DropBundle:Default:products, category: 0 }
 
-product:
-    path: /product/{id}
-    defaults: { _controller: DropBundle:Default:oneProduct }
+#product:
+#    path: /product/{id}
+#    defaults: { _controller: DropBundle:Default:oneProduct }
 
 orders:
     path: /orders

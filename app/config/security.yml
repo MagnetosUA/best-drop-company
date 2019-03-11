@@ -3,13 +3,12 @@
 security:
 
     encoders:
-        Droparea\DropBundle\Entity\User:
-            bcrypt
+        DropBundle\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         our_users:
             entity:
-                class: Droparea\DropBundle\Entity\User
+                class: DropBundle\Entity\User
                 property: email
 
     firewalls:

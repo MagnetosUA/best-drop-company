@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Services;
+namespace DropBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Droparea\DropBundle\Entity\PostAddress;

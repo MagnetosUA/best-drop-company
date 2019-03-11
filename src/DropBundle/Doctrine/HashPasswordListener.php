@@ -1,10 +1,10 @@
 <?php
 
-namespace Droparea\DropBundle\Doctrine;
+namespace DropBundle\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Droparea\DropBundle\Entity\User;
+use DropBundle\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class HashPasswordListener implements EventSubscriber
@@ -63,6 +63,5 @@ class HashPasswordListener implements EventSubscriber
         );
         $entity->setPassword($encoded);
     }
-
-
 }
+

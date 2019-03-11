@@ -1,11 +1,11 @@
 <?php
 
-namespace Droparea\DropBundle\DataFixtures\ORM;
+namespace DropBundle\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Droparea\DropBundle\Entity\Category;
-use Droparea\DropBundle\Entity\Product;
+use DropBundle\Entity\Category;
+use DropBundle\Entity\Product;
 
 class CategoryFixtures extends Fixture
 {

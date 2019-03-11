@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\DependencyInjection;
+namespace DropBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

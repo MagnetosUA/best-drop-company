@@ -1,9 +1,9 @@
 <?php
 
-namespace Droparea\DropBundle\Controller;
+namespace DropBundle\Controller;
 
-use Droparea\DropBundle\Entity\User;
-use Droparea\DropBundle\Form\Type\RegisterUserType;
+use DropBundle\Entity\User;
+use DropBundle\Form\Type\RegisterUserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

@@ -1,14 +1,15 @@
 <?php
 
-namespace Droparea\DropBundle\Controller;
+namespace DropBundle\Controller;
 
-use Droparea\DropBundle\Entity\Category;
-use Droparea\DropBundle\Entity\Ord;
-use Droparea\DropBundle\Entity\Product;
-use Droparea\DropBundle\Form\Type\OrderClientType;
+use DropBundle\Entity\Category;
+use DropBundle\Entity\Ord;
+use DropBundle\Entity\Product;
+use DropBundle\Form\Type\OrderClientType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class DefaultController
@@ -57,6 +58,9 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/product/{id}", name="default.one_product")
+     */
     public function oneProductAction($id)
     {
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);

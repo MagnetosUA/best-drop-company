@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Tests\Controller;
+namespace DropBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

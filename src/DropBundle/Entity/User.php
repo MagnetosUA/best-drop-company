@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Entity;
+namespace DropBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * User
  *
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="Droparea\DropBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="DropBundle\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="It looks like your already have an account!")
  */
 class User implements UserInterface

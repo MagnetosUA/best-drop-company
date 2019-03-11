@@ -1,10 +1,10 @@
 <?php
 
-namespace Droparea\DropBundle\DataFixtures\ORM;
+namespace DropBundle\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Droparea\DropBundle\Entity\Product;
+use DropBundle\Entity\Product;
 
 class ProductFixtures extends Fixture
 {
@@ -23,12 +23,11 @@ class ProductFixtures extends Fixture
             $product->setDescription($this->description);
             $category = $this->getReference('category'.mt_rand(0, 3));
             $product->setCategory($category);
-            $product->setCountry('Ukraine');
             $product->setRecomendedCost(mt_rand(100, 1000));
             $product->setReturnCost(50);
-            $product->setValuta('UAH');
             $product->setWeight('1 kg');
             $product->setPurveyor('Julia');
+            $product->setTop(true);
 
             $manager->persist($product);
         }

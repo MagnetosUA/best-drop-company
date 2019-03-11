@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Entity;
+namespace DropBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Product
  *
  * @ORM\Table(name="product")
- * @ORM\Entity(repositoryClass="Droparea\DropBundle\Repository\ProductRepository")
+ * @ORM\Entity(repositoryClass="DropBundle\Repository\ProductRepository")
  */
 class Product
 {
@@ -47,13 +47,6 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="weight", type="string", length=255)
-     */
-    private $weight;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="cost", type="string", length=255)
      */
     private $cost;
@@ -63,14 +56,7 @@ class Product
      *
      * @ORM\Column(name="recomendedCost", type="string", length=255)
      */
-    private $recomendedCost;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="returnCost", type="string", length=255)
-     */
-    private $returnCost;
+    private $recommendedCost;
 
     /**
      * @var boolean
@@ -103,6 +89,11 @@ class Product
      * @ORM\Column(type="string", nullable=true)
      */
     private $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -181,30 +172,6 @@ class Product
     }
 
     /**
-     * Set weight
-     *
-     * @param string $weight
-     *
-     * @return Product
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
-
-    /**
-     * Get weight
-     *
-     * @return string
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
      * Set cost
      *
      * @param string $cost
@@ -229,51 +196,19 @@ class Product
     }
 
     /**
-     * Set recomendedCost
-     *
-     * @param string $recomendedCost
-     *
-     * @return Product
-     */
-    public function setRecomendedCost($recomendedCost)
-    {
-        $this->recomendedCost = $recomendedCost;
-
-        return $this;
-    }
-
-    /**
-     * Get recomendedCost
-     *
      * @return string
      */
-    public function getRecomendedCost()
+    public function getRecommendedCost()
     {
-        return $this->recomendedCost;
+        return $this->recommendedCost;
     }
 
     /**
-     * Set returnCost
-     *
-     * @param string $returnCost
-     *
-     * @return Product
+     * @param string $recommendedCost
      */
-    public function setReturnCost($returnCost)
+    public function setRecommendedCost($recommendedCost)
     {
-        $this->returnCost = $returnCost;
-
-        return $this;
-    }
-
-    /**
-     * Get returnCost
-     *
-     * @return string
-     */
-    public function getReturnCost()
-    {
-        return $this->returnCost;
+        $this->recommendedCost = $recommendedCost;
     }
 
     /**

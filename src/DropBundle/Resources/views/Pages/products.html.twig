@@ -1,4 +1,4 @@
-{% extends '@Drop/Default/index.html.twig' %}
+{% extends '@Drop/base.html.twig' %}
 
 {% block main_content %}
     <!-- SECTION NEW PRODUCTS-->
@@ -14,9 +14,9 @@
                         <div class="section-nav">
                             <ul class="section-tab-nav tab-nav havigation">
                                 {% if current_link_name == 'all' %}
-                                    <li class="active"><a href="{{ path('products') }}">Все категории</a></li>
+                                    <li class="active"><a href="{{ path('user_view.products') }}">Все категории</a></li>
                                 {% else %}
-                                    <li><a href="{{ path('products') }}">Все категории</a></li>
+                                    <li><a href="{{ path('user_view.products') }}">Все категории</a></li>
                                 {% endif %}
 
                                 {% for category in categories %}
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">{{ product.category.name }}</p>
-                                    <h3 class="product-name"><a href="{{ path('product', {'id': product.id}) }}">{{ product.name }}</a></h3>
+                                    <h3 class="product-name"><a href="{{ path('default.one_product', {'id': product.id}) }}">{{ product.name }}</a></h3>
                                     <h4 class="product-price">{{ product.cost }} Грн</h4>
                                     <a href="{{ path('new-orders', {'id': product.id}) }}" class="btn btn-success">Заказать</a>
                                 </div>

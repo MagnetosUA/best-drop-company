@@ -1,3 +1,11 @@
+#guest:
+#    resource: "@DropBundle/Controller/GuestController.php"
+#    type: annotations
+
+#user_view:
+#    resource: "@DropBundle/Controller/UserViewController.php"
+#    type: annotations
+
 drop:
     resource: "@DropBundle/Resources/config/routing.yml"
     prefix:   /

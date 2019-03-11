@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Entity;
+namespace DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Payment
  *
  * @ORM\Table(name="payment")
- * @ORM\Entity(repositoryClass="Droparea\DropBundle\Repository\PaymentRepository")
+ * @ORM\Entity(repositoryClass="DropBundle\Repository\PaymentRepository")
  */
 class Payment
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle;
+namespace DropBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Droparea\DropBundle\Form\Type;
+namespace DropBundle\Form\Type;
 
-use Droparea\DropBundle\Entity\Category;
-use Droparea\DropBundle\Entity\Product;
+use DropBundle\Entity\Category;
+use DropBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

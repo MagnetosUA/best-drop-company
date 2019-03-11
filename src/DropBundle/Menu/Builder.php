@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Menu;
+namespace DropBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -18,7 +18,7 @@ class Builder implements ContainerAwareInterface
             ]
         ]);
         $menu->addChild('Товары', [
-                'route' => 'products'
+                'route' => 'user_view.products'
             ]);
         $menu->addChild('Заказы', [
                 'route' => 'orders'

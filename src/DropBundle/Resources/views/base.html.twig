@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +8,35 @@
 
     <title>Best Drop Company</title>
 
-    {#<link rel="icon" href="{{ asset('favicon.ico') }}" />#}
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster" rel="stylesheet">
+
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('build/css/bootstrap.min.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/slick.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/slick-theme.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}"/>
+    {#<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}"/>#}
+
+    <!-- First-offer -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/first-offer.css') }}"/>
+
+    <!-- Schema -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/schema.css') }}"/>
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/nouislider.min.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="{{ asset('build/css/font-awesome.min.css') }}">
+    {#<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/css/style.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,65 +44,316 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {% block over_styles %}
 
+    {% block over_styles %}
     {% endblock over_styles %}
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        {% block top_header %}
+<!-- HEADER -->
+<header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                {#<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>#}
+                <li><a href="#"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="ff9a929e9693bf9a929e9693d19c9092">best-drop.company@gmail.com</span></a></li>
+                {#<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>#}
+            </ul>
             {% if is_granted('ROLE_USER') %}
-                {#{% include '@Drop/Parts/top-registration.html.twig' %}#}
-                {% include '@Drop/Parts/top-header.html.twig' %}
-                {% else %}
-                {% include '@Drop/Parts/top-registration.html.twig' %}
+                <ul class="header-links pull-right">
+                    <li><a href="#"><i class="fa fa-dollar-sign"></i> UAH</a></li>
+                    <li><a href="{{ path('user_page') }}"><i class="fa fa-user"></i> {{ app.user.name }}</a></li>
+                    <li><a href="{{ path('security_logout') }}"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
+                </ul>
+            {% else %}
+                <ul class="header-links pull-right">
+                    <li><a href="{{ path('security_login') }}"><i class="fas fa-sign-in-alt"></i> Вход</a></li>
+                </ul>
             {% endif %}
-        {% endblock top_header %}
-        <!-- MAIN HEADER -->
-        <div id="header">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- LOGO -->
-                    <div class="col-md-3">
-                        <div class="header-logo">
-                            <a href="{{ path('drop_homepage') }}" class="logo">
-                                <h2>Best Drop Company</h2>
+        </div>
+    </div>
+    <!-- /TOP HEADER -->
+
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="header-logo">
+                        <a href="{{ path('guest.home') }}" class="logo">
+                            {#<span>#}
+                            {#Best-Drop Company#}
+                            {#</span>#}
+                            <img src="{{ asset('assets/img/Best-Quality-PNG-Picture.png') }}">
+                            <span>Best-Drop.Company</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- ACCOUNT -->
+                <div class="col-md-3 clearfix">
+                    <div class="header-ctn">
+                        <!-- Menu Toogle -->
+                        <div class="menu-toggle">
+                            <a href="#">
+                                <i class="fa fa-bars"></i>
+                                <span>Menu</span>
                             </a>
                         </div>
+                        <!-- /Menu Toogle -->
                     </div>
-                    <!-- /LOGO -->
-                    {% block search_bar %}
-                        {% include '@Drop/Parts/search-bar.html.twig' %}
-                    {% endblock search_bar %}
-
-                    {% block account %}
-                        {#{% include '@Drop/Parts/account.html.twig' %}#}
-                    {% endblock account %}
                 </div>
-                <!-- row -->
+                <!-- /ACCOUNT -->
             </div>
-            <!-- container -->
+            {#<div class="row">#}
+            {#<!-- LOGO -->#}
+            {#<div class="col-md-3">#}
+
+            {#</div>#}
+            {#<!-- /LOGO -->#}
+
+            {#<!-- SEARCH BAR -->#}
+            {#{% if is_granted('ROLE_USER') %}#}
+            {#<div class="col-md-6">#}
+            {#<div class="header-search">#}
+            {#<form>#}
+            {#<select class="input-select">#}
+            {#<option value="0">Все категории</option>#}
+            {#<option value="1">Category 01</option>#}
+            {#<option value="1">Category 02</option>#}
+            {#</select>#}
+            {#<input class="input" placeholder="Искать...">#}
+            {#<button class="search-btn">Поиск</button>#}
+            {#</form>#}
+            {#</div>#}
+            {#</div>#}
+            {#{% endif %}#}
+            {#<!-- /SEARCH BAR -->#}
+
+            {#<!-- ACCOUNT -->#}
+            {#<div class="col-md-3 clearfix">#}
+            {#<div class="header-ctn">#}
+            {#<!-- Menu Toogle -->#}
+            {#<div class="menu-toggle">#}
+            {#<a href="#">#}
+            {#<i class="fa fa-bars"></i>#}
+            {#<span>Menu</span>#}
+            {#</a>#}
+            {#</div>#}
+            {#<!-- /Menu Toogle -->#}
+            {#</div>#}
+            {#</div>#}
+            {#<!-- /ACCOUNT -->#}
+            {#</div>#}
+            <!-- row -->
         </div>
-        <!-- /MAIN HEADER -->
-    </header>
-    <!-- /HEADER -->
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            {% if is_granted('ROLE_USER') %}
+                {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+            {% else %}
+                {{ knp_menu_render('DropBundle:FirstMainMenu:mainGuestMenu', { 'currentClass': 'active'} )}}
+            {% endif %}
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+
 {% block main_content %}
+    <!-- SECTION first-offer -->
+    <div class="section">
+        <a name="description"></a>
+        {% include '@Drop/Parts/main page/first-offer.html.twig' %}
+    </div>
+    <!-- /SECTION first-offer-->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title best">как это работает</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="schema">
+                                <img src="{{ asset('assets/img/how-to.png') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container best-products">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title best">хит продаж</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="products-tabs">
+                            <!-- tab -->
+                            <div id="tab1" class="tab-pane active">
+                                <div class="products-slick" data-nav="#slick-nav-1">
+                                    <!-- product -->
+                                    {% include '@Drop/Parts/new-products.html.twig' %}
+                                    <!-- /product -->
+                                </div>
+                                {#<div id="slick-nav-1" class="products-slick-nav"></div>#}
+                            </div>
+                            <!-- /tab -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- HOT DEAL SECTION -->
+    <div id="hot-deal" class="section">
+        <a name="advantages"></a>
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hot-deal">
+                        <ul class="hot-deal-countdown">
+                            <li>
+                                <div>
+                                    <h3><i class="far fa-smile-wink"></i></h3>
+                                    <span>Легко</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="fas fa-business-time"></i></h3>
+                                    <span>Удобно</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="fas fa-money-check-alt"></i></h3>
+                                    <span>Выгодно</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="far fa-star"></i></h3>
+                                    <span>Надёжно</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="text-uppercase">Воспользуйтесь Нашей системой</h2>
+                        <p>И Вы получите надёжный источник дохода</p>
+                        <a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /HOT DEAL SECTION -->
 {% endblock main_content %}
-{% include '@Drop/Parts/footer.html.twig' %}
+<!-- FOOTER -->
+<footer id="footer">
+
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fab fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fab fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fab fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fab fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fab fa-cc-amex"></i></a></li>
+                    </ul>
+                    <span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> &copy; Best-Drop.Company - Ваша Финансовая Свобода  <script>document.write(new Date().getFullYear());</script>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /bottom footer -->
+</footer>
+<!-- /FOOTER -->
+
 <!-- jQuery Plugins -->
-{#<script src="{{ asset('js/jquery.min.js') }}"></script>#}
-    {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/slick.min.js') }}"></script>
-<script src="{{ asset('js/nouislider.min.js') }}"></script>
-<script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+{% block specially_script %}
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+{% endblock specially_script %}
+
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>
+{#<script src="{{ asset('assets/js/nouislider.min.js') }}"></script>#}
+{#<script src="{{ asset('assets/js/jquery.zoom.min.js') }}"></script>#}
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
 
 </body>
 </html>

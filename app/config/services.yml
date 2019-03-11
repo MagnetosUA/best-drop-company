@@ -15,27 +15,27 @@ services:
         public: false
 
     get.new.post.address.from.db:
-        class: Droparea\DropBundle\Services\GetNewPostAddressFromDB
+        class: DropBundle\Services\GetNewPostAddressFromDB
         public: true
 
     fetch.new.post.address:
-        class: Droparea\DropBundle\Services\FetchNewPostAddress
+        class: DropBundle\Services\FetchNewPostAddress
         public: true
 
 
     order.client.type:
-        class: Droparea\DropBundle\Form\Type\OrderClientType
+        class: DropBundle\Form\Type\OrderClientType
         arguments:
             - '@get.new.post.address.from.db' # this is the ID of the service you want to inject
             - '@fetch.new.post.address'
         public: true
 
     app.security.login_form_authenticator:
-        class: Droparea\DropBundle\Security\LoginFormAuthenticator
+        class: DropBundle\Security\LoginFormAuthenticator
         autowire: true
 
     app.doctrine.hash_password_listener:
-        class: Droparea\DropBundle\Doctrine\HashPasswordListener
+        class: DropBundle\Doctrine\HashPasswordListener
         autowire: true
         tags:
             - { name: doctrine.event_subscriber }

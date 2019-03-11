@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Entity;
+namespace DropBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Ord
  *
  * @ORM\Table(name="ord")
- * @ORM\Entity(repositoryClass="Droparea\DropBundle\Repository\OrdRepository")
+ * @ORM\Entity(repositoryClass="DropBundle\Repository\OrdRepository")
  */
 class Ord
 {

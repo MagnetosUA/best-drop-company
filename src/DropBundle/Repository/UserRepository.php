@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Repository;
+namespace DropBundle\Repository;
 
 /**
  * UserRepository

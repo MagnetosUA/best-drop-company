@@ -1,8 +1,8 @@
 <?php
 
-namespace Droparea\DropBundle\Form\Type;
+namespace DropBundle\Form\Type;
 
-use Droparea\DropBundle\Entity\User;
+use DropBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Droparea\DropBundle\Controller;
+namespace DropBundle\Controller;
 
 use Droparea\DropBundle\Entity\Product;
 use Droparea\DropBundle\Form\Type\ProductType;
