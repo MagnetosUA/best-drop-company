@@ -3,6 +3,7 @@
 namespace DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * News
@@ -13,8 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
 class News
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -22,32 +21,25 @@ class News
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="content", type="string", length=1500)
      */
     private $content;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
-    private $created;
+    private $createdAt;
 
 
     /**
@@ -65,13 +57,10 @@ class News
      *
      * @param string $title
      *
-     * @return News
      */
     public function setTitle($title)
     {
         $this->title = $title;
-
-        return $this;
     }
 
     /**
@@ -89,13 +78,10 @@ class News
      *
      * @param string $content
      *
-     * @return News
      */
     public function setContent($content)
     {
         $this->content = $content;
-
-        return $this;
     }
 
     /**
@@ -112,14 +98,10 @@ class News
      * Set image
      *
      * @param string $image
-     *
-     * @return News
      */
     public function setImage($image)
     {
         $this->image = $image;
-
-        return $this;
     }
 
     /**
@@ -133,27 +115,13 @@ class News
     }
 
     /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return News
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
+     * Get createdAt
      *
      * @return \DateTime
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
     }
 }
 
