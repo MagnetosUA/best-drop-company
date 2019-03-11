@@ -3,6 +3,7 @@
 namespace DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Payment
@@ -13,8 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Payment
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -22,32 +21,25 @@ class Payment
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="�amount", type="string", length=255)
+     * @ORM\Column(name="amount", type="integer")
      */
     private $amount;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="refAmount", type="string", length=255)
+     * @ORM\Column(name="refAmount", type="integer")
      */
     private $refAmount;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="status", type="string", length=255)
      */
     private $status;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="created", type="string", length=255)
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
-    private $created;
+    private $createdAt;
 
 
     /**
@@ -61,23 +53,7 @@ class Payment
     }
 
     /**
-     * Set �amount
-     *
-     * @param string $�amount
-     *
-     * @return Payment
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Get �amount
-     *
-     * @return string
+     * @return mixed
      */
     public function getAmount()
     {
@@ -85,23 +61,15 @@ class Payment
     }
 
     /**
-     * Set refAmount
-     *
-     * @param string $refAmount
-     *
-     * @return Payment
+     * @param mixed $amount
      */
-    public function setRefAmount($refAmount)
+    public function setAmount($amount)
     {
-        $this->refAmount = $refAmount;
-
-        return $this;
+        $this->amount = $amount;
     }
 
     /**
-     * Get refAmount
-     *
-     * @return string
+     * @return mixed
      */
     public function getRefAmount()
     {
@@ -109,23 +77,15 @@ class Payment
     }
 
     /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return Payment
+     * @param mixed $refAmount
      */
-    public function setStatus($status)
+    public function setRefAmount($refAmount)
     {
-        $this->status = $status;
-
-        return $this;
+        $this->refAmount = $refAmount;
     }
 
     /**
-     * Get status
-     *
-     * @return string
+     * @return mixed
      */
     public function getStatus()
     {
@@ -133,27 +93,19 @@ class Payment
     }
 
     /**
-     * Set created
-     *
-     * @param string $created
-     *
-     * @return Payment
+     * @param mixed $status
      */
-    public function setCreated($created)
+    public function setStatus($status)
     {
-        $this->created = $created;
-
-        return $this;
+        $this->status = $status;
     }
 
     /**
-     * Get created
-     *
-     * @return string
+     * @return \DateTime
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
     }
-}
 
+}
