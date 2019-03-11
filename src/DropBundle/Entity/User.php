@@ -18,8 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -37,15 +35,12 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank()
      */
     private $name;
 
     /**
-     *
      * The encoded password
      *
      * @ORM\Column(name="password", type="string", length=255)
@@ -53,49 +48,40 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @var string
+     * A non-persisted field that's used to create the encoded password
      *
-     * A non-persisted field that's used to create the encoded password.
      * @Assert\NotBlank()
      */
     private $plainPassword;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=255, unique=true)
+     * @ORM\Column(name="phone", type="string", length=20, unique=true)
      */
     private $phone;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="skype", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="skype", type="string", length=50, unique=true, nullable=true)
      */
     private $skype;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="cards_number", type="string", length=255, nullable=true)
+     * @ORM\Column(name="cards_number", type="string", length=20, nullable=true)
      */
     private $cardsNumber;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="ref_link", type="string", length=255, unique=true, nullable=true)
      */
     private $refLink;
 
     /**
-     * One User has Many Orders.
+     * One User has Many Orders
+     *
      * @ORM\OneToMany(targetEntity="Ord", mappedBy="user")
      */
     private $orders;
 
     /**
-     * @var string
      * @ORM\Column(name="cards_owner_name", type="string", length=255, nullable=true)
      */
     private $cardsOwnerName;
@@ -107,14 +93,15 @@ class User implements UserInterface
         $this->orders = new ArrayCollection();
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getName();
     }
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -123,22 +110,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set email
-     *
      * @param string $email
-     *
-     * @return User
      */
     public function setEmail($email)
     {
         $this->email = $email;
-
-        return $this;
     }
 
     /**
-     * Get email
-     *
      * @return string
      */
     public function getEmail()
@@ -147,22 +126,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set name
-     *
      * @param string $name
-     *
-     * @return User
      */
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
@@ -171,22 +142,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set password
-     *
      * @param string $password
-     *
-     * @return User
      */
     public function setPassword($password)
     {
         $this->password = $password;
-
-        return $this;
     }
 
     /**
-     * Get password
-     *
      * @return string
      */
     public function getPassword()
@@ -211,24 +174,15 @@ class User implements UserInterface
         $this->password = null;
     }
 
-
     /**
-     * Set phone
-     *
      * @param string $phone
-     *
-     * @return User
      */
     public function setPhone($phone)
     {
         $this->phone = $phone;
-
-        return $this;
     }
 
     /**
-     * Get phone
-     *
      * @return string
      */
     public function getPhone()
@@ -237,22 +191,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set skype
-     *
      * @param string $skype
-     *
-     * @return User
      */
     public function setSkype($skype)
     {
         $this->skype = $skype;
-
-        return $this;
     }
 
     /**
-     * Get skype
-     *
      * @return string
      */
     public function getSkype()
@@ -261,22 +207,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set cardsNumber
-     *
      * @param string $cardsNumber
-     *
-     * @return User
      */
     public function setCardsNumber($cardsNumber)
     {
         $this->cardsNumber = $cardsNumber;
-
-        return $this;
     }
 
     /**
-     * Get cardsNumber
-     *
      * @return string
      */
     public function getCardsNumber()
@@ -285,22 +223,14 @@ class User implements UserInterface
     }
 
     /**
-     * Set refLink
-     *
      * @param string $refLink
-     *
-     * @return User
      */
     public function setRefLink($refLink)
     {
         $this->refLink = $refLink;
-
-        return $this;
     }
 
     /**
-     * Get refLink
-     *
      * @return string
      */
     public function getRefLink()
@@ -329,7 +259,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getOrders()
     {
@@ -337,11 +267,11 @@ class User implements UserInterface
     }
 
     /**
-     * @param mixed $orders
+     * @param Ord $order
      */
-    public function setOrders($orders)
+    public function addOrders($order)
     {
-        $this->orders = $orders;
+        $this->orders[] = $order;
     }
 
     /**
@@ -359,7 +289,6 @@ class User implements UserInterface
     {
         $this->cardsOwnerName = $cardsOwnerName;
     }
-
 
 }
 
