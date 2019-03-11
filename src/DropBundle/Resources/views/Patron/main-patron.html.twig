@@ -1,4 +1,4 @@
-{% extends '@Drop/Default/index.html.twig' %}
+{% extends '@Drop/base.html.twig' %}
 {% block search_bar %}
     <h1 id = "admin-title">Админка</h1>
 {% endblock search_bar %}
@@ -48,7 +48,7 @@
                 <hr/>
             </div>
             <div class="col-md-6 description">
-                {{ form_row(form.recomendedCost) }}
+                {{ form_row(form.recommendedCost) }}
                 <hr/>
             </div>
         </div>

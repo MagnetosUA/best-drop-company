@@ -3,7 +3,7 @@
 namespace DropBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Droparea\DropBundle\Entity\PostAddress;
+use DropBundle\Entity\PostAddress;
 
 /**
  * Class GetNewPostAddressFromDB
@@ -26,7 +26,7 @@ class GetNewPostAddressFromDB
      */
     public function getCities()
     {
-        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
+        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(2)) {
             $citiesArray = $cityObject->getCities();
 //        echo "<pre>";
 //        print_r($citiesArray);

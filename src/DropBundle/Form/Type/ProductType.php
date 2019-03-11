@@ -38,24 +38,12 @@ class ProductType extends AbstractType
                     'placeholder' => 'Описание',
                 ],
             ])
-            ->add('weight', TextType::class, [
-                'label' => 'Вес',
-                'attr' => [
-                    'value' => '1кг'
-                ]
-            ])
             ->add('cost', TextType::class, [
                 'label' => 'Цена',
             ])
-            ->add('recomendedCost', TextType::class, [
+            ->add('recommendedCost', TextType::class, [
                 'label' => 'Рекомендованная цена',
                 ])
-            ->add('returnCost', TextType::class, [
-                'label' => 'Стоимость возврата',
-                'attr' => [
-                    'value' => 'Согласно тарифам Новой Почты'
-                ]
-            ])
             ->add('purveyor', ChoiceType::class, [
                 'label' => 'Поставщик',
                 'choices' => [

@@ -32,25 +32,25 @@ products-category:
 #    path: /orders
 #    defaults: { _controller: DropBundle:Default:orders }
 
-new-orders:
-    path: /new-orders/{id}
-    defaults: { _controller: DropBundle:Default:newOrders, id: 0 }
+#new-orders:
+#    path: /new-orders/{id}
+#    defaults: { _controller: DropBundle:Default:newOrders, id: 0 }
 
-payments:
-    path: /payments
-    defaults: { _controller: DropBundle:Default:payments }
-
-statistic:
-    path: /statistic
-    defaults: { _controller: DropBundle:Default:statistic }
-
-referals:
-    path: /referals
-    defaults: { _controller: DropBundle:Default:referals }
-
-news:
-    path: /news
-    defaults: { _controller: DropBundle:Default:news }
+#payments:
+#    path: /payments
+#    defaults: { _controller: DropBundle:Default:payments }
+#
+#statistic:
+#    path: /statistic
+#    defaults: { _controller: DropBundle:Default:statistic }
+#
+#referals:
+#    path: /referals
+#    defaults: { _controller: DropBundle:Default:referals }
+#
+#news:
+#    path: /news
+#    defaults: { _controller: DropBundle:Default:news }
 
 ajax-new-post:
     path: /ajax-new-post

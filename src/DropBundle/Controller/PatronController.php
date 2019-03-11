@@ -2,8 +2,8 @@
 
 namespace DropBundle\Controller;
 
-use Droparea\DropBundle\Entity\Product;
-use Droparea\DropBundle\Form\Type\ProductType;
+use DropBundle\Entity\Product;
+use DropBundle\Form\Type\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

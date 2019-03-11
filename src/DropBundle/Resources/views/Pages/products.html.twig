@@ -47,7 +47,7 @@
                                     <p class="product-category">{{ product.category.name }}</p>
                                     <h3 class="product-name"><a href="{{ path('user_view.one_product', {'id': product.id}) }}">{{ product.name }}</a></h3>
                                     <h4 class="product-price">{{ product.cost }} Грн</h4>
-                                    <a href="{{ path('new-orders', {'id': product.id}) }}" class="btn btn-success">Заказать</a>
+                                    <a href="{{ path('user_action.new_order', {'id': product.id}) }}" class="btn btn-success">Заказать</a>
                                 </div>
                             </div>
                             <!-- /product -->

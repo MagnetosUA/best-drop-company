@@ -18,47 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
 
-    public function indexAction(Request $request)
-    {
-        $bestProducts = $this->getDoctrine()->getRepository(Product::class)->findBy(["top" => "1"]);
-        return $this->render('@Drop/Default/index.html.twig', [
-            'products' => $bestProducts,
-        ]);
-    }
-
-    public function productsAction(Request $request, $category = 0)
-    {
-        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        if ($category!=0) {
-            $products = $this->getDoctrine()->getRepository(Product::class)->findBy([
-                'category' => $category,
-            ]);
-            foreach ($categories as $item) {
-                if ($item->getId() == $category) {
-                    $currentLinkName = $item->getName();
-                }
-            }
-        } else {
-            $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-            $currentLinkName = 'all';
-        }
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $products, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            4/*limit per page*/
-        );
-
-        return $this->render('@Drop/Pages/products.html.twig', [
-//            'products' => $products,
-            'categories' => $categories,
-            'current_link_name' => $currentLinkName,
-            'pagination' => $pagination,
-        ]);
-    }
-
-
 
     /**
      * @param Request $request
