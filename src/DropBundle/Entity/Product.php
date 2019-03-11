@@ -15,8 +15,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Product
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -26,60 +24,46 @@ class Product
     /**
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      *
      */
     private $category;
 
     /**
-     * @var array
      * @ORM\Column(name="images", type="array")
      */
     private $images;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="cost", type="string", length=255)
+     * @ORM\Column(name="cost", type="integer")
      */
     private $cost;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="recomendedCost", type="string", length=255)
+     * @ORM\Column(name="recomendedCost", type="integer")
      */
     private $recommendedCost;
 
     /**
-     * @var boolean
-     *
      * @ORM\Column(name="new", type="boolean")
      */
-    private $new = false;
+    private $new = true;
 
     /**
-     * @var boolean
-     *
      * @ORM\Column(name="top", type="boolean")
      */
     private $top = false;
 
     /**
-     * @var string
      * @ORM\Column(name="description", type="string", length=3000)
      */
     private $description;
 
     /**
-     * @var string
      * @ORM\Column(name="purveyor", type="string", length=700)
      */
     private $purveyor;
@@ -96,8 +80,6 @@ class Product
     }
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -123,6 +105,7 @@ class Product
         }
         return $img;
     }
+
     /**
      * @param array $images
      */
@@ -132,7 +115,7 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @return Category
      */
     public function getCategory()
     {
@@ -140,7 +123,7 @@ class Product
     }
 
     /**
-     * @param mixed $category
+     * @param Category $category
      */
     public function setCategory($category)
     {
@@ -148,22 +131,14 @@ class Product
     }
 
     /**
-     * Set name
-     *
      * @param string $name
-     *
-     * @return Product
      */
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
@@ -172,23 +147,15 @@ class Product
     }
 
     /**
-     * Set cost
-     *
-     * @param string $cost
-     *
-     * @return Product
+     * @param $cost
      */
     public function setCost($cost)
     {
         $this->cost = $cost;
-
-        return $this;
     }
 
     /**
-     * Get cost
-     *
-     * @return string
+     * @return mixed
      */
     public function getCost()
     {
@@ -196,7 +163,7 @@ class Product
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getRecommendedCost()
     {
@@ -204,7 +171,7 @@ class Product
     }
 
     /**
-     * @param string $recommendedCost
+     * @param $recommendedCost
      */
     public function setRecommendedCost($recommendedCost)
     {
@@ -276,7 +243,7 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getOrders()
     {
@@ -290,6 +257,5 @@ class Product
     {
         return $this->getName();
     }
-
 }
 
