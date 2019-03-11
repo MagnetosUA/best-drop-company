@@ -3,6 +3,7 @@
 namespace DropBundle\Controller;
 
 use DropBundle\Entity\Category;
+use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -47,6 +48,95 @@ class UserViewController extends Controller
             'current_link_name' => $currentLinkName,
             'pagination' => $pagination,
         ]);
+    }
+
+    /**
+     * @Route("/product/{id}", name="user_view.one_product")
+     *
+     * @param $id
+     * @return Response
+     */
+    public function oneProductAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+        return $this->render('@Drop/Pages/product-page.html.twig', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
+     * @Route("/orders", name="user_view.orders")
+     *
+     * @return Response
+     */
+    public function ordersAction()
+    {
+        $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $this->getUser()]);
+
+        $statusCount["new"] = 0;
+        $statusCount["in_processing"] = 0;
+        $statusCount["confirmed"] = 0;
+        $statusCount["rejected"] = 0;
+        $statusCount["shipped"] = 0;
+        $statusCount["non_purchase"] = 0;
+        $statusCount["ransom"] = 0;
+        $statusCount["not_sent_fo_processing"] = 0;
+
+        foreach ($orders as $order) {
+            if ($order->getStatus() == Ord::NEW_ORDER) {$statusCount["new"] += 1;}
+            if ($order->getStatus() == Ord::IN_PROCESSING) {$statusCount["in_processing"] += 1;}
+            if ($order->getStatus() == Ord::CONFIRMED) {$statusCount["confirmed"] += 1;}
+            if ($order->getStatus() == Ord::REJECTED) {$statusCount["rejected"] += 1;}
+            if ($order->getStatus() == Ord::SHIPPED) {$statusCount["shipped"] += 1;}
+            if ($order->getStatus() == Ord::NON_PURCHASE) {$statusCount["non_purchase"] += 1;}
+            if ($order->getStatus() == Ord::RANSOM) {$statusCount["ransom"] += 1;}
+            if ($order->getStatus() == Ord::NOT_SENT_FOR_PROCESSING) {$statusCount["not_sent_fo_processing"] += 1;}
+        }
+
+        return $this->render('@Drop/user-view/orders.html.twig', [
+            'orders' => $orders,
+            'status_count' => $statusCount,
+        ]);
+    }
+
+    /**
+     * @Route("/payments", name="user_view.payments")
+     *
+     * @return Response
+     */
+    public function paymentsAction()
+    {
+        return $this->render('@Drop/user-view/payments.html.twig');
+    }
+
+    /**
+     * @Route("/statistic", name="user_view.statistic")
+     *
+     * @return Response
+     */
+    public function statisticAction()
+    {
+        return $this->render('@Drop/user-view/statistic.html.twig');
+    }
+
+    /**
+     * @Route("/referrals", name="user_view.referrals")
+     *
+     * @return Response
+     */
+    public function referralsAction()
+    {
+        return $this->render('@Drop/user-view/referrals.html.twig');
+    }
+
+    /**
+     * @Route("/news", name="user_view.news")
+     *
+     * @return Response
+     */
+    public function newsAction()
+    {
+        return $this->render('@Drop/user-view/news.html.twig');
     }
 }
 

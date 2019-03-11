@@ -58,16 +58,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/product/{id}", name="default.one_product")
-     */
-    public function oneProductAction($id)
-    {
-        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
-        return $this->render('@Drop/Pages/product-page.html.twig', [
-            'product' => $product,
-        ]);
-    }
+
 
     /**
      * @param Request $request
@@ -214,25 +205,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function paymentsAction()
-    {
-        return $this->render('@Drop/Pages/payments.html.twig');
-    }
 
-    public function statisticAction()
-    {
-        return $this->render('@Drop/Pages/statistic.html.twig');
-    }
-
-    public function referalsAction()
-    {
-        return $this->render('@Drop/Pages/referals.html.twig');
-    }
-
-    public function newsAction()
-    {
-        return $this->render('@Drop/Pages/news.html.twig');
-    }
 
 //    additional functional for testing
     private function E($var) {

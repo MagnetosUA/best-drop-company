@@ -28,9 +28,9 @@ products-category:
 #    path: /product/{id}
 #    defaults: { _controller: DropBundle:Default:oneProduct }
 
-orders:
-    path: /orders
-    defaults: { _controller: DropBundle:Default:orders }
+#orders:
+#    path: /orders
+#    defaults: { _controller: DropBundle:Default:orders }
 
 new-orders:
     path: /new-orders/{id}
@@ -66,6 +66,6 @@ user_page:
 
 #for main-guest-page
 
-catalogue:
-    path: /catalogue
-    defaults: { _controller: DropBundle:Default:catalogue }
+#catalogue:
+#    path: /catalogue
+#    defaults: { _controller: DropBundle:Default:catalogue }

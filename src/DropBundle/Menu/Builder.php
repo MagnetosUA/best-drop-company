@@ -21,19 +21,19 @@ class Builder implements ContainerAwareInterface
                 'route' => 'user_view.products'
             ]);
         $menu->addChild('Заказы', [
-                'route' => 'orders'
+                'route' => 'user_view.orders'
             ]);
         $menu->addChild('Выплаты' ,[
-                'route' => 'payments'
+                'route' => 'user_view.payments'
             ]);
         $menu->addChild('Статистика', [
-                'route' => 'statistic'
+                'route' => 'user_view.statistic'
             ]);
         $menu->addChild('Рефералы', [
-                'route' => 'referals'
+                'route' => 'user_view.referrals'
             ]);
         $menu->addChild('Новости', [
-                'route' => 'news'
+                'route' => 'user_view.news'
             ]);
 //        $menu->addChild(" ", [
 //            'uri' => '#',
