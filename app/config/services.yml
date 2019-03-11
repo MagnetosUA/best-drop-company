@@ -39,3 +39,9 @@ services:
         autowire: true
         tags:
             - { name: doctrine.event_subscriber }
+
+    TechBlogBundle\DataFixtures\Provider\CategoryProvider:
+        class: DropBundle\DataFixtures\Provider\CategoryProvider
+        arguments: ["@hautelook_alice.faker"]
+        tags:
+            - { name: hautelook_alice.faker.provider }

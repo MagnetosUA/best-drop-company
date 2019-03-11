@@ -1,0 +1,11 @@
+DropBundle\Entity\Product:
+  product{1..20}:
+    name: '<word()>'
+    images: '<randomElements()>'
+    category: '@category*'
+    cost: '<numberBetween($min = 10, $max = 90)>'
+    recommendedCost: '<numberBetween($min = 100, $max = 1000)>'
+    description: '<realText()>'
+    provider: 'Anna'
+
+

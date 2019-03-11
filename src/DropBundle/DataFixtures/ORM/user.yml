@@ -1,0 +1,8 @@
+DropBundle\Entity\User:
+  user{1..5}:
+    name: '<firstName()> <lastName()>'
+    email: '<email()>'
+    phone: '<e164PhoneNumber()>'
+#    roles: ['ROLE_USER']
+    plainPassword: 'sun'
+

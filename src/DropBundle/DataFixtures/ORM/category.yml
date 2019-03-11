@@ -1,0 +1,3 @@
+DropBundle\Entity\Category:
+  category{1..5}:
+    name: '<category()>'

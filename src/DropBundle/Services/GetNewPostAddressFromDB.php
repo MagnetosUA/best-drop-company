@@ -26,8 +26,11 @@ class GetNewPostAddressFromDB
      */
     public function getCities()
     {
-        if ($cityObject = $this->em->getRepository(PostAddress::class)->find(2)) {
-            $citiesArray = $cityObject->getCities();
+        if ($cityObjects = $this->em->getRepository(PostAddress::class)->findAll()) {
+            foreach ($cityObjects as $cityObject) {
+                $citiesArray = $cityObject->getCities();
+            }
+
 //        echo "<pre>";
 //        print_r($citiesArray);
 //        echo "</pre>";die;

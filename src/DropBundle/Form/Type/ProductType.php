@@ -44,7 +44,7 @@ class ProductType extends AbstractType
             ->add('recommendedCost', TextType::class, [
                 'label' => 'Рекомендованная цена',
                 ])
-            ->add('purveyor', ChoiceType::class, [
+            ->add('provider', ChoiceType::class, [
                 'label' => 'Поставщик',
                 'choices' => [
                     'drop1' => 'Drop1',
