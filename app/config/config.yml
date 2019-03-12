@@ -151,5 +151,5 @@ knp_paginator:
 stof_doctrine_extensions:
     orm:
         default:
-            tree: true
+            sluggable: true
             timestampable: true

@@ -12,21 +12,8 @@
                     <div class="section-title">
                         <h3 class="title">Доступные товары</h3>
                         <div class="section-nav">
-                            <ul class="section-tab-nav tab-nav havigation">
-                                {% if current_link_name == 'all' %}
-                                    <li class="active"><a href="{{ path('user_view.products') }}">Все категории</a></li>
-                                {% else %}
-                                    <li><a href="{{ path('user_view.products') }}">Все категории</a></li>
-                                {% endif %}
+                            {{ knp_menu_render('DropBundle:Builder:categoryMenu', { 'currentClass': 'active'}) }}
 
-                                {% for category in categories %}
-                                    {% if category.name == current_link_name %}
-                                        <li class="active"><a href="{{ path('products-category', { 'category': category.id }) }}">{{ category.name }}</a></li>
-                                    {% else %}
-                                        <li class="btn"><a href="{{ path('products-category', { 'category': category.id }) }}">{{ category.name }}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
                         </div>
                     </div>
                 </div>

@@ -15,6 +15,13 @@ class CategoryProvider
         'Дом и Сад',
         'Бытовая техника',
     ];
+//    const NAMES = [
+//        'Household products',
+//        'Electronics',
+//        'Clothing',
+//        'A house and a garden',
+//        'Appliances'
+//        ];
 
 
     /**

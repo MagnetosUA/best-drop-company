@@ -106,46 +106,6 @@
                 </div>
                 <!-- /ACCOUNT -->
             </div>
-            {#<div class="row">#}
-                {#<!-- LOGO -->#}
-                {#<div class="col-md-3">#}
-
-                {#</div>#}
-                {#<!-- /LOGO -->#}
-
-                {#<!-- SEARCH BAR -->#}
-                {#{% if is_granted('ROLE_USER') %}#}
-                    {#<div class="col-md-6">#}
-                        {#<div class="header-search">#}
-                            {#<form>#}
-                                {#<select class="input-select">#}
-                                    {#<option value="0">Все категории</option>#}
-                                    {#<option value="1">Category 01</option>#}
-                                    {#<option value="1">Category 02</option>#}
-                                {#</select>#}
-                                {#<input class="input" placeholder="Искать...">#}
-                                {#<button class="search-btn">Поиск</button>#}
-                            {#</form>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#{% endif %}#}
-                {#<!-- /SEARCH BAR -->#}
-
-                {#<!-- ACCOUNT -->#}
-                {#<div class="col-md-3 clearfix">#}
-                    {#<div class="header-ctn">#}
-                        {#<!-- Menu Toogle -->#}
-                        {#<div class="menu-toggle">#}
-                            {#<a href="#">#}
-                                {#<i class="fa fa-bars"></i>#}
-                                {#<span>Menu</span>#}
-                            {#</a>#}
-                        {#</div>#}
-                        {#<!-- /Menu Toogle -->#}
-                    {#</div>#}
-                {#</div>#}
-                {#<!-- /ACCOUNT -->#}
-            {#</div>#}
             <!-- row -->
         </div>
         <!-- container -->
@@ -162,9 +122,9 @@
         <div id="responsive-nav">
             <!-- NAV -->
             {% if is_granted('ROLE_USER') %}
-                {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+                {{ knp_menu_render('DropBundle:Builder:mainMenu', {'currentClass': 'active'} )}}
             {% else %}
-                {{ knp_menu_render('DropBundle:FirstMainMenu:mainGuestMenu', { 'currentClass': 'active'} )}}
+                {{ knp_menu_render('DropBundle:Builder:mainGuestMenu', { 'currentClass': 'active'} )}}
             {% endif %}
             <!-- /NAV -->
         </div>

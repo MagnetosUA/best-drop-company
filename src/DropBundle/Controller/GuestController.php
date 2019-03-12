@@ -30,5 +30,6 @@ class GuestController extends Controller
             'products' => $products,
         ]);
     }
+
 }
 
