@@ -15,7 +15,7 @@ class GuestController extends Controller
     public function homeAction()
     {
         $bestsellers = $this->getDoctrine()->getRepository(Product::class)->findBy(["top" => "1"]);
-        return $this->render('@Drop/guest/home.html.twig', [
+        return $this->render('@Drop/guest/home_page.html.twig', [
             'products' => $bestsellers,
         ]);
     }

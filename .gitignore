@@ -20,6 +20,7 @@ src/Droparea/DropBundle/Resources/views/Default/practice.html.twig
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/node_modules/
+/node_modules/*
 /web/bundles/
+/web/build/*
 /.idea

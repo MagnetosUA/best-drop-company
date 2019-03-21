@@ -16,27 +16,27 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>#}
+    <link type="text/css" rel="stylesheet" href="{{ asset('build/app.css') }}"/>
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}"/>
-    {#<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}"/>#}
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}"/>#}
 
     <!-- First-offer -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/first-offer.css') }}"/>
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/first-offer.css') }}"/>#}
 
     <!-- Schema -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/schema.css') }}"/>
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main page/schema.css') }}"/>#}
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}"/>
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}"/>#}
 
     <!-- Font Awesome Icon -->
-    {#<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">#}
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+{#    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>#}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,10 +83,7 @@
                 <div class="col-md-9">
                     <div class="header-logo">
                         <a href="{{ path('guest.home') }}" class="logo">
-                            {#<span>#}
-                            {#Best-Drop Company#}
-                            {#</span>#}
-                            <img src="{{ asset('assets/img/Best-Quality-PNG-Picture.png') }}">
+                            <img src="{{ asset('build/images/project-images/Best-Quality-PNG-Picture.png') }}">
                             <span>Best-Drop.Company</span>
                         </a>
                     </div>
@@ -124,7 +121,7 @@
             {% if is_granted('ROLE_USER') %}
                 {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
             {% else %}
-                {{ knp_menu_render('DropBundle:FirstMainMenu:mainGuestMenu', { 'currentClass': 'active'} )}}
+                {{ knp_menu_render('DropBundle:Builder:mainGuestMenu', { 'currentClass': 'active'} )}}
             {% endif %}
             <!-- /NAV -->
         </div>
@@ -162,7 +159,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="schema">
-                                <img src="{{ asset('assets/img/how-to.png') }}">
+                                <img src="{{ asset('build/images/project-images/how-to.png') }}">
                             </div>
                         </div>
                     </div>
@@ -202,7 +199,6 @@
                                     {% include '@Drop/Parts/new-products.html.twig' %}
                                     <!-- /product -->
                                 </div>
-                                {#<div id="slick-nav-1" class="products-slick-nav"></div>#}
                             </div>
                             <!-- /tab -->
                         </div>
@@ -304,7 +300,11 @@
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/slick.min.js') }}"></script>
 {#<script src="{{ asset('assets/js/nouislider.min.js') }}"></script>#}
-{#<script src="{{ asset('assets/js/jquery.zoom.min.js') }}"></script>#}
+
+
+<script src="{{ asset('build/app.js') }}"></script>
+
+
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
