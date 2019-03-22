@@ -6,6 +6,7 @@ Encore
     .setPublicPath('/build')
     .addEntry('app', './assets/js/app.js')
     .addEntry('new-order', './assets/js/new-order.js')
+    .addEntry('one-product-page', './assets/js/one-product-page/modal-image.js')
     .enableBuildNotifications()
     .copyFiles({from: './assets/project-images', pattern: /\.(png|jpg|jpeg)$/, to: 'images/project-images/[name].[ext]'})
     .autoProvidejQuery()

@@ -1,10 +1,4 @@
 {% extends '@Drop/base.html.twig' %}
-{% block over_styles %}
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/product-page/product-page.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/product-page/modal-image.css') }}"/>
-    <script src="{{ asset('assets/js/change-images.js') }}" defer></script>
-    <script src="{{ asset('assets/js/product-page/modal-image.js') }}" defer></script>
-{% endblock over_styles %}
 {% block main_content %}
     <div id="product-page" class="container">
         <div class="row">
@@ -21,7 +15,7 @@
                             {% for image in product.images %}
                             <li>
                                 <div class="product-img" onmouseover="changeImage('min-img{{ i }}');">
-                                    <img src="{{ asset('product_images/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
+                                    <img src="{{ asset('assets/product_images/products/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
                                 </div>
                             </li>
                                 {% set i = ( i | default(1) ) + 1 %}
@@ -29,7 +23,7 @@
                         </ul>
                     </div>
                     <div class="col-md-10 main-image">
-                        <img src="{{ asset('product_images/' ~ product.images['0']) }}" id="main-img" alt=""/>
+                        <img src="{{ asset('assets/product_images/products/' ~ product.images['0']) }}" id="main-img" alt=""/>
                     </div>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
@@ -62,4 +56,7 @@
         </div>
     </div>
 {% endblock main_content %}
+{% block specially_script %}
+    <script src="{{ asset('build/one-product-page.js') }}" defer></script>
+{% endblock specially_script %}
 

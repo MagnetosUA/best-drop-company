@@ -1,3 +1,5 @@
+require('./change-images');
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
