@@ -1,2 +1,130 @@
 {% extends '@Drop/base.html.twig' %}
 
+{% block main_content %}
+    <!-- SECTION first-offer -->
+    <div class="section">
+        <a name="description"></a>
+        {% include '@Drop/Parts/main-page/first_offer.html.twig' %}
+    </div>
+    <!-- /SECTION first-offer-->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title best">как это работает</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="schema">
+                                <img src="{{ asset('build/images/project-images/how-to.png') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container best-products">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title best">хит продаж</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="products-tabs">
+                            <!-- tab -->
+                            <div id="tab1" class="tab-pane active">
+                                <div class="products-slick" data-nav="#slick-nav-1">
+                                    <!-- product -->
+                                    {% include '@Drop/Parts/top_products.html.twig' %}
+                                    <!-- /product -->
+                                </div>
+                            </div>
+                            <!-- /tab -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- HOT DEAL SECTION -->
+    <div id="hot-deal" class="section">
+        <a name="advantages"></a>
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hot-deal">
+                        <ul class="hot-deal-countdown">
+                            <li>
+                                <div>
+                                    <h3><i class="far fa-smile-wink"></i></h3>
+                                    <span>Легко</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="fas fa-business-time"></i></h3>
+                                    <span>Удобно</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="fas fa-money-check-alt"></i></h3>
+                                    <span>Выгодно</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><i class="far fa-star"></i></h3>
+                                    <span>Надёжно</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="text-uppercase">Воспользуйтесь Нашей системой</h2>
+                        <p>И Вы получите надёжный источник дохода</p>
+                        <a class="primary-btn cta-btn" href="{{ path('user_register') }}">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /HOT DEAL SECTION -->
+{% endblock main_content %}

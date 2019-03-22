@@ -5,8 +5,10 @@ Encore
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
     .addEntry('app', './assets/js/app.js')
+    .addEntry('new-order', './assets/js/new-order.js')
     .enableBuildNotifications()
     .copyFiles({from: './assets/project-images', pattern: /\.(png|jpg|jpeg)$/, to: 'images/project-images/[name].[ext]'})
+    .autoProvidejQuery()
 ;
 // export the final configuration
 module.exports = Encore.getWebpackConfig();
