@@ -259,7 +259,7 @@ table {
 }
 .orders-table .fixed_headers td:nth-child(2),
 .orders-table .fixed_headers th:nth-child(2) {
-    min-width: 300px;.products-table
+    min-width: 300px;
 }
 .orders-table .fixed_headers td:nth-child(3),
 .orders-table .fixed_headers th:nth-child(3) {

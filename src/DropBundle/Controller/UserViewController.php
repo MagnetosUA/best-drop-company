@@ -96,8 +96,8 @@ class UserViewController extends Controller
             if ($order->getStatus() == Ord::REJECTED) {$statusCount["rejected"] += 1;}
             if ($order->getStatus() == Ord::SHIPPED) {$statusCount["shipped"] += 1;}
             if ($order->getStatus() == Ord::NON_PURCHASE) {$statusCount["non_purchase"] += 1;}
-            if ($order->getStatus() == Ord::RANSOM) {$statusCount["ransom"] += 1;}
-            if ($order->getStatus() == Ord::NOT_SENT_FOR_PROCESSING) {$statusCount["not_sent_fo_processing"] += 1;}
+//            if ($order->getStatus() == Ord::RANSOM) {$statusCount["ransom"] += 1;}
+//            if ($order->getStatus() == Ord::NOT_SENT_FOR_PROCESSING) {$statusCount["not_sent_fo_processing"] += 1;}
         }
 
         return $this->render('@Drop/user-view/orders.html.twig', [
