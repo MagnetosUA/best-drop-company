@@ -23,5 +23,6 @@ src/Droparea/DropBundle/Resources/views/Default/practice.html.twig
 /node_modules/*
 /web/bundles/
 /web/build/*
+!web/product-images/.gitkeep
 /web/product-images/*
 /.idea
