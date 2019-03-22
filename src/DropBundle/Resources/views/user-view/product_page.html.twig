@@ -15,7 +15,7 @@
                             {% for image in product.images %}
                             <li>
                                 <div class="product-img" onmouseover="changeImage('min-img{{ i }}');">
-                                    <img src="{{ asset('assets/product_images/products/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
+                                    <img src="{{ asset('product-images/' ~ product.images[i]) }}" id="min-img{{ i }}" alt=""/>
                                 </div>
                             </li>
                                 {% set i = ( i | default(1) ) + 1 %}
@@ -23,7 +23,7 @@
                         </ul>
                     </div>
                     <div class="col-md-10 main-image">
-                        <img src="{{ asset('assets/product_images/products/' ~ product.images['0']) }}" id="main-img" alt=""/>
+                        <img src="{{ asset('product-images/' ~ product.images['0']) }}" id="main-img" alt=""/>
                     </div>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
