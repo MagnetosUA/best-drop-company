@@ -17,7 +17,7 @@ class SecurityController extends Controller
         $form = $this->createForm(LoginType::class, [
             '_username' => $lastUsername,
         ]);
-        return $this->render('@Drop/Sequrity/login.html.twig', [
+        return $this->render('@Drop/sequrity/login.html.twig', [
             'form' => $form->createView(),
             'error' => $error,
         ]);

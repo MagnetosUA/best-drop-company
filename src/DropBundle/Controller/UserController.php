@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function authUser($data)
     {
-        return $this->redirectToRoute('drop_homepage'); //Here must be route, where user is from !
+        return $this->redirectToRoute('guest.home'); //Here must be route, where user is from !
     }
 
     public function showUserPageAction(Request $request)
@@ -71,7 +71,7 @@ class UserController extends Controller
         }
 
         if ($user == null) {
-            return $this->redirectToRoute("drop_homepage"); // Delete when set roles
+            return $this->redirectToRoute("guest.home"); // Delete when set roles
         }
         return $this->render('@Drop/Pages/user-page.html.twig', [
             'user' => $user,
