@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $('.js-example-basic-single').select2();
+    $('.js-select2-cities').select2();
     var globalCityArea = ''; // For saving the first data in textarea
-    $(".js-example-basic-single").change(function(){ //invoke when we change select city
+    $(".js-select2-cities").change(function(){ //invoke when we change select city
         var val = $(this).val();
         globalCityArea = '';
         $.ajax ({
@@ -25,6 +25,7 @@ $(document).ready(function () {
             globalCityArea = $(".full-address").text();
         }
         var text = $(".full-address").text(null);
+        // console.log(text);
         var fullAddress = globalCityArea + ', ' + $(this).val();
         $(".full-address").text(fullAddress);
 });

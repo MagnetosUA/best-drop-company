@@ -43,6 +43,7 @@ $(".save-order").click(function () {
     var ch = $(".hidden-product").val();
     // console.log("in hidden form")
     // console.log(ch);
+    $(".warehouses").empty();
     alert("Поздравляем ! Заказ сохранен !");
 });
 // function for deleting orders from orders table

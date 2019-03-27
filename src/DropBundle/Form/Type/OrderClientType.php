@@ -2,8 +2,6 @@
 
 namespace DropBundle\Form\Type;
 
-use DropBundle\Entity\Ord;
-use DropBundle\Services\FetchNewPostAddress;
 use DropBundle\Services\GetNewPostAddressFromDB;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -12,21 +10,17 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormBuilderInterface;;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
 
 class OrderClientType extends AbstractType
 {
     private $addressFromDB;
-    private $newPostAddress;
 
-    public function __construct(GetNewPostAddressFromDB $addressFromDB, FetchNewPostAddress $newPostAddress)
+    public function __construct(GetNewPostAddressFromDB $addressFromDB)
     {
         $this->addressFromDB = $addressFromDB;
-        $this->newPostAddress = $newPostAddress;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -57,10 +51,11 @@ class OrderClientType extends AbstractType
                 ]
             ])
             ->add('city', ChoiceType::class, [
+                'required' => false,
                 'placeholder' => 'Укажите город',
                 'label' => false,
                 'attr' => [
-                    'class' => 'js-example-basic-single',
+                    'class' => 'js-select2-cities',
                     'name' => 'state',
                 ],
                 'choice_loader' => new CallbackChoiceLoader(function() {
@@ -68,6 +63,7 @@ class OrderClientType extends AbstractType
                 }),
             ])
             ->add('warehouse', ChoiceType::class, [
+//                'required' => false,
                 'attr' => [
                     'class' => 'warehouses',
                 ],
@@ -108,7 +104,6 @@ class OrderClientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-//            'data_class' => Ord::class,
             'validation_groups' => false,
         ]);
     }

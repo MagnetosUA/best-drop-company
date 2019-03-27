@@ -1,14 +1,8 @@
 {% extends '@Drop/base.html.twig' %}
 {% block over_styles %}
     <link href="{{ asset('build/new-order.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/css/orders.css') }}" rel="stylesheet" />
 {% endblock over_styles %}
 {% block main_content %}
-    <style>
-        .in-order {
-            background: #cac859 !important;
-        }
-    </style>
     <div class="wrapper">
         <div class="row">
             <div class="col-md-12">
@@ -37,7 +31,7 @@
                                 <td class="product-cost">{{ product.cost }}</td>
                                 <td class="product-back">Согласно тарифам Новой почты</td>
                                 <td class="product-count"><input value='1' type="number" name="quantity" min="1" max="50"></td>
-                                <td class="my-cost"><input type="text" placeholder="Цена продажи"/></td>
+                                <td class="my-cost"><input type="number" placeholder="Цена продажи" value="{{ product.cost }}"/></td>
                                 <td><button class="btn btn-success to-order">Заказать</button></td>
                             </tr>
                         {% endfor %}

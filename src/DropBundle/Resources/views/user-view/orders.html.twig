@@ -66,7 +66,7 @@
                         {% for order in orders %}
                             <tr>
                                 <th scope="row">{{ order.id }}</th>
-                                <td>{{ order.createdDate|date }}</td>
+                                <td>{{ order.createdAt|date }}</td>
                                 <td>
                                     {% for products in order.products %}
                                         {{ products }}</br>

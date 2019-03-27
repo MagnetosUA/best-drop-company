@@ -5,6 +5,7 @@ namespace DropBundle\Controller;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
 use DropBundle\Form\Type\OrderClientType;
+use DropBundle\Services\GetNewPostAddressFromDB;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,16 +22,26 @@ class UserActionController extends Controller
      */
     public function newOrderAction(Request $request, $id=0)
     {
-        if ($prd = $request->request->get("product")) {
-            return new Response();
-        }
+
+//        if ($prd = $request->request->get("product")) {
+//            return new Response();
+//        }
 
         $addressDb = $this->get('get.new.post.address.from.db');
+//        $addressDb->getWarehouses('Аджамка');
+
         $form = $this->createForm(OrderClientType::class);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+
+//        $d = $form->getData();
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
             $data = $form->getData();
+//            var_dump($data);die;
+
             $clientName = $data["last_name"]." ".$data["name"]." ".$data["patronymic"];
             $sale = 0;
             $purchase = 0;
@@ -61,6 +72,7 @@ class UserActionController extends Controller
             foreach ($products as $product) {
                 $order->addProducts($product);
             }
+
             $order->setClientName($clientName);
             $order->setClientPhone($data["phone"]);
             $order->setComment($data["comment"]);
@@ -80,10 +92,12 @@ class UserActionController extends Controller
             return $this->redirectToRoute("user_view.orders");
         }
 
-        $staticSitiesFull = $addressDb->getCities();
+//        $staticCitiesFull = $addressDb->getCities();
+
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+
         return $this->render('@Drop/user-action/new_order.html.twig', [
-            'cities' => $staticSitiesFull,
+//            'cities' => $staticCitiesFull,
             'form' => $form->createView(),
             'products' => $products,
             'id' => $id,
