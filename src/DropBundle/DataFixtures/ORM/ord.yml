@@ -1,0 +1,11 @@
+DropBundle\Entity\Ord:
+  ord{1..30}:
+    products: ['@product*']
+    saleAmount: '<numberBetween($min = 10, $max = 90)>'
+    purchaseAmount: '<numberBetween($min = 90, $max = 500)>'
+    income: '<numberBetween($min = 10, $max = 90)>'
+    clientPhone: '<e164PhoneNumber()>'
+    clientName: '<firstName()> <lastName()>'
+    deliveryAddress: '<address()>'
+    comment: '<sentence()>'
+    user: '@user*'
