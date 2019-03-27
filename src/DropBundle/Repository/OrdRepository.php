@@ -10,4 +10,22 @@ namespace DropBundle\Repository;
  */
 class OrdRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findCountStatuses()
+    {
+        $qb = $this->createQueryBuilder('o');
+        $em = $qb->getEntityManager();
+        $sql =
+            "SELECT COUNT(status) FROM ord WHERE status='Новый' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE status='В обработке' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE status='Подтвержденный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE status='Отклоненный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE status='Отправленный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE status='Невыкуп'";
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
+

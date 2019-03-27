@@ -56,27 +56,15 @@ class UserViewController extends Controller
      */
     public function ordersAction()
     {
+        $statuses = $this->getDoctrine()->getRepository(Ord::class)->findCountStatuses();
         $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $this->getUser()]);
 
-        $statusCount["new"] = 0;
-        $statusCount["in_processing"] = 0;
-        $statusCount["confirmed"] = 0;
-        $statusCount["rejected"] = 0;
-        $statusCount["shipped"] = 0;
-        $statusCount["non_purchase"] = 0;
-        $statusCount["ransom"] = 0;
-        $statusCount["not_sent_fo_processing"] = 0;
-
-        foreach ($orders as $order) {
-            if ($order->getStatus() == Ord::NEW_ORDER) {$statusCount["new"] += 1;}
-            if ($order->getStatus() == Ord::IN_PROCESSING) {$statusCount["in_processing"] += 1;}
-            if ($order->getStatus() == Ord::CONFIRMED) {$statusCount["confirmed"] += 1;}
-            if ($order->getStatus() == Ord::REJECTED) {$statusCount["rejected"] += 1;}
-            if ($order->getStatus() == Ord::SHIPPED) {$statusCount["shipped"] += 1;}
-            if ($order->getStatus() == Ord::NON_PURCHASE) {$statusCount["non_purchase"] += 1;}
-//            if ($order->getStatus() == Ord::RANSOM) {$statusCount["ransom"] += 1;}
-//            if ($order->getStatus() == Ord::NOT_SENT_FOR_PROCESSING) {$statusCount["not_sent_fo_processing"] += 1;}
-        }
+        $statusCount["new"] = $statuses[0]['COUNT(status)'];
+        $statusCount["in_processing"] = $statuses[1]['COUNT(status)'];
+        $statusCount["confirmed"] = $statuses[2]['COUNT(status)'];
+        $statusCount["rejected"] = $statuses[3]['COUNT(status)'];
+        $statusCount["shipped"] = $statuses[4]['COUNT(status)'];
+        $statusCount["non_purchase"] = $statuses[5]['COUNT(status)'];
 
         return $this->render('@Drop/user-view/orders.html.twig', [
             'orders' => $orders,
