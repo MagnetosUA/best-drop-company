@@ -21,10 +21,26 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @return \Doctrine\ORM\Query
+     */
     public function findAllProductsQuery()
     {
         return $this->createQueryBuilder('p')
             ->orderBy('p.createdAt', 'DESC')
+            ->getQuery();
+    }
+
+    /**
+     * @param $category
+     * @return \Doctrine\ORM\Query
+     */
+    public function findAllProductsByCategoryQuery($category)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.category = :category')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setParameter('category', $category)
             ->getQuery();
     }
 }

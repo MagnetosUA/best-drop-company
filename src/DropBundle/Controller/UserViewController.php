@@ -14,35 +14,24 @@ class UserViewController extends Controller
 {
     /**
      * @Route("/products", name="user_view.products")
-     * @param Request $request
      * @return Response
      */
-    public function productListAction(Request $request)
+    public function productListAction()
     {
         return $this->forward('DropBundle:Guest:productList');
     }
 
     /**
      * @Route("/category/{slug}", name="user_view.product_list_by_category")
-     * @param Request $request
      * @param Category $category
      * @return Response
      */
-    public function productListByCategoryAction(Request $request, Category $category)
+    public function productListByCategoryAction(Category $category)
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findBy([
-            'category' => $category,
-        ]);
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAllProductsByCategoryQuery($category);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $products, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            4/*limit per page*/
-        );
-
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'pagination' => $pagination,
+        return $this->forward('DropBundle:Guest:productList', [
+            'products' => $products,
         ]);
     }
 

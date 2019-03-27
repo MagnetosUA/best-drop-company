@@ -24,9 +24,11 @@ class GuestController extends Controller
     /**
      * @Route("/product-list", name="guest.product_list")
      */
-    public function productListAction(Request $request)
+    public function productListAction(Request $request, $products = null)
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAllProductsQuery();
+        if ($products == null) {
+            $products = $this->getDoctrine()->getRepository(Product::class)->findAllProductsQuery();
+        }
 
         $paginator  = $this->get('knp_paginator');
 

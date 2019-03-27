@@ -6,6 +6,19 @@
         <div class="container">
             <!-- row -->
             <div class="row">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <!-- section categories -->
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">Доступные товары</h3>
+                            <div class="section-nav">
+                                {{ knp_menu_render('DropBundle:Builder:categoryMenu', { 'currentClass': 'active'}) }}
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /section categories -->
+                {% endif %}
                 <div class="col-md-12">
                     <div class="row">
                         {% for product in products %}
