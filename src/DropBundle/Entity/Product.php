@@ -5,6 +5,7 @@ namespace DropBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Product
@@ -83,6 +84,12 @@ class Product
      * @ORM\Column(type="string", nullable=true)
      */
     private $orders;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $createdAt;
 
     public function __construct()
     {
@@ -258,6 +265,14 @@ class Product
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 
     /**
