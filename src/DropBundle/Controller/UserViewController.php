@@ -19,18 +19,7 @@ class UserViewController extends Controller
      */
     public function productListAction(Request $request)
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $products, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            4/*limit per page*/
-        );
-
-        return $this->render('@Drop/Pages/products.html.twig', [
-            'pagination' => $pagination,
-        ]);
+        return $this->forward('DropBundle:Guest:productList');
     }
 
     /**

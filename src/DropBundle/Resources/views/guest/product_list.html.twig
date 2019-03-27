@@ -19,6 +19,9 @@
                                         <p class="product-category">{{ product.category.name }}</p>
                                         <h3 class="product-name">{{ product.name }}</h3>
                                         <h4 class="product-price">{{ product.cost }} Грн</h4>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            <a href="{{ path('user_action.new_order', {'id': product.id}) }}" class="btn btn-success">Заказать</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <!-- /product -->
