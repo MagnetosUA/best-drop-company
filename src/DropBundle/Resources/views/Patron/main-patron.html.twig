@@ -62,8 +62,8 @@
     $(".update-new-post").click(function () {
         $(this).prepend('<i class="fa fa-spinner fa-spin"></i> ');
         $.ajax ({
-            url: "http://localhost:8000/patron",//{{ path('ajax-new-post') }}", !!! The PROBLEM NOT SOLVED
-            //in page Twig it is work with "{{ path('ajax-new-post') }}", but from here it's not work !
+            url: "http://localhost:8000/patron",
+
             type: "POST",
             dataType: 'text',
             data: {"update-data-address" : "Alxy"},
@@ -75,6 +75,8 @@
         });
     });
 </script>
+    {#{{ path('ajax-new-post') }}", !!! The PROBLEM NOT SOLVED#}
+    {#in page Twig it is work with "{{ path('ajax-new-post') }}", but from here it's not work !#}
 {% endblock main_content %}
 {% block specially_script %}
 

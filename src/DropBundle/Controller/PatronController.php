@@ -4,12 +4,23 @@ namespace DropBundle\Controller;
 
 use DropBundle\Entity\Product;
 use DropBundle\Form\Type\ProductType;
+use DropBundle\Services\NewPostAddressProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class PatronController extends Controller
 {
+    /**
+     * @var NewPostAddressProvider
+     */
+    private $addressProvider;
+
+    public function __construct(NewPostAddressProvider $addressProvider)
+    {
+        $this->addressProvider = $addressProvider;
+    }
+
     public function indexAction(Request $request)
     {
         if ($c = $request->request->get('destination')) {
@@ -17,8 +28,9 @@ class PatronController extends Controller
             return new Response($c."777");
         }
         if ($city = $request->request->get('update-data-address')) {
-            $postAddress = $this->get('fetch.new.post.address');
-            $result = $postAddress->updateAll();
+//            $postAddress = $this->get('fetch.new.post.address');
+//            $result = $postAddress->updateAll();
+            $result = $this->addressProvider->updateAll();
             return new Response($result);
         }
 
