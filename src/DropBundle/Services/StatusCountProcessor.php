@@ -11,15 +11,20 @@ class StatusCountProcessor
      */
     private $ordRepository;
 
+    /**
+     * StatusCountProcessor constructor.
+     * @param OrdRepository $ordRepository
+     */
     public function __construct(OrdRepository $ordRepository)
     {
         $this->ordRepository = $ordRepository;
     }
 
+    /**
+     * @return mixed
+     */
     public function getStatusesCount()
     {
-//        $statuses = $this->getDoctrine()->getRepository(Ord::class)->findCountStatuses();
-
         $statuses = $this->ordRepository->findCountStatuses();
 
         $statusCount["new"] = $statuses[0]['COUNT(status)'];
