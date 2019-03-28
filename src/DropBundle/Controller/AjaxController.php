@@ -9,9 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AjaxController extends Controller
 {
-
     /**
-     * @Route("/ajax.new_post", name="user_action.new_order", defaults={"id": 0})
+     * @Route("/ajax-new-post", name="ajax.new_post")
      * @param Request $request
      * @return Response
      * Process Ajax request to get list of warehouses
@@ -26,7 +25,7 @@ class AjaxController extends Controller
             $ar = json_encode($ar);
             return new Response($ar);
         }
-        return new Response('non found!');
+        return new Response('not found!');
     }
 }
 
