@@ -30,10 +30,6 @@ class GetNewPostAddressFromDB
             foreach ($cityObjects as $cityObject) {
                 $citiesArray = $cityObject->getCities();
             }
-
-//        echo "<pre>";
-//        print_r($citiesArray);
-//        echo "</pre>";die;
             $staticSitiesFull = [];
             $areas = [];
             foreach ($citiesArray['data'] as $city) {
@@ -58,9 +54,6 @@ class GetNewPostAddressFromDB
         if ($cityObject = $this->em->getRepository(PostAddress::class)->find(1)) {
             $citiesArray = $cityObject->getCities();
             $areaArray = $cityObject->getAreas();
-//            echo "<pre>";
-//            print_r($areaArray);
-//            echo "</pre>";die;
             foreach ($citiesArray['data'] as $city) {
                 if ($city['DescriptionRu'] == $descriptionCityRu) {
                     foreach ($areaArray as $key => $value) {
@@ -83,12 +76,8 @@ class GetNewPostAddressFromDB
         if ($cityDescriptionRu == null) {
             return [' ' => ' '];
         }
-        if ($warehouseObject = $this->em->getRepository(PostAddress::class)->find(1)) {
-            $warehousesArray = $warehouseObject->getWarehouses();
-//            echo "<pre>";
-//            print_r($warehousesArray);
-//            echo "</pre>";
-//            die;
+        if ($warehouseObject = $this->em->getRepository(PostAddress::class)->findLastUpdatedPostAddress()) {
+            $warehousesArray = $warehouseObject[0]->getWarehouses();
             foreach ($warehousesArray as $warehouse) {
                 if ($warehouse['CityDescriptionRu'] == $cityDescriptionRu) {
                     $listWarehouses[] = $warehouse['DescriptionRu'];
@@ -97,6 +86,5 @@ class GetNewPostAddressFromDB
             return $listWarehouses;
         }
     }
-
 }
 

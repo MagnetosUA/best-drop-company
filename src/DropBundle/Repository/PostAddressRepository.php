@@ -10,4 +10,13 @@ namespace DropBundle\Repository;
  */
 class PostAddressRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findLastUpdatedPostAddress()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
 }
+
