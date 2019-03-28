@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.js-select2-cities').select2();
+    $('.js-select2-warehouses').select2();
     var globalCityArea = ''; // For saving the first data in textarea
     $(".js-select2-cities").change(function(){ //invoke when we change select city
         var val = $(this).val();
@@ -11,7 +12,6 @@ $(document).ready(function () {
             dataType: 'json',
             data: {"destination" : val},
             success: function (data) {
-                console.log(data);
                 $(".warehouses").empty();
                 $(".warehouses").append("<option value selected='selected'>Укажите отделениё</option>");
                 $(".full-address").text(data[0]);

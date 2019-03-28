@@ -63,9 +63,8 @@ class OrderClientType extends AbstractType
                 }),
             ])
             ->add('warehouse', ChoiceType::class, [
-//                'required' => false,
                 'attr' => [
-                    'class' => 'warehouses',
+                    'class' => 'warehouses js-select2-warehouses',
                 ],
                 'placeholder' => 'Укажите отделение',
                 'label' => false,
