@@ -2,6 +2,8 @@
 
 namespace DropBundle\Repository;
 
+use DropBundle\Entity\Ord;
+
 /**
  * OrdRepository
  *
@@ -12,20 +14,23 @@ class OrdRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findCountStatuses($userId)
     {
-        $qb = $this->createQueryBuilder('o');
-        $em = $qb->getEntityManager();
+        $new = Ord::NEW_ORDER;
+        $inProcessing = Ord::IN_PROCESSING;
+        $confirmed = Ord::CONFIRMED;
+        $rejected = Ord::REJECTED;
+        $shipped = Ord::SHIPPED;
+        $nonPurchase = Ord::NON_PURCHASE;
+
         $sql =
-            "SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Новый' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='В обработке' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Подтвержденный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Отклоненный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Отправленный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Невыкуп'
+            "SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$new' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$inProcessing' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$confirmed' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$rejected' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$shipped' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='$nonPurchase'
              ";
 
-//        $sql = "SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Новый'";
-
-        $stmt = $em->getConnection()->prepare($sql);
+        $stmt = $this->_em->getConnection()->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll();
