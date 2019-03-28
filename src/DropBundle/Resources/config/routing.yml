@@ -1,58 +1,10 @@
-#guest:
-#    resource: "@DropBundle/Controller/"
-#    type: annotations
-
 app:
     resource: "@DropBundle/Controller/"
     type: annotation
 
-#view.home:
-#    path:     /
-#    defaults: { _controller: DropBundle:Guest:home }
-
-
-
 patron:
     path: /patron
     defaults: { _controller: DropBundle:Patron:index }
-
-#products:
-#    path: /products
-#    defaults: { _controller: DropBundle:Default:products }
-
-
-
-#product:
-#    path: /product/{id}
-#    defaults: { _controller: DropBundle:Default:oneProduct }
-
-#orders:
-#    path: /orders
-#    defaults: { _controller: DropBundle:Default:orders }
-
-#new-orders:
-#    path: /new-orders/{id}
-#    defaults: { _controller: DropBundle:Default:newOrders, id: 0 }
-
-#payments:
-#    path: /payments
-#    defaults: { _controller: DropBundle:Default:payments }
-#
-#statistic:
-#    path: /statistic
-#    defaults: { _controller: DropBundle:Default:statistic }
-#
-#referals:
-#    path: /referals
-#    defaults: { _controller: DropBundle:Default:referals }
-#
-#news:
-#    path: /news
-#    defaults: { _controller: DropBundle:Default:news }
-
-ajax-new-post:
-    path: /ajax-new-post
-    defaults: { _controller: DropBundle:Default:ajaxNewPost }
 
 user_register:
     path: /registration
@@ -61,9 +13,3 @@ user_register:
 user_page:
     path: /user-page
     defaults: { _controller: DropBundle:User:showUserPage }
-
-#for main-guest-page
-
-#catalogue:
-#    path: /catalogue
-#    defaults: { _controller: DropBundle:Default:catalogue }

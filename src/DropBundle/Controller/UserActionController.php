@@ -5,7 +5,6 @@ namespace DropBundle\Controller;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
 use DropBundle\Form\Type\OrderClientType;
-use DropBundle\Services\GetNewPostAddressFromDB;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,10 +21,7 @@ class UserActionController extends Controller
      */
     public function newOrderAction(Request $request, $id=0)
     {
-//        $addressDb = $this->get('get.new.post.address.from.db');
-
         $form = $this->createForm(OrderClientType::class);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

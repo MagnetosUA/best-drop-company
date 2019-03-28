@@ -10,17 +10,20 @@ namespace DropBundle\Repository;
  */
 class OrdRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findCountStatuses()
+    public function findCountStatuses($userId)
     {
         $qb = $this->createQueryBuilder('o');
         $em = $qb->getEntityManager();
         $sql =
-            "SELECT COUNT(status) FROM ord WHERE status='Новый' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE status='В обработке' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE status='Подтвержденный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE status='Отклоненный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE status='Отправленный' UNION ALL
-             SELECT COUNT(status) FROM ord WHERE status='Невыкуп'";
+            "SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Новый' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='В обработке' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Подтвержденный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Отклоненный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Отправленный' UNION ALL
+             SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Невыкуп'
+             ";
+
+//        $sql = "SELECT COUNT(status) FROM ord WHERE user_id=$userId AND status='Новый'";
 
         $stmt = $em->getConnection()->prepare($sql);
         $stmt->execute();

@@ -21,11 +21,12 @@ class StatusCountProcessor
     }
 
     /**
+     * @param $user
      * @return mixed
      */
-    public function getStatusesCount()
+    public function getStatusesCount($user)
     {
-        $statuses = $this->ordRepository->findCountStatuses();
+        $statuses = $this->ordRepository->findCountStatuses($user);
 
         $statusCount["new"] = $statuses[0]['COUNT(status)'];
         $statusCount["in_processing"] = $statuses[1]['COUNT(status)'];
@@ -37,3 +38,4 @@ class StatusCountProcessor
         return $statusCount;
     }
 }
+

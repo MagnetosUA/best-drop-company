@@ -56,9 +56,10 @@ class UserViewController extends Controller
      */
     public function ordersAction(StatusCountProcessor $countProcessor)
     {
-        $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $this->getUser()]);
+        $currentUser = $this->getUser();
+        $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $currentUser]);
 
-        $statusCount = $countProcessor->getStatusesCount();
+        $statusCount = $countProcessor->getStatusesCount($currentUser->getId());
 
         return $this->render('@Drop/user-view/orders.html.twig', [
             'orders' => $orders,
