@@ -20,9 +20,7 @@ patron:
 #    path: /products
 #    defaults: { _controller: DropBundle:Default:products }
 
-products-category:
-    path: /products/{category}
-    defaults: { _controller: DropBundle:Default:products, category: 0 }
+
 
 #product:
 #    path: /product/{id}

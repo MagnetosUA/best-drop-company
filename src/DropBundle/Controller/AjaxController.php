@@ -2,29 +2,21 @@
 
 namespace DropBundle\Controller;
 
-use DropBundle\Entity\Category;
-use DropBundle\Entity\Ord;
-use DropBundle\Entity\Product;
-use DropBundle\Form\Type\OrderClientType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * Class DefaultController
- * @package Droparea\DropBundle\Controller
- */
-class DefaultController extends Controller
+class AjaxController extends Controller
 {
 
-
     /**
+     * @Route("/ajax.new_post", name="user_action.new_order", defaults={"id": 0})
      * @param Request $request
      * @return Response
      * Process Ajax request to get list of warehouses
      */
-    public function ajaxNewPostAction(Request $request)
+    public function newPostAction(Request $request)
     {
         if ($city = $request->request->get('destination')) {
             $addressDb = $this->get('get.new.post.address.from.db');
@@ -34,16 +26,7 @@ class DefaultController extends Controller
             $ar = json_encode($ar);
             return new Response($ar);
         }
-        return new Response('none!E');
+        return new Response('non found!');
     }
-
-
-//    additional functional for testing
-    private function E($var) {
-        echo "<pre>";
-        var_dump($var);
-        echo "</pre>";
-    }
-
 }
 
