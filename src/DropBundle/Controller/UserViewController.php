@@ -5,9 +5,9 @@ namespace DropBundle\Controller;
 use DropBundle\Entity\Category;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
+use DropBundle\Services\StatusCountProcessor;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserViewController extends Controller
@@ -51,20 +51,14 @@ class UserViewController extends Controller
 
     /**
      * @Route("/orders", name="user_view.orders")
-     *
+     * @param StatusCountProcessor $countProcessor
      * @return Response
      */
-    public function ordersAction()
+    public function ordersAction(StatusCountProcessor $countProcessor)
     {
-        $statuses = $this->getDoctrine()->getRepository(Ord::class)->findCountStatuses();
         $orders = $this->getDoctrine()->getRepository(Ord::class)->findBy(["user" => $this->getUser()]);
 
-        $statusCount["new"] = $statuses[0]['COUNT(status)'];
-        $statusCount["in_processing"] = $statuses[1]['COUNT(status)'];
-        $statusCount["confirmed"] = $statuses[2]['COUNT(status)'];
-        $statusCount["rejected"] = $statuses[3]['COUNT(status)'];
-        $statusCount["shipped"] = $statuses[4]['COUNT(status)'];
-        $statusCount["non_purchase"] = $statuses[5]['COUNT(status)'];
+        $statusCount = $countProcessor->getStatusesCount();
 
         return $this->render('@Drop/user-view/orders.html.twig', [
             'orders' => $orders,
