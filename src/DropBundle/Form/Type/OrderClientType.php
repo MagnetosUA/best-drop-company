@@ -2,7 +2,7 @@
 
 namespace DropBundle\Form\Type;
 
-use DropBundle\Services\GetNewPostAddressFromDB;
+use DropBundle\Services\NewPostAddressManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -16,11 +16,15 @@ use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
 
 class OrderClientType extends AbstractType
 {
-    private $addressFromDB;
 
-    public function __construct(GetNewPostAddressFromDB $addressFromDB)
+    /**
+     * @var NewPostAddressManager
+     */
+    private $addressManager;
+
+    public function __construct(NewPostAddressManager $addressManager)
     {
-        $this->addressFromDB = $addressFromDB;
+        $this->addressManager = $addressManager;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -59,7 +63,7 @@ class OrderClientType extends AbstractType
                     'name' => 'state',
                 ],
                 'choice_loader' => new CallbackChoiceLoader(function() {
-                    return $this->addressFromDB->getCities();
+                    return $this->addressManager->getCities();
                 }),
             ])
             ->add('warehouse', ChoiceType::class, [

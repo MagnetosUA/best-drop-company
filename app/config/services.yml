@@ -24,18 +24,10 @@ services:
         factory: 'doctrine.orm.entity_manager:getRepository'
         arguments: ['DropBundle\Entity\Ord']
 
-    get.new.post.address.from.db:
-        class: DropBundle\Services\GetNewPostAddressFromDB
-        public: true
-
-    NewPostAddressProvider:
-        class: DropBundle\Services\NewPostAddressProvider
-
     order.client.type:
         class: DropBundle\Form\Type\OrderClientType
         arguments:
-            - '@get.new.post.address.from.db' # this is the ID of the service you want to inject
-            - '@NewPostAddressProvider'
+            - '@DropBundle\Services\NewPostAddressManager' # this is the ID of the service you want to inject
         public: true
 
     app.security.login_form_authenticator:
