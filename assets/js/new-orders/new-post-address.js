@@ -11,9 +11,10 @@ $(document).ready(function () {
             dataType: 'json',
             data: {"destination" : val},
             success: function (data) {
+                console.log(data);
                 $(".warehouses").empty();
                 $(".warehouses").append("<option value selected='selected'>Укажите отделениё</option>");
-                $(".full-address").text(data[1]+', '+data[0]);
+                $(".full-address").text(data[0]);
                 for (var i=0;i<data[2].length;i++) {
                     $(".warehouses").append("<option>"+data[2][i]+"</option>");
                 }
@@ -25,7 +26,6 @@ $(document).ready(function () {
             globalCityArea = $(".full-address").text();
         }
         var text = $(".full-address").text(null);
-        // console.log(text);
         var fullAddress = globalCityArea + ', ' + $(this).val();
         $(".full-address").text(fullAddress);
 });
