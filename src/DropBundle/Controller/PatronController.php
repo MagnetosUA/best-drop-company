@@ -23,6 +23,9 @@ class PatronController extends Controller
 
     public function indexAction(Request $request)
     {
+//        echo $this->container->getParameter('new_post_api_key');die;
+
+//        $this->addressProvider->updateAll();
         if ($c = $request->request->get('destination')) {
 
             return new Response($c."777");

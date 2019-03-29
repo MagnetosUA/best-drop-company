@@ -2,22 +2,13 @@
 
 namespace DropBundle\Services;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use DropBundle\Entity\PostAddress;
 use LisDev\Delivery\NovaPoshtaApi2;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class NewPostAddressProvider implements ContainerAwareInterface
+class NewPostAddressProvider
 {
-    use ContainerAwareTrait;
-
-    /**
-     * @var ObjectManager
-     */
-    private $em;
-
     /**
      * @var array of Areas (static)
      */
@@ -179,9 +170,21 @@ class NewPostAddressProvider implements ContainerAwareInterface
      */
     private $np;
 
-    public function __construct(EntityManagerInterface $em)
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    public function __construct(EntityManagerInterface $em, ContainerInterface $container)
     {
         $this->em = $em;
+        $this->container = $container;
+        $this->newPostApiKey = $this->container->getParameter('new_post_api_key');
         $this->np = new NovaPoshtaApi2($this->newPostApiKey);
     }
 
