@@ -31,7 +31,7 @@ class Builder implements ContainerAwareInterface
             'route' => 'guest.product_list'
         ]);
         $menu->addChild('Вход', [
-            'route' => 'security_login'
+            'route' => 'security.login'
         ]);
 
         return $menu;

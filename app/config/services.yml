@@ -24,17 +24,13 @@ services:
         factory: 'doctrine.orm.entity_manager:getRepository'
         arguments: ['DropBundle\Entity\Ord']
 
-    order.client.type:
+    DropBundle\Form\Type\OrderClientType:
         class: DropBundle\Form\Type\OrderClientType
         arguments:
             - '@DropBundle\Services\NewPostAddressManager' # this is the ID of the service you want to inject
         public: true
 
-    app.security.login_form_authenticator:
-        class: DropBundle\Security\LoginFormAuthenticator
-        autowire: true
-
-    app.doctrine.hash_password_listener:
+    DropBundle\Doctrine\HashPasswordListener:
         class: DropBundle\Doctrine\HashPasswordListener
         autowire: true
         tags:

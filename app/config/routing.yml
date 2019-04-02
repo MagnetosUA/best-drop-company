@@ -1,22 +1,6 @@
-#guest:
-#    resource: "@DropBundle/Controller/GuestController.php"
-#    type: annotations
-
-#user_view:
-#    resource: "@DropBundle/Controller/UserViewController.php"
-#    type: annotations
-
 drop:
     resource: "@DropBundle/Resources/config/routing.yml"
     prefix:   /
-
-security_login:
-    path: /login
-    defaults: { _controller: DropBundle:Security:login }
-
-security_logout:
-    path: /logout
-    defaults: { _controller: DropBundle:Security:logout }
 
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"

@@ -8,7 +8,6 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
@@ -19,20 +18,25 @@ use Symfony\Component\Security\Core\Security;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
+    use TargetPathTrait;
+
     /**
      * @var FormFactoryInterface
      */
     private $formFactory;
+
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $em;
+
     /**
      * @var RouterInterface
      */
     private $router;
+
     /**
-     * @var UserPasswordEncoder
+     * @var UserPasswordEncoderInterface
      */
     private $passwordEncoder;
 
@@ -52,7 +56,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
-        $isLoginSubmit = $request->attributes->get('_route') === 'security_login' && $request->isMethod('POST');
+        $isLoginSubmit = $request->attributes->get('_route') === 'security.login' && $request->isMethod('POST');
         if (!$isLoginSubmit) {
             // skip authentication
             return;
@@ -78,7 +82,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         $password = $credentials['_password'];
-        $username = $credentials['_username'];
         if ($this->passwordEncoder->isPasswordValid($user, $password)) {
             return true;
         }
@@ -87,10 +90,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getLoginUrl()
     {
-        return $this->router->generate('security_login');
+        return $this->router->generate('security.login');
     }
-
-    use TargetPathTrait;
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
@@ -101,9 +102,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         if (!$targetPath) {
             $targetPath = $this->router->generate('guest.home');
         }
-
         return new RedirectResponse($targetPath);
     }
-
-
 }
+

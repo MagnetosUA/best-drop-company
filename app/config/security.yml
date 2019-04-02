@@ -22,7 +22,7 @@ security:
             form_login: ~
             guard:
                 authenticators:
-                    - app.security.login_form_authenticator
+                    - DropBundle\Security\LoginFormAuthenticator
             logout:
                 path: /logout
 

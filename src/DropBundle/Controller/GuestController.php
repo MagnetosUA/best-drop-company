@@ -3,6 +3,9 @@
 namespace DropBundle\Controller;
 
 use DropBundle\Entity\Product;
+use DropBundle\Entity\User;
+use DropBundle\Form\Type\RegistrationUserType;
+use DropBundle\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,6 +43,37 @@ class GuestController extends Controller
 
         return $this->render('@Drop/guest/product_list.html.twig', [
             'products' => $paginationProducts,
+        ]);
+    }
+
+    /**
+     * @Route("/registration-user", name="guest.registration_user")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response|null
+     */
+    public function registrationUserAction(Request $request, LoginFormAuthenticator $authenticator)
+    {
+        $form = $this->createForm(RegistrationUserType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var User $user */
+            $user = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('success', 'Welcome '.$user->getEmail());
+
+            return $this->get('security.authentication.guard_handler')
+                ->authenticateUserAndHandleSuccess(
+                    $user,
+                    $request,
+                    $authenticator,
+                    'main'
+                );
+        }
+        return $this->render('@Drop/guest/registration_user.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }

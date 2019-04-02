@@ -13,11 +13,9 @@
                 {{ form_row(form._password) }}
                 <button type="submit" class="btn btn-success">Вход <span class="fa fa-lock"></span></button>
                 &nbsp;
-                <a href="{{ path('user_register') }}">Регистрация</a>
+                <a href="{{ path('guest.registration_user') }}">Регистрация</a>
             {{ form_end(form) }}
         </div>
         <div class="col-md-4"></div>
     </div>
-    <script>
-    </script>
 {% endblock main_content %}

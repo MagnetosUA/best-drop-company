@@ -45,11 +45,11 @@
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar-sign"></i> UAH</a></li>
                     <li><a href="{{ path('user_view.personal_data') }}"><i class="fa fa-user"></i> {{ app.user.name }}</a></li>
-                    <li><a href="{{ path('security_logout') }}"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
+                    <li><a href="{{ path('security.logout') }}"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
                 </ul>
             {% else %}
                 <ul class="header-links pull-right">
-                    <li><a href="{{ path('security_login') }}"><i class="fas fa-sign-in-alt"></i> Вход</a></li>
+                    <li><a href="{{ path('security.login') }}"><i class="fas fa-sign-in-alt"></i> Вход</a></li>
                 </ul>
             {% endif %}
         </div>
