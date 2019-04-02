@@ -7,3 +7,4 @@ DropBundle\Entity\Product:
     recommendedCost: '<numberBetween($min = 100, $max = 1000)>'
     description: '<realText()>'
     provider: 'Anna'
+    top: '<boolean($chanceOfGettingTrue = 20)>'
