@@ -28,8 +28,5 @@ security:
 
             switch_user: ~
 
-
-    access_control:
-#        - { path: ^/orders, roles: ROLE_USER }
     role_hierarchy:
-        ROLE_USER: [ROLE_MANAGE_GENUS, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN: [ROLE_USER]
