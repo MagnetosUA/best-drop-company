@@ -48,33 +48,4 @@ class UserController extends Controller
         return $this->redirectToRoute('guest.home'); //Here must be route, where user is from !
     }
 
-    public function showUserPageAction(Request $request)
-    {
-        $user = $this->getUser();
-        if ($request->request->get("send_data")) {
-            $data = $request->request->all();
-            if ($data["name"]) {
-                $user->setName($data["name"]);
-            }
-            if ($data["phone"]) {
-                $user->setPhone($data["phone"]);
-            }
-            if ($data["cardname"]) {
-                $user->setCardsOwnerName($data["cardname"]);
-            }
-            if ($data["cardnumber"]) {
-                $user->setCardsNumber($data["cardnumber"]);
-            }
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-        }
-
-        if ($user == null) {
-            return $this->redirectToRoute("guest.home"); // Delete when set roles
-        }
-        return $this->render('@Drop/Pages/user-page.html.twig', [
-            'user' => $user,
-        ]);
-    }
 }

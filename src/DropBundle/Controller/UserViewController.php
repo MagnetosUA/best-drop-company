@@ -106,5 +106,18 @@ class UserViewController extends Controller
     {
         return $this->render('@Drop/user-view/news.html.twig');
     }
+
+    /**
+     * @Route("/personal-data", name="user_view.personal_data")
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function personalDataAction()
+    {
+        $user = $this->getUser();
+        return $this->render('@Drop/user-view/personal_data.html.twig', [
+            'user' => $user,
+        ]);
+    }
 }
 

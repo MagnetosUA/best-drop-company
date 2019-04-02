@@ -86,5 +86,37 @@ class UserActionController extends Controller
             'id' => $id,
         ]);
     }
+
+    /**
+     * @Route("/change-personal-data", name="user_action.change_personal_data")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function changePersonalData(Request $request)
+    {
+        $user = $this->getUser();
+
+        if ($request->request->get("send_data")) {
+            $data = $request->request->all();
+            if ($data["name"]) {
+                $user->setName($data["name"]);
+            }
+            if ($data["phone"]) {
+                $user->setPhone($data["phone"]);
+            }
+            if ($data["cardname"]) {
+                $user->setCardsOwnerName($data["cardname"]);
+            }
+            if ($data["cardnumber"]) {
+                $user->setCardsNumber($data["cardnumber"]);
+            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute("user_view.personal_data");
+        }
+    }
 }
 
