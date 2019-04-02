@@ -6,6 +6,11 @@ use DropBundle\Form\Type\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class SecurityController for Login and Logout actions
+ *
+ * @package DropBundle\Controller
+ */
 class SecurityController extends Controller
 {
     /**

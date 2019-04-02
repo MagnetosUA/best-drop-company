@@ -8,14 +8,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AjaxController for ajax request. That request gives warehouses list for chosen city when user create new order
+ * @package DropBundle\Controller
+ */
 class AjaxController extends Controller
 {
     /**
+     * Process Ajax request to get list of warehouses
+     *
      * @Route("/ajax-new-post", name="ajax.new_post")
      * @param Request $request
      * @param NewPostAddressManager $addressManager
      * @return Response
-     * Process Ajax request to get list of warehouses
      */
     public function newPostAction(Request $request, NewPostAddressManager $addressManager)
     {

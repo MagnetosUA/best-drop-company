@@ -12,7 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * Class UserActionController
+ * Class UserActionController for POST actions which can do registered user with ROLE_USER role
+ *
  * @package DropBundle\Controller
  * @Security("is_granted('ROLE_USER')")
  */

@@ -10,6 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class GuestController for process actions which is accessed for anonymous user
+ *
+ * @package DropBundle\Controller
+ */
 class GuestController extends Controller
 {
 

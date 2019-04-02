@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * Class UserViewController
+ * Class UserViewController for GET actions which can do registered user with ROLE_USER role
+ *
  * @package DropBundle\Controller
  * @Security("is_granted('ROLE_USER')")
  */
