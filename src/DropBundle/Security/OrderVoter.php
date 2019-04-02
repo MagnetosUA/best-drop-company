@@ -1,6 +1,6 @@
 <?php
 
-namespace TechBlogBundle\Security;
+namespace DropBundle\Security;
 
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
