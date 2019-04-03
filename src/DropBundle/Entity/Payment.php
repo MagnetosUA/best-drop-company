@@ -26,14 +26,9 @@ class Payment
     private $amount;
 
     /**
-     * @ORM\Column(name="refAmount", type="integer")
+     * @ORM\Column(name="status", type="string", length=50)
      */
-    private $refAmount;
-
-    /**
-     * @ORM\Column(name="status", type="string", length=255)
-     */
-    private $status;
+    private $status = 'В обработке';
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -43,6 +38,7 @@ class Payment
 
     /**
      * @ORM\ManyToOne(targetEntity="DropBundle\Entity\User", inversedBy="payments")
+     * @Gedmo\Blameable(on="create")
      */
     private $user;
 
@@ -75,22 +71,6 @@ class Payment
     public function setAmount($amount)
     {
         $this->amount = $amount;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRefAmount()
-    {
-        return $this->refAmount;
-    }
-
-    /**
-     * @param mixed $refAmount
-     */
-    public function setRefAmount($refAmount)
-    {
-        $this->refAmount = $refAmount;
     }
 
     /**
