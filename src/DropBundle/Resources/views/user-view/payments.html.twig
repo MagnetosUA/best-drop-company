@@ -5,34 +5,43 @@
 {% block main_content %}
     <div class="row">
         <div class="col-md-12">
-            <div class="all-orders-table">
-                <table class="table table-striped fixed_headers">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Счет или карта для выплат</th>
-                        <th scope="col">Сумма</th>
-                        <th scope="col">Сумма ref</th>
-                        <th scope="col">Статус</th>
-                        <th scope="col">Дата создания</th>
-                        <th scope="col">Дата подтверждения</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in range(0, 5) %}
-                        <tr>
-                            <td>123</td>
-                            <td>1111-2222-3333-4444-5555</td>
-                            <td>1000</td>
-                            <td>70</td>
-                            <td class="btn-success">Выплачено</td>
-                            <td>01.01.2018</td>
-                            <td>02.01.2018</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class="raw">
+                <div class="col-md-6">
+                    <p>
+                        Ваш баланс составляет: {{ app.user.balance }} грн.
+                    </p>
+                    <p>
+                        Минимальная сумма для выплаты 100 грн.
+                    </p>
+                    <p>
+                        Заказать выплату в размере
+                        <input type="number" value="{{ app.user.balance }}">
+                        <button class="btn btn-success">Выплатить</button>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="all-orders-table">
+                        <p>Архив выплат</p>
+                        <table class="table">
+                            <tr>
+                                <td scope="col">Сумма</td>
+                                <td scope="col">Статус</td>
+                                <td scope="col">Дата Заявки</td>
+                                <td scope="col">Дата Подтверждения</td>
+                            </tr>
+                            {% for i in range(0, 5) %}
+                                <tr>
+                                    <td>70</td>
+                                    <td class="btn-success">Выплачено</td>
+                                    <td>01.01.2018</td>
+                                    <td>02.01.2018</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 {% endblock main_content %}
