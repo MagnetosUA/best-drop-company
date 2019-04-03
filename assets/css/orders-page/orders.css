@@ -69,10 +69,9 @@ table td {
     border-left: 2px solid #ddddde;
     font-size: 125%;
 }
-/*.order-status::after {*/
-    /*content: "<div></div>";*/
-    /*clear: both;*/
-/*}*/
+.payments {
+    background: #6c6c6c38;
+}
 .all-orders-table {
     margin-top: 20px;
 }
@@ -80,82 +79,7 @@ table td {
     background: #0000F0 !important;
     color: #fff;
 }
-/*.all-orders-table .fixed_headers th {*/
-    /*!*text-decoration: underline;*!*/
-/*}*/
-/*.all-orders-table .fixed_headers th,*/
-/*.all-orders-table .fixed_headers td {*/
-    /*padding: 5px;*/
-    /*!*text-align: left;*!*/
-    /*font-size: 110%;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(1),*/
-/*.all-orders-table .fixed_headers th:nth-child(1) {*/
-    /*min-width: 76px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(2),*/
-/*.all-orders-table .fixed_headers th:nth-child(2) {*/
-    /*min-width: 160px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(3),*/
-/*.all-orders-table .fixed_headers th:nth-child(3) {*/
-    /*width: 268px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(4),*/
-/*.all-orders-table .fixed_headers th:nth-child(4) {*/
-    /*width: 71px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(5),*/
-/*.all-orders-table .fixed_headers th:nth-child(5) {*/
-    /*width: 130px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(6),*/
-/*.all-orders-table .fixed_headers th:nth-child(6) {*/
-    /*width: 130px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(7),*/
-/*.all-orders-table .fixed_headers th:nth-child(7) {*/
-    /*width: 107px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(8),*/
-/*.all-orders-table .fixed_headers th:nth-child(8) {*/
-    /*width: 142px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(9),*/
-/*.all-orders-table .fixed_headers th:nth-child(9) {*/
-    /*width: 197px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(10),*/
-/*.all-orders-table .fixed_headers th:nth-child(10) {*/
-    /*width: 154px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(11),*/
-/*.all-orders-table .fixed_headers th:nth-child(11) {*/
-    /*width: 184px;*/
-/*}*/
-/*.all-orders-table .fixed_headers td:nth-child(12),*/
-/*.all-orders-table .fixed_headers th:nth-child(12) {*/
-    /*width: 184px;*/
-/*}*/
-
-/*.all-orders-table .fixed_headers thead {*/
-    /*background-color: #141513eb;*/
-    /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
-    /*color: white;*/
-/*}*/
-/*.all-orders-table .fixed_headers thead tr {*/
-    /*display: block;*/
-    /*position: relative;*/
-/*}*/
-/*.all-orders-table .fixed_headers tbody {*/
-    /*display: block;*/
-    /*overflow: scroll;*/
-    /*width: 100%;*/
-    /*max-height: 300px;*/
-/*}*/
-/*.all-orders-table .fixed_headers tbody tr:nth-child(even) {*/
-    /*background-color: #DDD;*/
-/*}*/
+/**/
 /*BEGIN****************************************NEW-ORDERS-PAGE*****************************BEGIN*/
 .wrapper {
     width:98%;
