@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * User
  *
- * @ORM\Table(name="users")
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="DropBundle\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="It looks like your already have an account!")
  */
@@ -85,6 +85,11 @@ class User implements UserInterface
      * @ORM\Column(name="cards_owner_name", type="string", length=255, nullable=true)
      */
     private $cardsOwnerName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $balance = 0;
 
     /**
      * User constructor.
@@ -288,6 +293,22 @@ class User implements UserInterface
     public function setCardsOwnerName($cardsOwnerName)
     {
         $this->cardsOwnerName = $cardsOwnerName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBalance()
+    {
+        return $this->balance;
+    }
+
+    /**
+     * @param mixed $balance
+     */
+    public function setBalance($balance)
+    {
+        $this->balance = $balance;
     }
 
 }
