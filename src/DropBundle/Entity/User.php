@@ -87,7 +87,7 @@ class User implements UserInterface
     private $cardsOwnerName;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $balance = 0;
 
