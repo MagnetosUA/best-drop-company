@@ -5,6 +5,7 @@ namespace DropBundle\Controller;
 use DropBundle\Entity\Category;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
+use DropBundle\Entity\User;
 use DropBundle\Services\StatusCountProcessor;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -81,7 +82,12 @@ class UserViewController extends Controller
      */
     public function paymentsAction()
     {
-        return $this->render('@Drop/user-view/payments.html.twig');
+        /** @var User $user */
+        $user = $this->getUser();
+        $payments = $user->getPayments();
+        return $this->render('@Drop/user-view/payments.html.twig', [
+            'payments' => $payments,
+        ]);
     }
 
     /**

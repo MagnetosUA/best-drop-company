@@ -2,9 +2,12 @@
 
 namespace DropBundle\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
+use DropBundle\Entity\User;
 use DropBundle\Form\Type\OrderClientType;
+use DropBundle\Services\PaymentManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +22,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  */
 class UserActionController extends Controller
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @Route("/new-order/{id}", name="user_action.new_order", defaults={"id": 0})
      *
@@ -78,10 +91,8 @@ class UserActionController extends Controller
             $order->setIncome($income);
             $order->setUser($this->getUser());
 
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($order);
-            $em->flush();
+            $this->em->persist($order);
+            $this->em->flush();
             return $this->redirectToRoute("user_view.orders");
         }
 
@@ -118,12 +129,27 @@ class UserActionController extends Controller
             if ($data["cardnumber"]) {
                 $user->setCardsNumber($data["cardnumber"]);
             }
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
-            return $this->redirectToRoute("user_view.personal_data");
+            $this->em->persist($user);
+            $this->em->flush();
         }
+        return $this->redirectToRoute("user_view.personal_data");
+    }
+
+    /**
+     * @Route("/order-payment", name="user_action.order_payment")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function orderPaymentAction(Request $request, PaymentManager $paymentManager)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($money = $request->request->get('payment-money')) {
+            $result = $paymentManager->process($user, $money, $this->em);
+            $this->addFlash($result['type'], $result['message']);
+        }
+        return $this->redirectToRoute("user_view.payments");
     }
 }
 

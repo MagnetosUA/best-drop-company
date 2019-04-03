@@ -7,6 +7,19 @@
         <div class="col-md-12">
             <div class="raw">
                 <div class="col-md-6">
+
+                    {% for message in app.flashes('warning') %}
+                        <div class="alert alert-warning">
+                            <strong>Warning!</strong> {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> {{ message }}
+                        </div>
+                    {% endfor %}
+
                     <p>
                         Ваш баланс составляет: {{ app.user.balance }} грн.
                     </p>
@@ -15,9 +28,12 @@
                     </p>
                     <p>
                         Заказать выплату в размере
-                        <input type="number" value="{{ app.user.balance }}">
-                        <button class="btn btn-success">Выплатить</button>
+                    <form action="{{ path('user_action.order_payment') }}" method="post">
+                        <input type="number" name="payment-money" value="{{ app.user.balance }}"/>
+                        <input type="submit" class="btn btn-success" value="Выплатить"/>
+                    </form>
                     </p>
+
                 </div>
                 <div class="col-md-6">
                     <div class="all-orders-table">
@@ -27,21 +43,20 @@
                                 <td scope="col">Сумма</td>
                                 <td scope="col">Статус</td>
                                 <td scope="col">Дата Заявки</td>
-                                <td scope="col">Дата Подтверждения</td>
+                                {#<td scope="col">Дата Подтверждения</td>#}
                             </tr>
-                            {% for i in range(0, 5) %}
+                            {% for payment in payments %}
                                 <tr>
-                                    <td>70</td>
-                                    <td class="btn-success">Выплачено</td>
-                                    <td>01.01.2018</td>
-                                    <td>02.01.2018</td>
+                                    <td>{{ payment.amount }}</td>
+                                    <td class="btn-success">{{ payment.status }}</td>
+                                    <td>{{ payment.createdAt|date }}</td>
+                                    {#<td>02.01.2018</td>#}
                                 </tr>
                             {% endfor %}
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock main_content %}
