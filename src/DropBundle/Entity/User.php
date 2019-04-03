@@ -92,6 +92,11 @@ class User implements UserInterface
     private $balance = 0;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $orderToPayment;
+
+    /**
      * User constructor.
      */
     public function __construct() {
@@ -309,6 +314,22 @@ class User implements UserInterface
     public function setBalance($balance)
     {
         $this->balance = $balance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderToPayment()
+    {
+        return $this->orderToPayment;
+    }
+
+    /**
+     * @param mixed $orderToPayment
+     */
+    public function setOrderToPayment($orderToPayment)
+    {
+        $this->orderToPayment = $orderToPayment;
     }
 
 }
