@@ -41,6 +41,15 @@ class Payment
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="DropBundle\Entity\User", inversedBy="payments")
+     */
+    private $user;
+
+    public function __construct($amount)
+    {
+        $this->amount = $amount;
+    }
 
     /**
      * Get id
@@ -108,4 +117,20 @@ class Payment
         return $this->createdAt;
     }
 
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
 }
+

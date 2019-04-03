@@ -92,15 +92,16 @@ class User implements UserInterface
     private $balance = 0;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToMany(targetEntity="DropBundle\Entity\Payment", mappedBy="user")
      */
-    private $orderToPayment;
+    private $payments;
 
     /**
      * User constructor.
      */
     public function __construct() {
         $this->orders = new ArrayCollection();
+        $this->payments = new ArrayCollection();
     }
 
     /**
@@ -319,17 +320,17 @@ class User implements UserInterface
     /**
      * @return mixed
      */
-    public function getOrderToPayment()
+    public function getPayments()
     {
-        return $this->orderToPayment;
+        return $this->payments;
     }
 
     /**
-     * @param mixed $orderToPayment
+     * @param Payment $payment
      */
-    public function setOrderToPayment($orderToPayment)
+    public function addPayments(Payment $payment)
     {
-        $this->orderToPayment = $orderToPayment;
+        $this->payments[] = $payment;
     }
 
 }
