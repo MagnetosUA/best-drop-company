@@ -8,6 +8,11 @@
             <div class="col-md-2"></div>
             <div class="col-md-8 user-info">
                 <h2>Личные данные продавца</h2>
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ message }}
+                    </div>
+                {% endfor %}
                 <div class="row">
                     <div class="col-75">
                         <div class="container">
@@ -16,16 +21,19 @@
                                     <div class="col-50">
                                         <h3 class="cont-header">Контактные данные</h3>
                                         <label for="fname"><i class="fa fa-user"></i> Фамилия Имя Отчество</label>
-                                        <input type="text" id="fname" name="name" placeholder="{{ user.name }}">
+                                        <input type="text" id="fname" name="name" placeholder="{{ app.user.name }}">
                                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                        <input type="text" id="email" name="email" placeholder="{{ user.email }}" readonly="readonly">
+                                        <input type="text" id="email" name="email" placeholder="{{ app.user.email }}" readonly="readonly">
                                         <label for="adr"><i class="fas fa-unlock-alt"></i> Пароль</label>
-                                        <input type="text" id="adr" name="password" placeholder="{{ user.password }}" readonly="readonly">
+                                        <input type="text" id="adr" name="password" placeholder="{{ app.user.password }}" readonly="readonly">
                                         <label for="city"><i class="fas fa-phone-square"></i> Телефон</label>
-                                        <input type="text" id="city" name="phone" placeholder="{{ user.phone }}">
+                                        <input type="text" id="city" name="phone" placeholder="{{ app.user.phone }}">
                                         <label for="city"><i class="fas fa-phone-square"></i> Ref-ссылка</label>
-                                        <input type="text" id="city" name="ref" placeholder="ref12254555" readonly="readonly">
-
+                                        {% if app.user.refLink is defined and app.user.refLink is not null %}
+                                            <input type="text" id="city" name="ref" placeholder="{{ app.user.refLink }}" readonly="readonly">
+                                            {% else %}
+                                                <h3><a href="{{ path('user_action.generate_referral_link') }}">Сгенерировать</a></h3>
+                                        {% endif %}
                                     </div>
                                     <div class="col-50">
                                         <h3 class="cont-header" >Платежные данные</h3>
@@ -37,9 +45,9 @@
                                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                                         </div>
                                         <label for="cname">Имя владельца</label>
-                                        <input type="text" id="cname" name="cardname" placeholder="{{ user.cardsOwnerName }}">
+                                        <input type="text" id="cname" name="cardname" placeholder="{{ app.user.cardsOwnerName }}">
                                         <label for="ccnum">Номер карты</label>
-                                        <input type="text" id="ccnum" name="cardnumber" placeholder="{{ user.cardsNumber }}">
+                                        <input type="text" id="ccnum" name="cardnumber" placeholder="{{ app.user.cardsNumber }}">
                                     </div>
                                 </div>
                                 <input type="submit" name="send_data" value="Сохранить" class="btn">
