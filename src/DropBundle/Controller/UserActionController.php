@@ -8,6 +8,7 @@ use DropBundle\Entity\Product;
 use DropBundle\Entity\User;
 use DropBundle\Form\Type\OrderClientType;
 use DropBundle\Services\PaymentManager;
+use DropBundle\Services\RefLinkGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -150,6 +151,23 @@ class UserActionController extends Controller
             $this->addFlash($result['type'], $result['message']);
         }
         return $this->redirectToRoute("user_view.payments");
+    }
+
+    /**
+     * @Route("/generate-ref-link", name="user_action.generate_referral_link")
+     * @param Request $request
+     * @param RefLinkGenerator $generator
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function generateReferralLinkAction(Request $request, RefLinkGenerator $generator)
+    {
+        $host = $request->getSchemeAndHttpHost();
+        $user = $this->getUser();
+        $link = $generator->generateLink($user, $host, $this->em);
+        if (is_string($link)) {
+            $this->addFlash('success', 'Реферальная ссылка сгенерированна !');
+        }
+        return $this->redirectToRoute('user_view.personal_data');
     }
 }
 
