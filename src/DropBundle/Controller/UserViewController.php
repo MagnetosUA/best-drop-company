@@ -127,10 +127,7 @@ class UserViewController extends Controller
      */
     public function personalDataAction()
     {
-        $user = $this->getUser();
-        return $this->render('@Drop/user-view/personal_data.html.twig', [
-            'user' => $user,
-        ]);
+        return $this->render('@Drop/user-view/personal_data.html.twig');
     }
 }
 
