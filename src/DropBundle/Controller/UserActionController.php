@@ -139,6 +139,7 @@ class UserActionController extends Controller
     /**
      * @Route("/order-payment", name="user_action.order_payment")
      * @param Request $request
+     * @param PaymentManager $paymentManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function orderPaymentAction(Request $request, PaymentManager $paymentManager)
@@ -155,15 +156,13 @@ class UserActionController extends Controller
 
     /**
      * @Route("/generate-ref-link", name="user_action.generate_referral_link")
-     * @param Request $request
      * @param RefLinkGenerator $generator
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function generateReferralLinkAction(Request $request, RefLinkGenerator $generator)
+    public function generateReferralLinkAction(RefLinkGenerator $generator)
     {
-        $host = $request->getSchemeAndHttpHost();
         $user = $this->getUser();
-        $link = $generator->generateLink($user, $host, $this->em);
+        $link = $generator->generateLink($user, $this->em);
         if (is_string($link)) {
             $this->addFlash('success', 'Реферальная ссылка сгенерированна !');
         }

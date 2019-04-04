@@ -7,9 +7,9 @@ use DropBundle\Entity\User;
 
 class RefLinkGenerator
 {
-    public function generateLink(User $user, $host, EntityManagerInterface $em)
+    public function generateLink(User $user, EntityManagerInterface $em)
     {
-        $link = $host.'/ref-link/'.md5($user->getEmail());
+        $link = md5($user->getEmail());
         $user->setRefLink($link);
         $em->persist($user);
         $em->flush();
