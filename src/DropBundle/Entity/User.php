@@ -97,11 +97,22 @@ class User implements UserInterface
     private $payments;
 
     /**
+     * @ORM\ManyToOne(targetEntity="DropBundle\Entity\User", inversedBy="referrals")
+     */
+    private $referrer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="DropBundle\Entity\User", mappedBy="referrer")
+     */
+    private $referrals;
+
+    /**
      * User constructor.
      */
     public function __construct() {
         $this->orders = new ArrayCollection();
         $this->payments = new ArrayCollection();
+        $this->referrals = new ArrayCollection();
     }
 
     /**
@@ -333,5 +344,36 @@ class User implements UserInterface
         $this->payments[] = $payment;
     }
 
+    /**
+     * @return ArrayCollection|User[]
+     */
+    public function getReferrals()
+    {
+        return $this->referrals;
+    }
+
+    /**
+     * @param User $referral
+     */
+    public function addReferrals(User $referral)
+    {
+        $this->referrals[] = $referral;
+    }
+
+    /**
+     * @return User
+     */
+    public function getReferrer()
+    {
+        return $this->referrer;
+    }
+
+    /**
+     * @param User $referrer
+     */
+    public function setReferrer(User $referrer)
+    {
+        $this->referrer = $referrer;
+    }
 }
 
