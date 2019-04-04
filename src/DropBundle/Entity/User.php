@@ -369,9 +369,9 @@ class User implements UserInterface
     }
 
     /**
-     * @param User $referrer
+     * @param User|null $referrer
      */
-    public function setReferrer(User $referrer)
+    public function setReferrer(?User $referrer)
     {
         $this->referrer = $referrer;
     }

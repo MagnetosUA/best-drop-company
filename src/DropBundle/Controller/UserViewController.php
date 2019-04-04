@@ -107,7 +107,11 @@ class UserViewController extends Controller
      */
     public function referralsAction()
     {
-        return $this->render('@Drop/user-view/referrals.html.twig');
+        $user = $this->getUser();
+        $referrals = $this->getDoctrine()->getRepository(User::class)->findBy(['referrer' => $user]);
+        return $this->render('@Drop/user-view/referrals.html.twig', [
+            'referrals' => $referrals,
+        ]);
     }
 
     /**

@@ -30,7 +30,7 @@
                                         <input type="text" id="city" name="phone" placeholder="{{ app.user.phone }}">
                                         <label for="city"><i class="fas fa-phone-square"></i> Ref-ссылка</label>
                                         {% if app.user.refLink is defined and app.user.refLink is not null %}
-                                            <input type="text" id="city" name="ref" placeholder="{{ app.user.refLink }}" readonly="readonly">
+                                            <input type="text" id="city" name="ref" value="{{ app.request.getSchemeAndHttpHost }}/ref-link/{{ app.user.refLink }}" readonly="readonly">
                                             {% else %}
                                                 <h3><a href="{{ path('user_action.generate_referral_link') }}">Сгенерировать</a></h3>
                                         {% endif %}

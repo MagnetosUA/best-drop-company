@@ -59,11 +59,17 @@ class GuestController extends Controller
      */
     public function registrationUserAction(Request $request, LoginFormAuthenticator $authenticator)
     {
+        $referrer = null;
+        if ($hash = $this->get('session')->get('ref_link_hash')) {
+            $referrer = $this->getDoctrine()->getRepository(User::class)->findOneBy(['refLink' => $hash]);
+        }
+
         $form = $this->createForm(RegistrationUserType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var User $user */
             $user = $form->getData();
+            $user->setReferrer($referrer);
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -80,6 +86,17 @@ class GuestController extends Controller
         return $this->render('@Drop/guest/registration_user.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/ref-link/{hash}", name="guest.registration_user_by_ref")
+     * @param $hash
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function registrationUserByRefLink($hash)
+    {
+        $this->get('session')->set('ref_link_hash', $hash);
+        return $this->redirectToRoute("guest.registration_user");
     }
 }
 
