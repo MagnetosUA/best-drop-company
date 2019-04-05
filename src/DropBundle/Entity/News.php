@@ -38,7 +38,7 @@ class News
     private $content;
 
     /**
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -47,7 +47,6 @@ class News
      * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
-
 
     /**
      * @return int
