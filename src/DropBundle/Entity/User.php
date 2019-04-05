@@ -107,12 +107,18 @@ class User implements UserInterface
     private $referrals;
 
     /**
+     * @ORM\ManyToMany(targetEntity="DropBundle\Entity\News", fetch="EXTRA_LAZY")
+     */
+    private $latestNews;
+
+    /**
      * User constructor.
      */
     public function __construct() {
         $this->orders = new ArrayCollection();
         $this->payments = new ArrayCollection();
         $this->referrals = new ArrayCollection();
+        $this->latestNews = new ArrayCollection();
     }
 
     /**
@@ -374,6 +380,30 @@ class User implements UserInterface
     public function setReferrer(?User $referrer)
     {
         $this->referrer = $referrer;
+    }
+
+    /**
+     * @return ArrayCollection|News[]
+     */
+    public function getLatestNews()
+    {
+        return $this->latestNews;
+    }
+
+    /**
+     * @param News $latestNews
+     */
+    public function addLatestNews(News $latestNews)
+    {
+        $this->latestNews[] = $latestNews;
+    }
+
+    /**
+     * @param News $news
+     */
+    public function removeLatestNews(News $news)
+    {
+        $this->latestNews->removeElement($news);
     }
 }
 
