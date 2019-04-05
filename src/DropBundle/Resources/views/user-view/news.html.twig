@@ -4,6 +4,15 @@
 {% block main_content %}
     <div class="container">
         <h2>Новости</h2>
-        <p>Появился новый товар</p>
+        {% if news is defined %}
+            <h3>{{ news.title }}</h3>
+            <p>{{ news.content }}</p>
+            {% else %}
+                {% for news in app.user.latestNews %}
+                    <h3><a href="{{ path('user_view.one_news', {id: news.id}) }}">{{ news.title }}</a></h3>
+                    <p>{{ news.content }}</p>
+                    <hr>
+                {% endfor %}
+        {% endif %}
     </div>
 {% endblock main_content %}
