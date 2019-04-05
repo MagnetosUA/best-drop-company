@@ -65,7 +65,7 @@
                 <div class="col-md-9">
                     <div class="header-logo">
                         <a href="{{ path('guest.home') }}" class="logo">
-                            <img src="{{ asset('build/images/project-images/Best-Quality-PNG-Picture.png') }}">
+                            <img src="{{ asset('build/images/project-images/Best-Quality-PNG-Picture.png') }}" alt="logo">
                             <span>Best-Drop.Company</span>
                         </a>
                     </div>
@@ -102,6 +102,9 @@
             <!-- NAV -->
             {% if is_granted('ROLE_USER') %}
                 {{ knp_menu_render('DropBundle:Builder:mainMenu', { 'currentClass': 'active'} )}}
+                {% if app.user.latestNews.count > 0 %}
+                    <span class="badge">{{ app.user.latestNews.count }}</span>
+                {% endif %}
             {% else %}
                 {{ knp_menu_render('DropBundle:Builder:mainGuestMenu', { 'currentClass': 'active'} )}}
             {% endif %}
