@@ -3,6 +3,7 @@
 namespace DropBundle\Controller;
 
 use DropBundle\Entity\Category;
+use DropBundle\Entity\News;
 use DropBundle\Entity\Ord;
 use DropBundle\Entity\Product;
 use DropBundle\Entity\User;
@@ -122,6 +123,25 @@ class UserViewController extends Controller
     public function newsAction()
     {
         return $this->render('@Drop/user-view/news.html.twig');
+    }
+
+    /**
+     * @Route("/one-news/{id}", name="user_view.one_news")
+     *
+     * @param News $news
+     * @return Response
+     */
+    public function oneNewsAction(News $news)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $user->removeLatestNews($news);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+        return $this->render('@Drop/user-view/news.html.twig', [
+            'news' => $news,
+        ]);
     }
 
     /**
