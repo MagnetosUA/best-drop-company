@@ -1,0 +1,4 @@
+DropBundle\Entity\News:
+  news{1..10}:
+    title: '<word()>'
+    content: '<realText()>'
