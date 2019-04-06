@@ -76,63 +76,28 @@ sensio_framework_extra:
         annotations: false
 
 easy_admin:
-    site_name: 'Best-Drop.Company'
+    site_name: Best Drop
     entities:
-        User:
-            class: Droparea\DropBundle\Entity\User
-            label: Users
-            list:
-                title: List of Users
-                actions: ['show']
-                fields:
-                    - { property: 'email', type: 'email' }
-        Category:
-            class: Droparea\DropBundle\Entity\Category
-            label: Categories
-            list:
-                title: List of Categories
         Product:
-            class: Droparea\DropBundle\Entity\Product
-            label: Products
+            class: DropBundle\Entity\Product
+            form:
+                fields: ['id', 'name']
+        News:
+            class: DropBundle\Entity\News
             list:
-                title: List of Products
                 actions:
-                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                    - { name: 'show', icon: 'info-circle', label: '' }
-                fields:
-                    - { property: 'images'}
-                    - { property: 'mainImage', type: 'image', base_path: 'assets/product_images/products'}
-#            disabled_actions: ['show']
-            search:
-                fields: ['name']
+                    - { name: 'edit', label: '', icon: 'pencil' }
+                    - { name: 'delete', label: 'Удалить' }
             form:
                 fields:
-                    - { property: 'category', type: 'easyadmin_autocomplete' }
-        Payment:
-            class: Droparea\DropBundle\Entity\Payment
-            label: Payments
-            list:
-                title: List of Payments
-        Ord:
-            class: Droparea\DropBundle\Entity\Ord
-            label: Orders
-            list:
-                title: List of Orders
-                actions: ['new']
-#            form:
-#                fields:
-#                    - { property: 'createdDate', type_options: { widget: 'single_text' }}
-#                    - { property: 'products', type_options: { widget: '' }}
+                    - 'title'
+                    - {property: 'content', type: 'textarea'}
 
 
-        News:
-            class: Droparea\DropBundle\Entity\News
-            list:
-                title: List of News
-        PostAddress:
-            class: Droparea\DropBundle\Entity\PostAddress
-            label: Post Address
-
+#        -
+#        - DropBundle\Entity\Ord
+#        - DropBundle\Entity\Payment
+#        - DropBundle\Entity\Category
 
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
