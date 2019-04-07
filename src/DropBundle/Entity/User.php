@@ -108,6 +108,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="DropBundle\Entity\News", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $latestNews;
 
