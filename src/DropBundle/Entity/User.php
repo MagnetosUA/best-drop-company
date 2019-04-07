@@ -107,7 +107,7 @@ class User implements UserInterface
     private $referrals;
 
     /**
-     * @ORM\ManyToMany(targetEntity="DropBundle\Entity\News", fetch="EXTRA_LAZY", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="DropBundle\Entity\News", fetch="EXTRA_LAZY")
      */
     private $latestNews;
 
