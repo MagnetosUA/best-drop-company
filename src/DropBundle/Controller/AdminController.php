@@ -8,17 +8,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminContr
 
 class AdminController extends BaseAdminController
 {
-
     /**
      * @param News $entity
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
-    protected function prePersistEntity($entity)
+    protected function persistEntity($entity)
     {
-        $user = $this->em->getRepository(User::class)->find(22);
-        $user->addLatestNews($entity);
-        $this->em->persist($user);
-        $this->em->flush();
+        $this->em->persist($entity);
+        $this->em->getRepository(User::class)->addLatestNewsToAllUsers($entity);
         return;
     }
 }
+
