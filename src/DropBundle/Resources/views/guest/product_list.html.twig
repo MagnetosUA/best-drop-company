@@ -26,11 +26,13 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="{{ asset('build/images/products/' ~ product.images[0]) }}" alt="">
+                                        <img src="{{ asset('product-images/' ~ product.images[0]) }}" alt="">
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">{{ product.category.name }}</p>
-                                        <h3 class="product-name">{{ product.name }}</h3>
+                                        <a href="{{ path('user_view.one_product', {'id': product.id}) }}">
+                                            <h3 class="product-name">{{ product.name }}</h3>
+                                        </a>
                                         <h4 class="product-price">{{ product.cost }} Грн</h4>
                                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                             <a href="{{ path('user_action.new_order', {'id': product.id}) }}" class="btn btn-success">Заказать</a>
