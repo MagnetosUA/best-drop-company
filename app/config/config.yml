@@ -80,8 +80,28 @@ easy_admin:
     entities:
         Product:
             class: DropBundle\Entity\Product
+
+            list:
+                fields:
+                    - 'name'
+                    - 'description'
+                    - {property: 'mainImage', type: 'image', base_path: 'product-images/'}
+                    - 'new'
+                    - 'top'
+                    - 'cost'
+                    - 'recommendedCost'
+                    - 'category'
+                    - 'description'
+                    - 'provider'
             form:
-                fields: ['id', 'name']
+                fields:
+                    - 'name'
+                    - {property: 'images', type: 'file', type_options: { multiple: true }}
+                    - 'cost'
+                    - 'recommendedCost'
+                    - 'category'
+                    - 'description'
+                    - 'provider'
         News:
             class: DropBundle\Entity\News
             list:

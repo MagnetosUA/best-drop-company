@@ -31,6 +31,9 @@ class GuestController extends Controller
 
     /**
      * @Route("/product-list", name="guest.product_list")
+     * @param Request $request
+     * @param null $products
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function productListAction(Request $request, $products = null)
     {
