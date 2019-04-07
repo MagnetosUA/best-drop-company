@@ -2,6 +2,9 @@
 
 namespace DropBundle\Repository;
 
+use DropBundle\Entity\News;
+use DropBundle\Entity\User;
+
 /**
  * UserRepository
  *
@@ -10,4 +13,23 @@ namespace DropBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function addLatestNewsToAllUsers(News $latestNews)
+    {
+        $batchSize = 10;
+        $i = 0;
+        $q = $this->_em->createQuery('SELECT u FROM DropBundle\Entity\User u');
+        $iterableResult = $q->iterate();
+        foreach ($iterableResult as $row) {
+            /** @var User $user */
+            $user = $row[0];
+            $user->addLatestNews($latestNews);
+            if (($i % $batchSize) === 0) {
+                $this->_em->flush(); // Executes all updates.
+                $this->_em->detach($user); // Detaches all objects from Doctrine!
+            }
+            ++$i;
+        }
+        $this->_em->flush();
+    }
 }
+
