@@ -113,6 +113,38 @@ easy_admin:
                     - {property: 'content', type: 'textarea'}
         Ord:
           class: DropBundle\Entity\Ord
+          list:
+            fields:
+              - 'createdAt'
+              - 'products'
+              - 'status'
+              - 'saleAmount'
+              - 'purchaseAmount'
+              - 'clientPhone'
+              - 'clientName'
+              - 'waybill'
+              - 'deliveryAddress'
+              - 'comment'
+              - 'user'
+
+          form:
+            fields:
+              - { property:
+                   'status',
+                    type: 'choice',
+                    type_options: {
+                      choices:
+                        { NEW_ORDER: 'Новый',
+                         IN_PROCESSING: 'В обработке',
+                         CONFIRMED: 'Подтвержденный',
+                         REJECTED: 'Отклоненный',
+                         SHIPPED: 'Отправленный',
+                         NON_PURCHASE: 'Невыкуп',
+                        }} }
+
+              - { property: 'products' }
+              - { property: 'waybill' }
+
 
         Payment:
           class: DropBundle\Entity\Payment
