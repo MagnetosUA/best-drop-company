@@ -129,17 +129,15 @@ easy_admin:
 
           form:
             fields:
-              - { property:
-                   'status',
-                    type: 'choice',
-                    type_options: {
+              - { property: 'status', type: 'choice', type_options: {
                       choices:
-                        { NEW_ORDER: 'Новый',
-                         IN_PROCESSING: 'В обработке',
-                         CONFIRMED: 'Подтвержденный',
-                         REJECTED: 'Отклоненный',
-                         SHIPPED: 'Отправленный',
-                         NON_PURCHASE: 'Невыкуп',
+                        {
+                        NEW_ORDER: 'Новый',
+                        IN_PROCESSING: 'В обработке',
+                        CONFIRMED: 'Подтвержденный',
+                        REJECTED: 'Отклоненный',
+                        SHIPPED: 'Отправленный',
+                        NON_PURCHASE: 'Невыкуп',
                         }} }
 
               - { property: 'products' }
@@ -154,6 +152,14 @@ easy_admin:
           form:
             fields:
               - 'name'
+
+        PostAddress:
+          class: DropBundle\Entity\PostAddress
+          list:
+            actions:
+              - { name: 'new', label: 'Update address' }
+
+
 
 
 knp_paginator:

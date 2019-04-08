@@ -41,3 +41,6 @@ services:
         arguments: ["@hautelook_alice.faker"]
         tags:
             - { name: hautelook_alice.faker.provider }
+
+    DropBundle\Services\NewPostAddressProvider:
+        public: true

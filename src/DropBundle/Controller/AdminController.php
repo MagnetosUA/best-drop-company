@@ -3,6 +3,7 @@
 namespace DropBundle\Controller;
 
 use DropBundle\Entity\News;
+use DropBundle\Entity\PostAddress;
 use DropBundle\Entity\Product;
 use DropBundle\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
@@ -39,6 +40,18 @@ class AdminController extends BaseAdminController
             $this->em->flush();
         }
         return parent::persistEntity($entity);
+    }
+
+    protected function newAction()
+    {
+        $entity = $this->executeDynamicMethod('createNew<EntityName>Entity');
+        if ($entity instanceof PostAddress) {
+            $addressProvider = $this->get('DropBundle\Services\NewPostAddressProvider');
+            $addressProvider->updateAll();
+            return $this->redirectToReferrer();
+        }
+
+        return parent::newAction();
     }
 }
 
