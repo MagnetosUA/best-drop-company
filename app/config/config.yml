@@ -80,7 +80,6 @@ easy_admin:
     entities:
         Product:
             class: DropBundle\Entity\Product
-
             list:
                 fields:
                     - 'name'
@@ -100,7 +99,7 @@ easy_admin:
                     - 'cost'
                     - 'recommendedCost'
                     - 'category'
-                    - 'description'
+                    - {property: 'description', type: 'textarea'}
                     - 'provider'
         News:
             class: DropBundle\Entity\News
@@ -112,12 +111,18 @@ easy_admin:
                 fields:
                     - 'title'
                     - {property: 'content', type: 'textarea'}
+        Ord:
+          class: DropBundle\Entity\Ord
 
+        Payment:
+          class: DropBundle\Entity\Payment
 
-#        -
-#        - DropBundle\Entity\Ord
-#        - DropBundle\Entity\Payment
-#        - DropBundle\Entity\Category
+        Category:
+          class: DropBundle\Entity\Category
+          form:
+            fields:
+              - 'name'
+
 
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)

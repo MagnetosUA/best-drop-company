@@ -38,7 +38,7 @@ class AdminController extends BaseAdminController
             $this->em->persist($entity);
             $this->em->flush();
         }
-
+        return parent::persistEntity($entity);
     }
 }
 
