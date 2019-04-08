@@ -3,6 +3,7 @@
 namespace DropBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * PostAddress
@@ -34,6 +35,11 @@ class PostAddress
      */
     private $warehouses;
 
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $createdAt;
 
     /**
      * @return int
@@ -90,5 +96,14 @@ class PostAddress
     {
         return $this->warehouses;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
 }
 
