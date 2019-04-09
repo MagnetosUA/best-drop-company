@@ -146,6 +146,26 @@ easy_admin:
 
         Payment:
           class: DropBundle\Entity\Payment
+          list:
+            fields:
+              - 'id'
+              - 'amount'
+              - 'status'
+              - 'cardsNumber'
+              - 'createdAt'
+              - 'confirmedAt'
+          form:
+            fields:
+              - { property: 'status', type: 'choice', type_options: {
+                choices:
+                  {
+                    IN_PROCESSING: 'В обработке',
+                    CONFIRMED: 'Выплачено',
+                  }} }
+
+              - { property: 'amount' }
+              - { property: 'user' }
+#              - { property: 'user.cardsNumber' }
 
         Category:
           class: DropBundle\Entity\Category
