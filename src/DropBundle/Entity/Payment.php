@@ -37,6 +37,11 @@ class Payment
     private $createdAt;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $confirmedAt;
+    /**
      * @ORM\ManyToOne(targetEntity="DropBundle\Entity\User", inversedBy="payments")
      * @Gedmo\Blameable(on="create")
      */
@@ -111,6 +116,22 @@ class Payment
     public function setUser(User $user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardsNumber()
+    {
+        return $this->getUser()->getCardsNumber();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmedAt()
+    {
+        return $this->confirmedAt;
     }
 }
 
